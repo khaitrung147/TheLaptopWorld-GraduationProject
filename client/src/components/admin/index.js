@@ -7,6 +7,7 @@ class Index extends Component {
   render() {
     return (
       <>
+      <div>Navbar</div>
         <Switch>
           <Route path="/admin" exact component={Cpn.Admin.Dashboard} />
         </Switch>
