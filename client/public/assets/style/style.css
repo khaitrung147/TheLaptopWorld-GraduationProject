@@ -30,7 +30,7 @@ body {
     position: fixed;
     top: 0;
     width: 100%;
-    z-index: 2;
+    z-index: 3;
 }
 
 .navbar-css {
@@ -146,10 +146,6 @@ body {
     text-transform: capitalize;
     margin: 1.5rem 0;
 }
-
-
-
-
 
 /* header */
 .header {
@@ -314,193 +310,6 @@ body {
     .header p {
         width: 40%;
     }
-}
-
-
-/* SLIDE */
-.slick-slider {
-    position: relative;
-    display: block;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    -webkit-touch-callout: none;
-    -khtml-user-select: none;
-    -ms-touch-action: pan-y;
-    touch-action: pan-y;
-    -webkit-tap-highlight-color: transparent;
-}
-
-.slick-list {
-    position: relative;
-    display: block;
-    overflow: hidden;
-    margin: 0;
-    padding: 0;
-
-}
-
-.slick-list:focus {
-    outline: none;
-}
-
-.slick-list.dragging {
-    cursor: hand;
-}
-
-.slick-slider .slick-track,
-.slick-slider .slick-list {
-    -webkit-transform: translate3d(0, 0, 0);
-    -ms-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
-}
-
-.slick-track {
-    position: relative;
-    top: 0;
-    left: 0;
-    display: block;
-
-}
-
-.slick-track:before,
-.slick-track:after {
-    display: table;
-    content: "";
-}
-
-.slick-track:after {
-    clear: both;
-}
-
-.slick-loading .slick-track {
-    visibility: hidden;
-}
-
-.slick-slide {
-    display: none;
-    float: left;
-    height: 100%;
-    min-height: 1px;
-}
-
-.slick-initialized .slick-slide {
-    display: block;
-}
-
-.slick-loading .slick-slide {
-    visibility: hidden;
-}
-
-.slick-vertical .slick-slide {
-    display: block;
-    height: auto;
-    border: 1px solid transparent;
-}
-
-/* Slider Theme Style */
-
-.slide-container {
-    width: 100%;
-}
-
-.container-slider:after,
-.container-slider .Head:after {
-    content: "";
-    display: block;
-    clear: both;
-}
-
-.container-slider .Head {
-
-    color: #222;
-    height: 52px;
-    overflow: hidden;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.25);
-}
-
-.container-slider .Head .Arrows {
-    float: right;
-}
-
-.slide-container4 {
-    width: 100%;
-}
-
-.container-slider4:after,
-.container-slider4 .Head4:after {
-    content: "";
-    display: block;
-    clear: both;
-}
-
-.container-slider4 .Head4 {
-
-    color: #222;
-    height: 52px;
-    overflow: hidden;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.25);
-}
-
-.container-slider4 .Head4 .Arrows4 {
-    float: right;
-}
-
-.SlickCarousel {
-    margin: 0 -7.5px;
-    margin-top: 10px;
-}
-
-.ProductBlock {
-    padding: 0 7.5px;
-}
-
-.ProductBlock h3 {
-    font: 15px/36px RalewayR;
-    color: #393939;
-    margin-top: 5px;
-    text-align: center;
-    border: 1px solid rgba(0, 0, 0, 0.25);
-}
-
-*,
-*:before,
-*:after {
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.04);
-}
-
-.slide-btn:hover {
-    background-color: white;
-    border: 1px solid black;
-}
-
-.slide-btn i {
-    color: white
-}
-
-.slide-btn:hover i {
-    color: black;
-
-}
-
-.SlickCarousel2 .col-md-1 {
-    margin-left: 1rem;
-}
-
-.SlickCarousel2 .col-md-1 img {
-    border-radius: 10px;
-    border: 0.1px solid rgba(66, 65, 65, 0.603);
-    transition: 0.5s;
-}
-
-.SlickCarousel2 .col-md-1 img:hover {
-    border: 0.1px solid #0dcaf0;
-    transition: 0.5s;
 }
 
 .currentcy button {
@@ -748,16 +557,45 @@ form .btn input[type="submit"] {
     cursor: pointer;
 }
 
+.slide-contain .slick-next{
+    right: 0;
+}
+.slide-contain .slick-prev{
+    left: 0;
+    z-index: 2;
+}
+.slide-contain .slick-dots{
+    bottom: -10px;
+    z-index: 2;
+}
+
+.slide-brand {
+    border: 0.1px solid rgba(128, 128, 128, 0.322);  
+    transition: 0.3s;
+    border-radius: 15px;
+}
+.slide-brand:hover{
+    border: 0.1px solid #0dcaf0;  
+    transition: 0.3s;
+}
+.slide-brand:focus{
+    border-radius: 15px;
+}
 
 
 .select {
     margin-left: 75%;
 }
 
-.product-card {
 
-    transition: 0.5s;
+.product-slide .product-card{
+    height: 100% ;
+    min-height: 30rem;
+}
+
+.product-card{
     height: 100%;
+    transition: 0.5s;
 }
 
 .product-card:hover {
@@ -854,14 +692,14 @@ form .btn input[type="submit"] {
 
 .view-all {
     padding: 0.5em;
-    padding-left: 3em;
-    padding-right: 3em;
+    padding-left: 1em;
+    padding-right: 1em;
     background-color: white;
-    border: 1px solid black;
     transition: 0.3s;
     text-align: center;
     text-decoration: none;
     color: black;
+    width: 15rem;
 }
 
 .view-all:hover {

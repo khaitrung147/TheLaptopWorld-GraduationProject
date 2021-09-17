@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 $(document).ready(function () {
   $(".navbar-toggler-css").click(function () {
     $(".navbar-collapse-css").slideToggle(300);
