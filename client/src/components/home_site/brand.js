@@ -1,7 +1,6 @@
 /* eslint-disable no-dupe-keys */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState, useEffect } from "react";
-
 import Slider from "react-slick";
 
 const Brand = (props) => {
@@ -9,9 +8,9 @@ const Brand = (props) => {
     className: "center",
     centerMode: true,
     infinite: true,
-    speed: 2000,
+    speed: 1000,
     slidesToShow: 5,
-    slidesToScroll: 2,
+    slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 1000,
     initialSlide: 0,
