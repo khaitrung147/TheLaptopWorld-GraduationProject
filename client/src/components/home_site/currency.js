@@ -20,9 +20,9 @@ const Currency = (props) => {
           swipeToSlide: true,
           nextArrow: false,
           prevArrow: false,
-          centerMode: true,
-          centerPadding: "80px",
           infinite: true,
+          nextArrow: <SampleNextArrow />,
+          prevArrow: <SamplePrevArrow />,
         },
       },
       {
@@ -33,8 +33,6 @@ const Currency = (props) => {
           initialSlide: 2,
           autoplay: false,
           swipeToSlide: true,
-          nextArrow: false,
-          prevArrow: false,
         },
       },
       {
@@ -44,54 +42,82 @@ const Currency = (props) => {
           slidesToScroll: 1,
           autoplay: false,
           swipeToSlide: true,
-          nextArrow: false,
-          prevArrow: false,
-          centerMode: true,
-          centerPadding: "15px",
           infinite: true,
+          nextArrow: <SampleNextArrow />,
+          prevArrow: <SamplePrevArrow />,
         },
       },
     ],
   };
 
+  function SampleNextArrow(props) {
+    const { className, style, onClick } = props;
+    return (
+      <div
+        className={className}
+        style={{
+          ...style,
+          display: "none",
+        }}
+        onClick={onClick}
+      />
+    );
+  }
+
+  function SamplePrevArrow(props) {
+    const { className, style, onClick } = props;
+    return (
+      <div
+        className={className}
+        style={{
+          ...style,
+          display: "none",
+        }}
+        onClick={onClick}
+      />
+    );
+  }
+
   return (
-    <Slider {...settings}>
-      <div className=" currentcy ">
-        <button href="" className="fw-bold">
-          Trên 50 triệu
-        </button>
-      </div>
-      <div className=" currentcy ">
-        <button href="" className="fw-bold">
-          40-50 triệu
-        </button>
-      </div>
-      <div className=" currentcy ">
-        <button href="" className="fw-bold">
-          30-40 triệu
-        </button>
-      </div>
-      <div className=" currentcy ">
-        <button href="" className="fw-bold">
-          20-30 triệu
-        </button>
-      </div>
-      <div className=" currentcy ">
-        <button href="" className="fw-bold">
-          15-20 triệu
-        </button>
-      </div>
-      <div className=" currentcy ">
-        <button href="" className="fw-bold">
-          10-15 triệu
-        </button>
-      </div>
-      <div className=" currentcy ">
-        <button href="" className="fw-bold">
-          Dưới 10 triệu
-        </button>
-      </div>
-    </Slider>
+    <div className="text-center">
+      <Slider {...settings} className="mt-3 ">
+        <div className=" currentcy ">
+          <button href="" className="fw-bold">
+            Trên 50 triệu
+          </button>
+        </div>
+        <div className=" currentcy ">
+          <button href="" className="fw-bold">
+            40-50 triệu
+          </button>
+        </div>
+        <div className=" currentcy ">
+          <button href="" className="fw-bold">
+            30-40 triệu
+          </button>
+        </div>
+        <div className=" currentcy ">
+          <button href="" className="fw-bold">
+            20-30 triệu
+          </button>
+        </div>
+        <div className=" currentcy ">
+          <button href="" className="fw-bold">
+            15-20 triệu
+          </button>
+        </div>
+        <div className=" currentcy ">
+          <button href="" className="fw-bold">
+            10-15 triệu
+          </button>
+        </div>
+        <div className=" currentcy ">
+          <button href="" className="fw-bold">
+            Dưới 10 triệu
+          </button>
+        </div>
+      </Slider>
+    </div>
   );
 };
 

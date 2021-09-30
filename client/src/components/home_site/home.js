@@ -4,9 +4,9 @@ import React from "react";
 import Cpn from "../../component";
 const Home = () => {
   return (
-    <main>
-      <div className="container mt-3">
-        <div className="row h-100">
+    <main className="">
+      <div className="container">
+        <div className="row mt-3">
           <div className="col-xl-8 col-md-12 col-sm-12 mb-2 slide-contain">
             <Cpn.Site.Slider_home />
           </div>
@@ -47,7 +47,7 @@ const Home = () => {
             <h6 className=" fw-bold">Khoảng giá </h6>
             <Cpn.Site.Currency />
           </div>
-          <Cpn.Site.Product />
+          <Cpn.Site.Products />
           <a
             href={"#"}
             className=" border rounded-pill mt-4 view-all d-block m-auto "
