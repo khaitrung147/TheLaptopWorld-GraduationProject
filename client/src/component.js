@@ -4,13 +4,6 @@ import Index_site from "./components/site/index";
 import Home_site from "./components/home_site/home";
 import Index_admin from "./components/admin/index";
 import Dashboard from "./components/admin/dashboard";
-import Brand from "./components/home_site/brand";
-import Currency from "./components/home_site/currency";
-import Product from "./components/home_site/currentproduct";
-import News from "./components/home_site/news";
-import Saleproduct from "./components/home_site/saleproduct";
-import Slider_home from "./components/home_site/slider";
-import Coming from "./components/home_site/upcoming";
 
 const Component = {
   Site: {
@@ -18,13 +11,6 @@ const Component = {
     Header,
     Index_site,
     Home_site,
-    Brand,
-    Currency,
-    Product,
-    News,
-    Saleproduct,
-    Slider_home,
-    Coming,
   },
   Admin: {
     Index_admin,

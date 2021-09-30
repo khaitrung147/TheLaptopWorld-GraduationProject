@@ -236,7 +236,7 @@ body {
     .navbar-nav-css>li>a {
         border-bottom: none;
         margin: 0 0.4rem;
-        padding: 2.1rem 0.8rem 1.7rem 0.8rem;
+        padding: 1.7rem 1.8rem 1.7rem 0.8rem;
         font-size: 0.9rem;
     }
 
@@ -668,11 +668,6 @@ form .btn input[type="submit"] {
 
 .news a {
     color: black;
-    transition: 0.3s;
-}
-.news a:hover{
-    color: #0dcaf0;
-    transition: 0.3s;
 }
 
 .news-box {

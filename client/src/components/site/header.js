@@ -28,17 +28,13 @@ class Header extends Component {
             <ul className="navbar-nav-css">
               <li>
                 <a href="#">
-                  <h6>
-                    <i className="fas fa-home me-1"></i>Trang chủ
-                  </h6>
+                  <i className="fas fa-home me-1"></i>Trang chủ
                 </a>
               </li>
 
               <li>
                 <a href="#" className="menu-link-css">
-                  <h6>
-                    <i className="fas fa-chevron-down me-1"></i>Laptop
-                  </h6>
+                  <i className="fas fa-chevron-down me-1"></i>Laptop
                 </a>
                 <div className="sub-menu-css">
                   <div className="sub-menu-item-css mb-4 ">
@@ -202,17 +198,13 @@ class Header extends Component {
 
               <li>
                 <a href="cart.html" className="">
-                  <h6>
-                    <i className="fas fa-shopping-cart me-1"></i>Giỏ hàng
-                  </h6>
+                  <i className="fas fa-shopping-cart me-1"></i>Giỏ hàng
                 </a>
               </li>
 
               <li>
                 <a href="form.html" className="">
-                  <h6>
-                    <i className="fas fa-user me-1"></i>Đăng nhập
-                  </h6>
+                  <i className="fas fa-user me-1"></i>Đăng nhập
                 </a>
               </li>
 
