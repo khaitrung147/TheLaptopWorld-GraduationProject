@@ -16,8 +16,7 @@ const Brand = (props) => {
     initialSlide: 0,
     centerPadding: "120px",
     swipeToSlide: true,
-    nextArrow: <SampleNextArrow />,
-    prevArrow: <SamplePrevArrow />,
+    rtl: true,
     responsive: [
       {
         breakpoint: 1024,
@@ -26,6 +25,8 @@ const Brand = (props) => {
           slidesToScroll: 1,
           autoplay: false,
           swipeToSlide: true,
+          nextArrow: false,
+          prevArrow: false,
         },
       },
       {
@@ -36,6 +37,8 @@ const Brand = (props) => {
           initialSlide: 2,
           autoplay: false,
           swipeToSlide: true,
+          nextArrow: false,
+          prevArrow: false,
         },
       },
       {
@@ -45,39 +48,13 @@ const Brand = (props) => {
           slidesToScroll: 1,
           autoplay: false,
           swipeToSlide: true,
+          nextArrow: false,
+          prevArrow: false,
           centerPadding: "70px",
         },
       },
     ],
   };
-
-  function SampleNextArrow(props) {
-    const { className, style, onClick } = props;
-    return (
-      <div
-        className={className}
-        style={{
-          ...style,
-          display: "none",
-        }}
-        onClick={onClick}
-      />
-    );
-  }
-
-  function SamplePrevArrow(props) {
-    const { className, style, onClick } = props;
-    return (
-      <div
-        className={className}
-        style={{
-          ...style,
-          display: "none",
-        }}
-        onClick={onClick}
-      />
-    );
-  }
 
   const [brand, setData] = useState([]);
 
@@ -118,9 +95,9 @@ const Brand = (props) => {
   }, []);
 
   return (
-    <Slider {...settings} className="mt-3">
+    <Slider {...settings}>
       {brand.map((e) => (
-        <div className="slide-brand w-75 ">
+        <div className="slide-brand w-75 mt-2">
           {" "}
           <a href="#!" className="text-decoration-none">
             <img src={e.img} class="w-100" alt="" />

@@ -10,11 +10,16 @@ class Header extends Component {
     return (
       <div className="main-wrapper-css">
         <nav className="navbar-css container">
-          <div className="brand-and-icon-css w-100">
-            <a href="index.html" className="navbar-brand-css ">
-              <img className="" src="./assets/images/logo.png" alt="" />
+          <div className="brand-and-icon-css">
+            <a href="index.html" className="navbar-brand-css">
+              <div className="w-100">
+                <img
+                  className="w-100 d-block"
+                  src="./assets/images/logo.png"
+                  alt=""
+                />
+              </div>
             </a>
-
             <button type="button" className="navbar-toggler-css h-25 m-auto">
               <i className="fas fa-bars"></i>
             </button>
