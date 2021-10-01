@@ -2,36 +2,6 @@ import { ProductsModel } from "../models/productsModel.js";
 
 const getProducts = async (req, res) => {
   try {
-    // const create = new ProductsModel({
-    //   TenSanPham: "test",
-    //   Key: "test-ing",
-    //   MoTa: "test",
-    //   HinhAnh: [
-    //     {
-    //       img: "test",
-    //     },
-    //   ],
-    //   LoaiSanPham: "test",
-    //   HangSanXuat: "test",
-    //   CauHinhSanPham: [
-    //     {
-    //       CanNang: "1kg",
-    //       HeDieuHanh: "Window",
-    //       LuuTru: "1tb",
-    //       Mau: "Black",
-    //       ViXuLy: "i9-1000k",
-    //       BoNho: "8gb",
-    //       ManHinh: "F-HD",
-    //       KetNoiChinh: "USB , LAN ,Type C",
-    //       Pin: "1000000m",
-    //       GiaGoc: 100000,
-    //       GiaSanPham: 80000,
-    //       PhanTramGiamGia: 20,
-    //       SoLuongSanPham: 40,
-    //     },
-    //   ],
-    // });
-
     const products = await ProductsModel.find();
     res.status(200).json(products);
   } catch (error) {
@@ -39,8 +9,46 @@ const getProducts = async (req, res) => {
   }
 };
 
-const createProduct = (req, res) => {
-  res.send("Create product successfuly");
+const createProduct = async (req, res) => {
+  const create = req.body;
+  try {
+    const post = new ProductsModel(create);
+    const response = await post.save();
+    res.status(200).json(response);
+  } catch (error) {
+    res.status(500).json({ error: err });
+  }
 };
 
-export { getProducts, createProduct };
+const getById = async (req, res) => {
+  const id = req.params.id;
+  try {
+    const productId = await ProductsModel.findById(id);
+    res.status(200).json(productId);
+  } catch (error) {
+    res.status(500).json({ error: err });
+  }
+};
+
+const deleteById = async (req, res) => {
+  const id = req.params.id;
+  try {
+    const productId = await ProductsModel.findByIdAndRemove(id);
+    res.status(200).json(productId);
+  } catch (error) {
+    res.status(500).json({ error: err });
+  }
+};
+
+const updateById = async (req, res) => {
+  const id = req.params.id;
+  const updates = req.body;
+  try {
+    const productId = await ProductsModel.findByIdAndUpdate(id, updates);
+    res.status(200).json(productId);
+  } catch (error) {
+    res.status(500).json({ error: err });
+  }
+};
+
+export { getProducts, createProduct, getById, deleteById, updateById };
