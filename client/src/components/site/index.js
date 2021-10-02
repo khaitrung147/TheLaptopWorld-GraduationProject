@@ -1,21 +1,25 @@
 import React, { Component } from "react";
-import Cpn from "../../component";
 import { Switch, Route, BrowserRouter } from "react-router-dom";
+
+import Page from "../../Page";
 import ScrollToTop from "./scrollTop";
+import Footer from "./footer";
+import Header from "./header";
 
 class Index extends Component {
   state = {};
   render() {
     return (
       <BrowserRouter>
-        <Cpn.Site.Header />
+        <Header />
         <ScrollToTop>
           <Switch>
-            <Route path="/" exact component={Cpn.Site.Home_site} />
-            <Route path="/productdetail" component={Cpn.Site.Detail} />
+            <Route path="/" exact component={Page.Site.Home_site} />
+            <Route path="/san-pham/:key" component={Page.Site.Detail} />
+            <Route path="/san-pham" component={Page.Site.Product_site} />
           </Switch>
         </ScrollToTop>
-        <Cpn.Site.Footer />
+        <Footer />
       </BrowserRouter>
     );
   }
