@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import Cpn from "../../component";
 import { Switch, Route, Link } from "react-router-dom";
+
+import Page from "../../Page";
 
 class Index extends Component {
   state = {};
@@ -8,7 +9,7 @@ class Index extends Component {
     return (
       <>
         <Switch>
-          <Route path="/admin" exact component={Cpn.Admin.Dashboard} />
+          <Route path="/admin" exact component={Page.Admin.Dashboard} />
         </Switch>
       </>
     );
