@@ -1,4 +1,4 @@
-import { ProductCompanyModel } from "../models/Product-CompanyModel.js";
+import { ProductCompanyModel } from "../models/productCompanyModel.js";
 
 const getProductCompany = async (req, res) => {
   try {

@@ -19,4 +19,4 @@ const schema = new mongoose.Schema(
   { timestamps: true }
 );
 
-export const ProductCompanyModel = mongoose.model("ProductCompany", schema);
+export const ProductCompanyModel = mongoose.model("hang-san-xuat", schema);
