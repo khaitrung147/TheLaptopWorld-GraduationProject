@@ -10,11 +10,16 @@ class Header extends Component {
     return (
       <div className="main-wrapper-css">
         <nav className="navbar-css container">
-          <div className="brand-and-icon-css w-100">
-            <a href="index.html" className="navbar-brand-css ">
-              <img className="" src="./assets/images/logo.png" alt="" />
+          <div className="brand-and-icon-css">
+            <a href="index.html" className="navbar-brand-css">
+              <div className="w-100">
+                <img
+                  className="w-100 d-block"
+                  src="./assets/images/logo.png"
+                  alt=""
+                />
+              </div>
             </a>
-
             <button type="button" className="navbar-toggler-css h-25 m-auto">
               <i className="fas fa-bars"></i>
             </button>
@@ -23,17 +28,13 @@ class Header extends Component {
             <ul className="navbar-nav-css">
               <li>
                 <a href="#">
-                  <h6>
-                    <i className="fas fa-home me-1"></i>Trang chủ
-                  </h6>
+                  <i className="fas fa-home me-1"></i>Trang chủ
                 </a>
               </li>
 
               <li>
                 <a href="#" className="menu-link-css">
-                  <h6>
-                    <i className="fas fa-chevron-down me-1"></i>Laptop
-                  </h6>
+                  <i className="fas fa-chevron-down me-1"></i>Laptop
                 </a>
                 <div className="sub-menu-css">
                   <div className="sub-menu-item-css mb-4 ">
@@ -197,17 +198,13 @@ class Header extends Component {
 
               <li>
                 <a href="cart.html" className="">
-                  <h6>
-                    <i className="fas fa-shopping-cart me-1"></i>Giỏ hàng
-                  </h6>
+                  <i className="fas fa-shopping-cart me-1"></i>Giỏ hàng
                 </a>
               </li>
 
               <li>
                 <a href="form.html" className="">
-                  <h6>
-                    <i className="fas fa-user me-1"></i>Đăng nhập
-                  </h6>
+                  <i className="fas fa-user me-1"></i>Đăng nhập
                 </a>
               </li>
 

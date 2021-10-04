@@ -32,9 +32,8 @@ const Home = () => {
                 </b>
               </a>
             </div>
+            <hr className="mt-3" />
           </div>
-          <hr className="mt-3" />
-        </div>
 
         <div className="mt-3 product-slide">
           <h2 className="fw-bold">Sản phẩm giảm giá</h2>
@@ -68,18 +67,19 @@ const Home = () => {
         <div className="mt-3 product-slide">
           <h2 className="fw-bold">Hàng đang về</h2>
           <Coming />
-
-          <a
-            href={"#"}
-            className=" border rounded-pill mt-4 view-all d-block m-auto "
-          >
-            {" "}
-            <b>Xem tất cả </b>{" "}
-          </a>
+            <a
+              href={"#"}
+              className=" border rounded-pill mt-4 view-all d-block m-auto "
+            >
+              {" "}
+              <b>Xem tất cả </b>{" "}
+            </a>
+          </div>
         </div>
-      </div>
-    </main>
-  );
-};
+        </div>
+      </main>
+    );
+  }
+
 
 export default Home;
