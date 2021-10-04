@@ -16,20 +16,20 @@ const schema = new mongoose.Schema(
     },
     HinhAnh: [
       {
-        img: String,
+        Url: String,
       },
     ],
     KhuyenMai: [
       {
-        sale: String,
+        KhuyenMai: String,
       },
     ],
     LoaiSanPham: {
-      type: String,
+      type: mongoose.Schema.Types.ObjectId,
       required: true,
     },
     HangSanXuat: {
-      type: String,
+      type: mongoose.Schema.Types.ObjectId,
       required: true,
     },
     CauHinhSanPham: [
@@ -43,7 +43,6 @@ const schema = new mongoose.Schema(
         ManHinh: String,
         KetNoiChinh: String,
         Pin: String,
-        GiaGoc: Number,
         GiaSanPham: Number,
         PhanTramGiamGia: Number,
         SoLuongSanPham: Number,
@@ -53,4 +52,4 @@ const schema = new mongoose.Schema(
   { timestamps: true }
 );
 
-export const ProductsModel = mongoose.model("products", schema);
+export const ProductsModel = mongoose.model("san-pham", schema);

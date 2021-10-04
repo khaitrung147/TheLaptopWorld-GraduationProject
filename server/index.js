@@ -20,8 +20,8 @@ app.get("/", (req, res) => {
   res.send("Connection successfuly");
 });
 
-app.use("/api/v1/catalog", catalog);
-app.use("/api/v1/products", products);
+app.use("/api/v1/loai-san-pham", catalog);
+app.use("/api/v1/san-pham", products);
 
 mongoose
   .connect(URL, {

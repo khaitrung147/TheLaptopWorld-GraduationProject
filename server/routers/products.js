@@ -13,9 +13,9 @@ router.get("/", getProducts);
 
 router.post("/", createProduct);
 
-router.get("/withId/:id", getById);
+router.get("/:id", getById);
 
-router.delete("/withId/:id", deleteById);
+router.delete("/:id", deleteById);
 
-router.patch("/withId/:id", updateById);
+router.patch("/:id", updateById);
 export default router;

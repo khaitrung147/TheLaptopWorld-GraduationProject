@@ -6,8 +6,8 @@ const schema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    TenDanhMuc: {
-      type: String,
+    DanhMuc: {
+      type: Number,
       required: true,
     },
     Key: {
@@ -27,4 +27,4 @@ const schema = new mongoose.Schema(
   { timestamps: false }
 );
 
-export const CatalogModel = mongoose.model("catalog", schema);
+export const CatalogModel = mongoose.model("loai-san-pham", schema);

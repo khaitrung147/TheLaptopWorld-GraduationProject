@@ -7,7 +7,6 @@ import {
   getById,
   updateById,
 } from "../controllers/catalog.js";
-import { CatalogModel } from "../models/catalogModel.js";
 
 const router = express.Router();
 
@@ -15,9 +14,9 @@ router.get("/", getCatalog);
 
 router.post("/", createCatalog);
 
-router.get("/withId/:id", getById);
+router.get("/:id", getById);
 
-router.delete("/withId/:id", deleteById);
+router.delete("/:id", deleteById);
 
-router.patch("/withId/:id", updateById);
+router.patch("/:id", updateById);
 export default router;
