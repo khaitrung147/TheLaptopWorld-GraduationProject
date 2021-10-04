@@ -4,7 +4,11 @@ import cors from "cors";
 import mongoose from "mongoose";
 
 import catalog from "./routers/catalog.js";
+<<<<<<< HEAD
+import order from "./routers/Order.js";
+=======
 import products from "./routers/products.js";
+>>>>>>> main
 
 const app = express();
 const PORT = process.env.port || 5000;
@@ -20,8 +24,13 @@ app.get("/", (req, res) => {
   res.send("Connection successfuly");
 });
 
+<<<<<<< HEAD
+app.use("/api/v1/catalog", catalog)
+app.use("/api/v1/don-hang",order)
+=======
 app.use("/api/v1/loai-san-pham", catalog);
 app.use("/api/v1/san-pham", products);
+>>>>>>> main
 
 mongoose
   .connect(URL, {
