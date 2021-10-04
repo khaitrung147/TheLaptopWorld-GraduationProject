@@ -7,13 +7,8 @@ function App() {
     <>
       <BrowserRouter>
         <Switch>
-<<<<<<< HEAD
-          <Route path="/" exact component={Cpn.Site.Index_site} />
-          <Route path="/admin" component={Cpn.Admin.Index_admin} />
-=======
           <Route path="/" component={Page.Site.Index_site} />
           <Route path="/admin" exact component={Page.Admin.Index_admin} />
->>>>>>> main
         </Switch>
       </BrowserRouter>
     </>
