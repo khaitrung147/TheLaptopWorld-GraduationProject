@@ -4,6 +4,7 @@ import cors from 'cors';
 import mongoose from 'mongoose';
 
 import catalog from "./routers/catalog.js";
+import productCompany from "./routers/Product-Company.js"
 
 const app= express();
 const PORT = process.env.port || 5000;
@@ -18,6 +19,7 @@ app.get("/", (req,res)=>{
 })
 
 app.use("/api/v1/catalog", catalog)
+app.use("/api/v1/productcompany",productCompany)
 
 mongoose.connect(URL, {
     useNewUrlParser:true,
