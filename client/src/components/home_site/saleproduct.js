@@ -1,6 +1,7 @@
+/* eslint-disable no-dupe-keys */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+
 import Slider from "react-slick";
 
 const Saleproduct = (props) => {
@@ -27,6 +28,8 @@ const Saleproduct = (props) => {
           slidesToScroll: 1,
           autoplay: false,
           swipeToSlide: true,
+          nextArrow: false,
+          prevArrow: false,
         },
       },
       {
@@ -37,6 +40,8 @@ const Saleproduct = (props) => {
           initialSlide: 2,
           autoplay: false,
           swipeToSlide: true,
+          nextArrow: false,
+          prevArrow: false,
         },
       },
       {
@@ -46,6 +51,8 @@ const Saleproduct = (props) => {
           slidesToScroll: 1,
           autoplay: false,
           swipeToSlide: true,
+          nextArrow: false,
+          prevArrow: false,
         },
       },
     ],
@@ -122,10 +129,10 @@ const Saleproduct = (props) => {
   }, []);
 
   return (
-    <Slider {...settings} className="mt-3">
+    <Slider {...settings}>
       {Data.map((e) => (
         <div class="card p-2 product-card " key={e.id}>
-          <Link class="mb-4 product-tag" to="/productdetail">
+          <a class="mb-4 product-tag" href="#">
             <div class="img-box w-100">
               <img
                 src="https://lumen.thinkpro.vn//backend/uploads/product/avatar/2021/9/15/macbook-pro-13-2020-1jpg"
@@ -133,7 +140,7 @@ const Saleproduct = (props) => {
                 alt=""
               />
             </div>
-          </Link>
+          </a>
           <div class="card-body">
             <h6> {e.name} </h6>
             <h6>

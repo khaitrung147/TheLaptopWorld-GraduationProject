@@ -1,7 +1,12 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
 import { Link } from "react-router-dom";
-import Cpn from "../../component";
+
+import ProductImg from "./productImg_slide";
+import ProductConfig from "./product_config";
+import Review from "./detailReview";
+import Rating from "./rating";
+import Comment from "./comment";
 
 const Detail = () => {
   return (
@@ -22,18 +27,18 @@ const Detail = () => {
         </nav>
         <div className="row">
           <div className="col-xl-6 col-lg-6 col-md-12 col-sm-12 img-slider">
-            <Cpn.Site.ProductImg />
+            <ProductImg />
           </div>
 
           <div className="col-xl-6 col-lg-6 col-md-12 col-sm-12 ">
-            <Cpn.Site.ProductConfig />
+            <ProductConfig />
           </div>
 
           <div className="mt-5 mb-3">
             <h2>
               <b>Đánh giá chi tiết</b>{" "}
             </h2>
-            <Cpn.Site.Review />
+            <Review />
             <button className="addcart-btn  rounded-pill mt-4 view-all">
               {" "}
               <b>Xem Thêm nội dung</b>{" "}
@@ -45,7 +50,7 @@ const Detail = () => {
             <h2>
               <b>Đánh giá của khách hàng</b>{" "}
             </h2>
-            <Cpn.Site.Rating />
+            <Rating />
             <button className="addcart-btn rounded-pill mt-4 view-all">
               {" "}
               <b>Xem Thêm đánh giá</b>{" "}
@@ -56,7 +61,7 @@ const Detail = () => {
             <h2>
               <b>Bình luận về sản phẩm</b>{" "}
             </h2>
-            <Cpn.Site.Comment />
+            <Comment />
             <button className="addcart-btn  rounded-pill mt-4 view-all">
               {" "}
               <b>Xem Thêm bình luận</b>{" "}
