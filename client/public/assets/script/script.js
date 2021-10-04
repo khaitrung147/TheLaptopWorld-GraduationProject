@@ -44,7 +44,7 @@ function resetMenu() {
 
 $(document).ready(function () {
   $(window).scroll(function () {
-    if ($(document).scrollTop() > 150) {
+    if ($(document).scrollTop() > 80) {
       $(".main-wrapper-css").addClass("fixed");
     } else {
       $(".main-wrapper-css").removeClass("fixed");

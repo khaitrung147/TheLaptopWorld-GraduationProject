@@ -1,18 +1,17 @@
-import e from "express";
 import express from "express";
 import {
-  getCatalog,
-  createCatalog,
-  deleteById,
+  getProducts,
+  createProduct,
   getById,
+  deleteById,
   updateById,
-} from "../controllers/catalog.js";
+} from "../controllers/products.js";
 
 const router = express.Router();
 
-router.get("/", getCatalog);
+router.get("/", getProducts);
 
-router.post("/", createCatalog);
+router.post("/", createProduct);
 
 router.get("/:id", getById);
 
