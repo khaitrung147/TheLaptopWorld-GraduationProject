@@ -4,7 +4,7 @@ import cors from "cors";
 import mongoose from "mongoose";
 
 import catalog from "./routers/catalog.js";
-import order from "./routers/Order.js";
+import order from "./routers/order.js";
 import products from "./routers/products.js";
 import productCompany from "./routers/productCompany.js"
 
