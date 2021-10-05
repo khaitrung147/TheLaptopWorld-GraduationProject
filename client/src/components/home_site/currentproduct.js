@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState, useEffect } from "react";
 
-const Product = () => {
+const Products = () => {
   const [product, setData] = useState([]);
 
   useEffect(() => {
@@ -38,7 +38,7 @@ const Product = () => {
   }, []);
 
   return (
-    <div className="row mt-4">
+    <div className="row mt-3">
       {product.slice(0, 8).map((e) => (
         <div className="col-xl-3 col-md-6 col-sm-6 col-6 product-box mb-3">
           <div className="card p-2 product-card">
@@ -84,4 +84,4 @@ const Product = () => {
     </div>
   );
 };
-export default Product;
+export default Products;
