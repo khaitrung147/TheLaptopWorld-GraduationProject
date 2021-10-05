@@ -6,8 +6,8 @@ import mongoose from "mongoose";
 import catalog from "./routers/catalog.js";
 import order from "./routers/order.js";
 import products from "./routers/products.js";
-import productCompany from "./routers/productCompany.js"
-
+import productCompany from "./routers/productCompany.js";
+import customers from "./routers/customers.js";
 const app = express();
 const PORT = process.env.port || 5000;
 const URL =
@@ -21,10 +21,11 @@ app.use(express.json());
 app.get("/", (req, res) => {
   res.send("Connection successfuly");
 });
-app.use("/api/v1/don-hang",order)
+app.use("/api/v1/don-hang", order);
 app.use("/api/v1/loai-san-pham", catalog);
 app.use("/api/v1/san-pham", products);
-app.use("/api/v1/hang-san-xuat",productCompany)
+app.use("/api/v1/hang-san-xuat", productCompany);
+app.use("/api/v1/tai-khoan-khach-hang", customers);
 
 mongoose
   .connect(URL, {
