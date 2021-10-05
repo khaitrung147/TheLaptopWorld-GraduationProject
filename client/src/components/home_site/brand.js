@@ -1,7 +1,6 @@
 /* eslint-disable no-dupe-keys */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState, useEffect } from "react";
-
 import Slider from "react-slick";
 
 const Brand = (props) => {
@@ -9,15 +8,16 @@ const Brand = (props) => {
     className: "center",
     centerMode: true,
     infinite: true,
-    speed: 2000,
+    speed: 1000,
     slidesToShow: 5,
-    slidesToScroll: 2,
+    slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 1000,
     initialSlide: 0,
     centerPadding: "120px",
     swipeToSlide: true,
-    rtl: true,
+    nextArrow: <SampleNextArrow />,
+    prevArrow: <SamplePrevArrow />,
     responsive: [
       {
         breakpoint: 1024,
@@ -26,8 +26,6 @@ const Brand = (props) => {
           slidesToScroll: 1,
           autoplay: false,
           swipeToSlide: true,
-          nextArrow: false,
-          prevArrow: false,
         },
       },
       {
@@ -38,8 +36,6 @@ const Brand = (props) => {
           initialSlide: 2,
           autoplay: false,
           swipeToSlide: true,
-          nextArrow: false,
-          prevArrow: false,
         },
       },
       {
@@ -49,13 +45,39 @@ const Brand = (props) => {
           slidesToScroll: 1,
           autoplay: false,
           swipeToSlide: true,
-          nextArrow: false,
-          prevArrow: false,
           centerPadding: "70px",
         },
       },
     ],
   };
+
+  function SampleNextArrow(props) {
+    const { className, style, onClick } = props;
+    return (
+      <div
+        className={className}
+        style={{
+          ...style,
+          display: "none",
+        }}
+        onClick={onClick}
+      />
+    );
+  }
+
+  function SamplePrevArrow(props) {
+    const { className, style, onClick } = props;
+    return (
+      <div
+        className={className}
+        style={{
+          ...style,
+          display: "none",
+        }}
+        onClick={onClick}
+      />
+    );
+  }
 
   const [brand, setData] = useState([]);
 
@@ -96,9 +118,9 @@ const Brand = (props) => {
   }, []);
 
   return (
-    <Slider {...settings}>
+    <Slider {...settings} className="mt-3">
       {brand.map((e) => (
-        <div className="slide-brand w-75 mt-2">
+        <div className="slide-brand w-75 ">
           {" "}
           <a href="#!" className="text-decoration-none">
             <img src={e.img} class="w-100" alt="" />
