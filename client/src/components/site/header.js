@@ -1,12 +1,24 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { Component } from "react";
+import { connect } from 'react-redux';
+
+import {getListCatalog} from '../../redux/actions/catalog';
 
 class Header extends Component {
   constructor(props) {
     super(props);
     this.state = {};
   }
+  
+  componentDidMount(){
+    this.props.getListCatalog()
+  }
+
   render() {
+    const { catalogs, load } = this.props.catalogs
+    console.log('load :>> ', load);
+    console.log('catalogs :>> ', catalogs);
+
     return (
       <div className="main-wrapper-css">
         <nav className="navbar-css container">
@@ -231,4 +243,15 @@ class Header extends Component {
   }
 }
 
-export default Header;
+const mapStateToProps = (state) => {
+  return {
+    catalogs: state.catalogs,
+  };
+};
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getListCatalog: (params) => dispatch(getListCatalog(params)),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header);
