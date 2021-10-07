@@ -1,244 +1,164 @@
+/* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { Component } from "react";
-import { connect } from 'react-redux';
+import { connect } from "react-redux";
 
-import {getListCatalog} from '../../redux/actions/catalog';
+import { getListCatalog } from "../../redux/actions/catalog";
+import "./header.css";
 
 class Header extends Component {
   constructor(props) {
     super(props);
     this.state = {};
   }
-  
-  componentDidMount(){
-    this.props.getListCatalog()
+
+  componentDidMount() {
+    this.props.getListCatalog();
   }
 
   render() {
-    const { catalogs, load } = this.props.catalogs
-    console.log('load :>> ', load);
-    console.log('catalogs :>> ', catalogs);
+    const { catalogs, load } = this.props.catalogs;
+    console.log("load :>> ", load);
+    console.log("catalogs :>> ", catalogs);
 
     return (
-      <div className="main-wrapper-css">
-        <nav className="navbar-css container">
-          <div className="brand-and-icon-css w-100">
-            <a href="index.html" className="navbar-brand-css ">
-              <img className="" src="./assets/images/logo.png" alt="" />
+      <header className="">
+        <nav className="navbar navbar-expand-lg navbar-dark ">
+          <div className="container">
+            <a className="navbar-brand mt-2" href="#">
+              <h1>BRAND</h1>{" "}
             </a>
-
-            <button type="button" className="navbar-toggler-css h-25 m-auto">
-              <i className="fas fa-bars"></i>
+            <button
+              className="navbar-toggler bg-orange"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarScroll"
+              aria-controls="navbarScroll"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span className="navbar-toggler-icon"></span>
             </button>
-          </div>
-          <div className="navbar-collapse-css">
-            <ul className="navbar-nav-css">
-              <li>
-                <a href="#">
-                  <h6>
-                    <i className="fas fa-home me-1"></i>Trang chủ
-                  </h6>
+            <div className="collapse navbar-collapse" id="navbarScroll">
+              <ul
+                className="
+                navbar-nav
+                me-auto
+                my-2 my-lg-0
+                navbar-nav-scroll
+                ms-xl-5
+                text-center
+                d-flex
+                align-items-center
+              "
+              >
+                <li className="nav-item">
+                  <form className="">
+                    <div className="search">
+                      <input
+                        type="text"
+                        placeholder="Search..."
+                        name="search"
+                        className="searchbar"
+                        required
+                      />
+                      <button type="submit" className="search_button">
+                        <i className="fa fa-search"></i>
+                      </button>
+                    </div>
+                  </form>
+                </li>
+                <li
+                  className="
+                  nav-item
+                  ms-xl-5 ms-lg-3 ms-md-0 ms-sm-0
+                  mt-xl-0 mt-lg-0 mt-md-2 mt-sm-2
+                "
+                >
+                  <a
+                    className="text-decoration-none text-uppercase fw-bold"
+                    aria-current="page"
+                    href="#"
+                  >
+                    about
+                  </a>
+                </li>
+                <li
+                  className="
+                  nav-item
+                  ms-xl-4 ms-lg-3 ms-md-0 ms-sm-0
+                  mt-xl-0 mt-lg-0 mt-md-2 mt-sm-2
+                "
+                >
+                  <a
+                    className="text-decoration-none active text-uppercase fw-bold"
+                    aria-current="page"
+                    href="#"
+                  >
+                    contact
+                  </a>
+                </li>
+                <li
+                  className="
+                  nav-item
+                  ms-xl-4 ms-lg-3 ms-md-0 ms-sm-0
+                  mt-xl-0 mt-lg-0 mt-md-2 mt-sm-2
+                "
+                >
+                  <a
+                    className="text-decoration-none active text-uppercase fw-bold"
+                    aria-current="page"
+                    href="#"
+                  >
+                    shop
+                  </a>
+                </li>
+              </ul>
+
+              <div className="d-flex align-items-center justify-content-center">
+                <a href="" className="me-4 text-decoration-none  cart">
+                  <i className="fas fa-shopping-cart"></i>
                 </a>
-              </li>
 
-              <li>
-                <a href="#" className="menu-link-css">
-                  <h6>
-                    <i className="fas fa-chevron-down me-1"></i>Laptop
-                  </h6>
+                <a
+                  href=""
+                  className="rounded-pill bg-orange fw-bold btn custom-btn"
+                >
+                  <span className="p-3">Đăng nhập / Đăng ký</span>
                 </a>
-                <div className="sub-menu-css">
-                  <div className="sub-menu-item-css mb-4 ">
-                    <h4>
-                      <a
-                        href="product.html"
-                        className="submenu-item border-bottom"
-                      >
-                        <b>Tất cả</b>{" "}
-                      </a>
-                    </h4>
-                    <ul>
-                      <li>
-                        <a href="#" className="submenu-item">
-                          Laptop Dell
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#" className="submenu-item">
-                          Laptop Asus
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#" className="submenu-item">
-                          Laptop HP
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#" className="submenu-item">
-                          Macbook
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-
-                  <div className="sub-menu-item-css mb-4 ">
-                    <h4>
-                      {" "}
-                      <a href="" className="submenu-item border-bottom">
-                        <b>Asus</b>{" "}
-                      </a>{" "}
-                    </h4>
-                    <ul>
-                      <li>
-                        <a href="#" className="submenu-item">
-                          Gaming
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#" className="submenu-item">
-                          Gaming
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#" className="submenu-item">
-                          Gaming
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#" className="submenu-item">
-                          Gaming
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-
-                  <div className="sub-menu-item-css mb-4">
-                    <h4>
-                      {" "}
-                      <a href="" className="submenu-item border-bottom">
-                        <b>Asus</b>{" "}
-                      </a>{" "}
-                    </h4>
-                    <ul>
-                      <li>
-                        <a href="#" className="submenu-item">
-                          Gaming
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#" className="submenu-item">
-                          Gaming
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#" className="submenu-item">
-                          Gaming
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#" className="submenu-item">
-                          Gaming
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-
-                  <div className="sub-menu-item-css mb-4">
-                    <h4>
-                      {" "}
-                      <a href="" className="submenu-item border-bottom">
-                        <b>Asus</b>{" "}
-                      </a>{" "}
-                    </h4>
-                    <ul>
-                      <li>
-                        <a href="#" className="submenu-item">
-                          Gaming
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#" className="submenu-item">
-                          Gaming
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#" className="submenu-item">
-                          Gaming
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#" className="submenu-item">
-                          Gaming
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-
-                  <div className="sub-menu-item-css mb-4">
-                    <h4>
-                      {" "}
-                      <a href="" className="submenu-item border-bottom">
-                        <b>Asus</b>{" "}
-                      </a>{" "}
-                    </h4>
-                    <ul>
-                      <li>
-                        <a href="#" className="submenu-item">
-                          Gaming
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#" className="submenu-item">
-                          Gaming
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#" className="submenu-item">
-                          Gaming
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#" className="submenu-item">
-                          Gaming
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </li>
-
-              <li>
-                <a href="cart.html" className="">
-                  <h6>
-                    <i className="fas fa-shopping-cart me-1"></i>Giỏ hàng
-                  </h6>
-                </a>
-              </li>
-
-              <li>
-                <a href="form.html" className="">
-                  <h6>
-                    <i className="fas fa-user me-1"></i>Đăng nhập
-                  </h6>
-                </a>
-              </li>
-
-              <div className="input-group rounded seach-bar">
-                <input
-                  type="search"
-                  className="form-control rounded"
-                  placeholder="Tìm kiếm...  "
-                  aria-label="Search"
-                  aria-describedby="search-addon"
-                />
-                <button className="input-group-text border-0" id="search-addon">
-                  <i className="fas fa-search"></i>
-                </button>
               </div>
-            </ul>
+            </div>
           </div>
         </nav>
-      </div>
+        <div className="container mt-xl-5 mt-lg-5 mt-md-0 mt-sm-0 shopnow">
+          <div className="row">
+            <div className="col-xl-6 col-lg-6 content1 text-light ">
+              <h1>Apple Macbook Air MQD32 Laptop</h1>
+              <p className="fw-bold">
+                Hệ thống cửa hàng cung cấp Laptop toàn quốc , với những mẫu mã
+                sản phẩm đa dạng và đảm bảo uy tín chất lượng sản phầm
+              </p>
+              <a
+                href=""
+                className="rounded-pill bg-orange fw-bold btn custom-btn mt-4"
+              >
+                <span className="p-3">Mua hàng ngay</span>
+              </a>
+            </div>
+
+            <div className="col-xl-6 col-lg-6 text-light">
+              <div className="white-circle "></div>
+              <div className="orange-circle rounded-circle"></div>
+              <div className="w-75 content2">
+                <img
+                  className="w-100"
+                  src="https://pngimg.com/uploads/macbook/macbook_PNG101747.png"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
     );
   }
 }

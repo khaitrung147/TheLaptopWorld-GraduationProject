@@ -45,9 +45,9 @@ function resetMenu() {
 $(document).ready(function () {
   $(window).scroll(function () {
     if ($(document).scrollTop() > 150) {
-      $(".main-wrapper-css").addClass("fixed");
+      $(".navbar").addClass("fixed");
     } else {
-      $(".main-wrapper-css").removeClass("fixed");
+      $(".navbar").removeClass("fixed");
     }
   });
 });

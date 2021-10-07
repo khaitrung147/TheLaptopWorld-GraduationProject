@@ -1,0 +1,167 @@
+
+header {
+    background-color: rgb(47, 212, 234);
+    width: 100%;
+  
+  }
+
+  .navbar{
+      background-color: transparent;
+  }
+  .searchbar {
+    padding: 0.3rem;
+    width: 14rem;
+    border: solid #ffffff 1px;
+    border-radius: 5px 0px 0px 5px;
+    -webkit-transition: box-shadow linear 0.2s;
+    transition: box-shadow linear 0.2s, width 500ms ease;
+  }
+
+  .searchbar:focus {
+    outline: none;
+    border-color: #ffffff;
+    box-shadow: 0 0 10px #797b7e;
+  }
+
+  .searchbar:hover {
+    outline: none;
+    border-color: #ffffff;
+    box-shadow: 0 0 10px #797b7e;
+  }
+
+.fixed{
+    width: 100%;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.836);
+    animation: opacity 200ms ease-in-out normal;
+    -moz-animation: opacity 200ms ease-in-out normal;
+    -ms-animation: opacity 200ms ease-in-out normal;
+    -o-animation: opacity 200ms ease-in-out normal;
+    -webkit-animation: opacity 200ms ease-in-out normal;  
+}
+  .search_button {
+    height: 2.23rem;
+    margin-left: -5px;
+    width: 70px;
+    border: solid #ffffff 1px;
+    border-radius: 0px 5px 5px 0px;
+    border-left: 0;
+    transition: 300ms ease-out;
+    background-color: #fff;
+  }
+  .search_button:hover {
+    background-color: rgb(255, 93, 0);
+    color: white;
+  }
+  
+  .bg-orange {
+    background-color: rgb(255, 93, 0);
+  }
+  .custom-btn {
+    color: #fff;
+  }
+  .custom-btn:hover {
+    background-color: #fff;
+    color: black;
+  }
+  .cart {
+    font-size: 1.5rem;
+    color: #fff;
+    transition: 0.3s;
+  }
+  .cart:hover {
+    color: rgb(255, 93, 0);
+    transition: 0.3s;
+  }
+
+  ul li a {
+    color: #fff;
+    transition: 0.3s;
+  }
+
+  ul li a:hover {
+    color: rgb(255, 93, 0);
+    transition: 0.3s;
+  }
+
+  input[type="text"] {
+    color: black;
+    padding-left: 1rem;
+  }
+  ::placeholder {
+    color: black;
+  }
+.shopnow{
+    padding-bottom: 1.5rem;
+}
+
+.content1{
+    animation: 0.5s ease-out 0s 1 slideInFromLeft;
+}
+
+.content2{
+    animation: 1s ease-out 0s 1 slideInFromRight ;
+    overflow: hidden;
+}
+.content2 img{
+    animation: bounce 0.5s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+}
+.content1 h1{
+    font-size: 4rem;
+    font-weight: bolder;
+}
+.content1 p{
+    font-size: 1.1rem;
+}
+.white-circle{
+    width: 200px;
+    height: 400px;
+    background-color: white;
+    border-bottom-left-radius: 200px;
+    border-top-left-radius: 200px;
+    right: 0;
+    border-left: 0;
+    position: absolute;
+
+}
+.orange-circle{
+    width: 15rem;
+    height: 15rem;
+    background-color: rgb(255, 93, 0);
+    position: absolute;
+    right: 8rem;  
+    top: 6rem;
+}
+@keyframes slideInFromLeft {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes slideInFromRight {
+    100% {
+      transform: translateX(0%);
+    }
+    0% {
+      transform: translateX(100%);
+    }
+  }
+  @keyframes bounce {
+    100% {
+      transform: translatey(-1.5%);
+    }
+    0% {
+      transform: translatey(1%);
+    }
+  }
+
+  @media only screen and (max-width: 992px) {
+      .shopnow{
+          display: none;
+      }
+  }
