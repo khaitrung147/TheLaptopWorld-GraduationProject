@@ -2,7 +2,6 @@
 header {
     background-color: rgb(47, 212, 234);
     width: 100%;
-  
   }
 
   .navbar{
@@ -30,14 +29,15 @@ header {
   }
 
 .fixed{
+  top: 0;
     width: 100%;
     position: fixed;
-    background-color: rgba(0, 0, 0, 0.836);
-    animation: opacity 200ms ease-in-out normal;
-    -moz-animation: opacity 200ms ease-in-out normal;
-    -ms-animation: opacity 200ms ease-in-out normal;
-    -o-animation: opacity 200ms ease-in-out normal;
-    -webkit-animation: opacity 200ms ease-in-out normal;  
+    background-color: rgba(47, 212, 234, 0.925);
+    animation: opacity 300ms ease-in-out normal;
+    -moz-animation: opacity 300ms ease-in-out normal;
+    -ms-animation: opacity 300ms ease-in-out normal;
+    -o-animation: opacity 300ms ease-in-out normal;
+    -webkit-animation: opacity 300ms ease-in-out normal;  
 }
   .search_button {
     height: 2.23rem;
@@ -92,22 +92,19 @@ header {
     color: black;
   }
 .shopnow{
-    padding-bottom: 1.5rem;
+    padding-bottom: 1rem;
 }
 
 .content1{
     animation: 0.5s ease-out 0s 1 slideInFromLeft;
+    position: relative;
 }
 
 .content2{
     animation: 1s ease-out 0s 1 slideInFromRight ;
-    overflow: hidden;
+    position: relative;
 }
-.content2 img{
-    animation: bounce 0.5s;
-    animation-direction: alternate;
-    animation-iteration-count: infinite;
-}
+
 .content1 h1{
     font-size: 4rem;
     font-weight: bolder;
@@ -116,15 +113,14 @@ header {
     font-size: 1.1rem;
 }
 .white-circle{
-    width: 200px;
-    height: 400px;
+    width: 180px;
+    height: 360px;
     background-color: white;
-    border-bottom-left-radius: 200px;
-    border-top-left-radius: 200px;
+    border-bottom-left-radius:180px;
+    border-top-left-radius: 180px;
     right: 0;
     border-left: 0;
     position: absolute;
-
 }
 .orange-circle{
     width: 15rem;
@@ -133,6 +129,7 @@ header {
     position: absolute;
     right: 8rem;  
     top: 6rem;
+    z-index: 0 ;
 }
 @keyframes slideInFromLeft {
     0% {
@@ -151,17 +148,10 @@ header {
       transform: translateX(100%);
     }
   }
-  @keyframes bounce {
-    100% {
-      transform: translatey(-1.5%);
-    }
-    0% {
-      transform: translatey(1%);
-    }
-  }
-
   @media only screen and (max-width: 992px) {
       .shopnow{
           display: none;
       }
+
+      
   }

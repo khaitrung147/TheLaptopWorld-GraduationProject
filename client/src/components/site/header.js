@@ -130,7 +130,7 @@ class Header extends Component {
             </div>
           </div>
         </nav>
-        <div className="container mt-xl-5 mt-lg-5 mt-md-0 mt-sm-0 shopnow">
+        <div className="container mt-xl-5 mt-lg-5 mt-md-0 mt-sm-0 shopnow py-5">
           <div className="row">
             <div className="col-xl-6 col-lg-6 content1 text-light ">
               <h1>Apple Macbook Air MQD32 Laptop</h1>
