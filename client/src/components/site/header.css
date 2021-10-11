@@ -1,11 +1,5 @@
-
-header {
-    background-color: rgb(47, 212, 234);
-    width: 100%;
-  }
-
   .navbar{
-      background-color: transparent;
+    background-color: rgb(47, 212, 234);
   }
   .searchbar {
     padding: 0.3rem;
@@ -32,7 +26,7 @@ header {
   top: 0;
     width: 100%;
     position: fixed;
-    background-color: rgba(47, 212, 234, 0.925);
+    background-color: rgba(47, 212, 234, 0.877);
     animation: opacity 300ms ease-in-out normal;
     -moz-animation: opacity 300ms ease-in-out normal;
     -ms-animation: opacity 300ms ease-in-out normal;
@@ -90,68 +84,4 @@ header {
   }
   ::placeholder {
     color: black;
-  }
-.shopnow{
-    padding-bottom: 1rem;
-}
-
-.content1{
-    animation: 0.5s ease-out 0s 1 slideInFromLeft;
-    position: relative;
-}
-
-.content2{
-    animation: 1s ease-out 0s 1 slideInFromRight ;
-    position: relative;
-}
-
-.content1 h1{
-    font-size: 4rem;
-    font-weight: bolder;
-}
-.content1 p{
-    font-size: 1.1rem;
-}
-.white-circle{
-    width: 180px;
-    height: 360px;
-    background-color: white;
-    border-bottom-left-radius:180px;
-    border-top-left-radius: 180px;
-    right: 0;
-    border-left: 0;
-    position: absolute;
-}
-.orange-circle{
-    width: 15rem;
-    height: 15rem;
-    background-color: rgb(255, 93, 0);
-    position: absolute;
-    right: 8rem;  
-    top: 6rem;
-    z-index: 0 ;
-}
-@keyframes slideInFromLeft {
-    0% {
-      transform: translateX(-100%);
-    }
-    100% {
-      transform: translateX(0);
-    }
-  }
-
-  @keyframes slideInFromRight {
-    100% {
-      transform: translateX(0%);
-    }
-    0% {
-      transform: translateX(100%);
-    }
-  }
-  @media only screen and (max-width: 992px) {
-      .shopnow{
-          display: none;
-      }
-
-      
   }

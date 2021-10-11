@@ -1,6 +1,7 @@
 /* eslint-disable react/jsx-pascal-case */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
+import Banner from "./banner";
 
 import Brand from "./brand";
 import Currency from "./currency";
@@ -13,6 +14,7 @@ import Coming from "./upcoming";
 const Home = () => {
   return (
     <main className="">
+      <Banner />
       <div className="container">
         <div className="row mt-3">
           <div className="col-xl-8 col-md-12 col-sm-12 mb-2 slide-contain">
