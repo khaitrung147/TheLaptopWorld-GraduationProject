@@ -1,10 +1,9 @@
 import React from "react";
 
-class dashboard extends React.Component {
-  state = {};
-  render() {
-    return <div>Trang dashboard</div>;
-  }
+const Dashboard = () => {
+  return(
+    <div>Trang dash</div>
+  )
 }
 
-export default dashboard;
+export default Dashboard;
