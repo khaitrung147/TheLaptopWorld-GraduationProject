@@ -22,7 +22,7 @@ const Nav = (props) => {
         menu.push(
           <Menu.SubMenu key={item.key} icon={item.icon} title={item.name}>
             {item.submenu?.map((e) => (
-              <Menu.Item key={e.path}>
+              <Menu.Item style={{backgroundColor: '#363740', margin:'0', paddingLeft: '25%'}} key={e.path}>
                 <Link to={e.path}>{e.name}</Link>
               </Menu.Item>
             ))}
@@ -32,13 +32,13 @@ const Nav = (props) => {
     })
 
     return (
-        <Layout.Sider trigger={null} collapsible collapsed={collapsed}>
+        <Layout.Sider style={{background: '#363740', paddingTop: '5px'}} trigger={null} collapsible collapsed={collapsed}>
           <Row justify='center' align='middle'>
             {
-                collapsed? <Typography.Title style={{color: 'white', marginTop: '2%'}} level={2}>AD</Typography.Title>: <Typography.Title style={{color: 'white', marginTop: '2%'}} level={2}>ADMIN</Typography.Title>
+                collapsed? <Typography.Title style={{color: 'white'}} level={2}>AD</Typography.Title>: <Typography.Title style={{color: 'white'}} level={2}>ADMIN</Typography.Title>
             }
           </Row>
-          <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
+          <Menu theme='dark' style={{backgroundColor: 'rgba(0, 0, 0, 0)'}} mode="inline" defaultSelectedKeys={['1']}>
             { menu }
           </Menu>
         </Layout.Sider>

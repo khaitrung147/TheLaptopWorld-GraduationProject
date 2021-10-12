@@ -1,5 +1,5 @@
 import React from 'react';
-import { Col, Layout, Row, Dropdown, Menu } from 'antd';
+import { Col, Layout, Row, Dropdown, Menu, Space, Avatar,Typography  } from 'antd';
 import {
     MenuUnfoldOutlined,
     MenuFoldOutlined,
@@ -28,16 +28,19 @@ function Header(props) {
     return ( 
         <Header className="site-layout-background" style={{background: 'white', paddingLeft: '20px' }}>
             <Row align='middle' justify='space-between' >
-                <Col span={4}>
+                <Col>
                     {
                     collapsed ? <MenuUnfoldOutlined className='trigger' style={{fontSize: '20px'}} onClick={toggle} /> 
                     : <MenuFoldOutlined className='trigger' style={{fontSize: '20px'}} onClick={toggle} />
                     }
                 </Col>
                 <Col>
-                    <Dropdown.Button overlay={MenuDropdown} placement="bottomRight" arrow icon={<UserOutlined />}>
-                        Nguyễn Trần Trung Khải
-                    </Dropdown.Button>
+                    <Dropdown  overlay={MenuDropdown} placement="bottomRight" arrow>
+                        <Space align='center'>
+                            Nguyễn Trần Trung Khải
+                            <Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
+                        </Space>
+                    </Dropdown>
                 </Col>
             </Row>
         </Header>

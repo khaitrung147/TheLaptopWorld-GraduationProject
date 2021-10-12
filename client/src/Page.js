@@ -5,7 +5,7 @@ import Product_site from "./components/product_site";
 import Login from "./components/login";
 
 // Admin page
-import Dashboard_admin from "./components/admin/dashboard";
+import Dashboard_admin from "./components/dashboard_admin";
 
 const Page = {
   Site: [
