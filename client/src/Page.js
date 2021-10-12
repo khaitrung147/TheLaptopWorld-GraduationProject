@@ -2,6 +2,7 @@
 import Home_site from "./components/home_site";
 import DetailProduct_site from "./components/productDetail_site";
 import Product_site from "./components/product_site";
+import Login from "./components/login";
 
 // Admin page
 import Dashboard_admin from "./components/admin/dashboard";
@@ -11,6 +12,11 @@ const Page = {
     {
       path: '/',
       component: Home_site,
+      exact: true
+    },
+    {
+      path: '/dang-nhap',
+      component: Login,
       exact: true
     },
     {
