@@ -7,15 +7,20 @@ import Footer from "./footer";
 import Header from "./header";
 
 const Index = ({children}) => {
-    return (
-      <div>
-        <Header />
-          <ScrollToTop>
-            {children}
-          </ScrollToTop>
-        <Footer />
-      </div>
-    );
+  const url = window.location.pathname.split("/");
+  return (
+    <div>
+      {
+        (url[1]==='dang-nhap')?null:<Header />
+      }
+      <ScrollToTop>
+        {children}
+      </ScrollToTop>
+      {
+        (url[1]==='dang-nhap')?null:<Footer />
+      }
+    </div>
+  );
 }
 
 export default Index;
