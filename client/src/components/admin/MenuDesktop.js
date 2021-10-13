@@ -1,11 +1,6 @@
 import React from "react";
 import { Layout, Menu, Row, Typography } from 'antd';
-import {
-    UserOutlined,
-    VideoCameraOutlined,
-    UploadOutlined,
-  } from '@ant-design/icons';
-import { Link, Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 import menuItemConfig from "./sliderConfig";
 
 const Nav = (props) => {

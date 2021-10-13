@@ -1,9 +1,8 @@
 import React from 'react';
-import { Col, Layout, Row, Dropdown, Menu, Space, Avatar,Typography  } from 'antd';
+import { Col, Layout, Row, Dropdown, Menu, Space, Avatar } from 'antd';
 import {
     MenuUnfoldOutlined,
     MenuFoldOutlined,
-    UserOutlined,
     InfoCircleOutlined,
     LogoutOutlined
 } from '@ant-design/icons';

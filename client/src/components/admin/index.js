@@ -1,14 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import 'antd/dist/antd.css';
-import { Layout } from 'antd';
-
-import { Switch, Route, Link, BrowserRouter } from "react-router-dom";
-
-import Page from "../../Page";
+import { Layout, Breadcrumb } from 'antd';
 import MenuDesktop from "./MenuDesktop";
 import MenuMobile from './MenuMobile'
 import Header from "./Header";
 import { useViewport } from "../../constants/viewPort";
+import sliderConfig from '../admin/sliderConfig'
 
 const Index = ({children}) => {
     const viewPort = useViewport();
@@ -19,7 +16,6 @@ const Index = ({children}) => {
     const toggle = () => {
       setCollapsed(!collapsed);
     };
-
 
     return (
       <Layout >
@@ -32,12 +28,16 @@ const Index = ({children}) => {
           <Content
             className="site-layout-background"
             style={{
-              margin: '24px 16px',
-              padding: 24,
+              margin: '0px 16px',
+              paddingTop: '0',
+              paddingBottom: '24px',
+              paddingLeft: '24px',
+              paddingRight: '24px'
             }}
           >
             {children}
           </Content>
+          <Layout.Footer style={{ textAlign: 'center' }}>Dashboard Site ©2021 Created by TheLaptopWorld</Layout.Footer>
         </Layout>
       </Layout>
     );

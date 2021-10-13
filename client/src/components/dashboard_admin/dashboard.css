@@ -1,7 +1,29 @@
-.count-box{
+.dash-head .count-box{
     background-color: white;
     padding: 8px 0;
     text-align: center;
     border-radius: 5px;
     margin-bottom: 5%;
+}
+
+.chart-box{
+    background-color: white;
+}
+
+.header-chart{
+    margin-top: 5%;
+    margin-left: 5%;
+    margin-bottom: 5%;
+}
+
+.chart-count{
+
+}
+
+.chart-count .count-box{
+    background-color: white;
+    padding: 10px 0;
+    text-align: center;
+    border-radius: 5px;
+    border: 1px solid #efeff5;
 }

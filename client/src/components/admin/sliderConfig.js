@@ -8,7 +8,7 @@ import {
 
 const menuItemConfig= [
     {
-        key: 'dashboard',
+        key: 'admin',
         path: '/admin',
         icon: <DashboardOutlined />,
         name: 'Dashboard',
