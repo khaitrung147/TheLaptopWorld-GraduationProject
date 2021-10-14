@@ -1,47 +1,38 @@
 import React from "react";
-import { Link } from "react-router-dom";
-
 import Breadcrumb from "../../constants/breadcrumb";
+import Products from "./product";
 
-import ProductList from "./productList";
-
+import "./index.css";
+import Filter from "./filter";
 const Product = () => {
   return (
-    <div className="">
-      <div className="container p-3">
-        <Breadcrumb
-          key=""
-          currentPage="Sản phẩm"
-          listBread={[
-            {
-              path: "/",
-              pageName: "Trang chủ",
-            },
-          ]}
-        />
-      </div>
-      <main>
-        <div className="container mt-4">
+    <main>
+      <div className="custom-bg">
+        <div className="container pt-3">
+          <Breadcrumb
+            key=""
+            currentPage="Sản phẩm"
+            listBread={[
+              {
+                path: "/",
+                pageName: "Trang chủ",
+              },
+            ]}
+          />
+        </div>
+
+        <div className="container mt-2 mb-5">
           <div className="row">
-            <div className="col-md-3 col-xl-3 col-sm-12 mb-3 filter"></div>
-            <div className="col-md-9 col-xl-9 col-sm-12 ">
-              <div className="w-25 select">
-                <select name id className="form-select">
-                  <option value>Tất cả</option>
-                  <option value>Mới nhập hàng</option>
-                  <option value>Giá từ cao đến thấp</option>
-                  <option value>Giá từ thấp đến cao</option>
-                  <option value>Sắp xếp A &gt; Z</option>
-                  <option value>Sắp xếp Z &gt; A</option>
-                </select>
-              </div>
-              <hr />
-              <ProductList key="" />
+            <div className="col-md-12 col-xl-3 col-lg-3 col-sm-12 mb-3 filter">
+              <Filter />
+            </div>
+            <div className="col-md-12 col-xl-9 col-lg-9 col-sm-12 ">
+              <Products key="" />
             </div>
           </div>
         </div>
-      </main>
-    </div>
+      </div>
+    </main>
   );
 };
 

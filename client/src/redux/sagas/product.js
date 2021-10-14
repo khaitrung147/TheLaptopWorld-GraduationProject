@@ -6,7 +6,6 @@ function* getListProductSaga(action) {
   try {
     const data = yield call(getProduct);
     yield put(getListProductSuccess(data));
-    console.log(data);
   } catch (error) {
     console.log(error);
   }
