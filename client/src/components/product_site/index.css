@@ -1,0 +1,105 @@
+.product-card{
+    height: 100%;
+    transition: 0.3s;
+}
+
+.product-card:hover {
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    transition: 0.3s;
+}
+
+.product-card:hover .product-tag {
+    color: black;
+}
+
+.img-box {
+    overflow: hidden;
+    border-radius: 5px;
+}
+
+.product-tag {
+    text-decoration: none;
+    color: black;
+}
+
+.product-tag img {
+    transition: 0.3s;
+}
+
+.product-card:hover img {
+    transform: scale(1.05);
+    transition: 0.3s;
+}
+
+.product-icon i{
+    cursor: pointer;
+    transition: 0.3s;
+}
+.product-icon i:hover{
+    color: rgb(255, 93, 0);
+    transition: 0.3s;
+}
+.product-sale{
+    background-color: rgba(255, 94, 0, 0.26);
+    color:rgb(255, 93, 0);
+}
+.product-config{
+    background-color: gray;
+    color: white;
+    font-size: 0.8rem;
+}
+
+.left{
+    margin-left: 70%;
+}
+.left i{
+    cursor: pointer;
+    transition: 0.3s;
+}
+.left .list{
+    color: rgb(255, 93, 0);
+}
+
+.left .column{
+    color: rgba(47, 212, 234, 0.877);
+}
+
+.filter{
+    margin-top: 3.3rem;
+}
+
+.brand{
+    cursor: pointer;
+    border: unset;
+    background-color: transparent;
+    transition: 0.3s;
+    border-radius: 5px;
+}
+
+.brand span {
+    color: black;
+    transition: 0.3s;
+}
+
+.brand:hover {
+    transition: 0.3s;
+    
+    color: rgb(255, 93, 0);
+}
+.brand:hover span{
+    color: rgb(255, 93, 0);
+    transition: 0.3s;
+}
+
+.config{
+    border: unset;
+    background-color: transparent;
+    transition: 0.3s;
+}
+
+.config label{
+    cursor: pointer;
+}
+.config label span{
+    color: black;
+}

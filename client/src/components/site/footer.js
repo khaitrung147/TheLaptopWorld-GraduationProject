@@ -8,7 +8,7 @@ class Footer extends Component {
   }
   render() {
     return (
-      <footer className="text-center text-lg-start text-light mt-5">
+      <footer className="text-center text-lg-start text-light ">
         <div className="">
           <section className="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
             <div className="me-5 d-none d-lg-block">
