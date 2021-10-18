@@ -1,24 +1,42 @@
 // Site page
-import Index_site from "./components/site";
 import Home_site from "./components/home_site";
 import DetailProduct_site from "./components/productDetail_site";
 import Product_site from "./components/product_site";
+import Login from "./components/login";
 
 // Admin page
-import Index_admin from "./components/admin/index";
 import Dashboard_admin from "./components/admin/dashboard";
 
 const Page = {
-  Site: {
-    Index_site,
-    Home_site,
-    DetailProduct_site,
-    Product_site
-  },
-  Admin: {
-    Index_admin,
-    Dashboard_admin,
-  },
+  Site: [
+    {
+      path: '/',
+      component: Home_site,
+      exact: true
+    },
+    {
+      path: '/dang-nhap',
+      component: Login,
+      exact: true
+    },
+    {
+      path: '/san-pham',
+      component: Product_site,
+      exact: false
+    },
+    {
+      path: '/san-pham/:key',
+      component: DetailProduct_site,
+      exact: false
+    }
+  ],
+  Admin: [
+    {
+      path: '/admin',
+      component: Dashboard_admin,
+      exact: true
+    }
+  ]
 };
 
 export default Page;

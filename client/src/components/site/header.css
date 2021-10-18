@@ -1,5 +1,6 @@
   .navbar{
     background-color: rgb(47, 212, 234);
+    
   }
 
   .search {
@@ -98,9 +99,11 @@ input[type="text"] {
   
 ::placeholder {
     color: black;
+  }
+
+  @keyframes opacity { 
+    from { opacity:0; } 
+    to { opacity: 1; } 
 }
 
-@keyframes opacity { 
-  from { opacity:0; } 
-  to { opacity: 1; } 
-}
+
