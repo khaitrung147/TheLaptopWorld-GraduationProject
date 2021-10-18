@@ -1,4 +1,7 @@
-import { GET_LIST_CATALOG, GET_LIST_CATALOG_SUCCESS } from "../constants/catalog";
+import {
+  GET_LIST_CATALOG,
+  GET_LIST_CATALOG_SUCCESS,
+} from "../constants/catalog";
 
 export const getListCatalog = (payload) => {
   return {

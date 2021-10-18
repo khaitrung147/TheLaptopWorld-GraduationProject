@@ -2,6 +2,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 
 import { getListCatalog } from "../../redux/actions/catalog";
 import "./header.css";
@@ -17,16 +18,14 @@ class Header extends Component {
   }
 
   render() {
-    const { catalogs, load } = this.props.catalogs;
-    console.log("load :>> ", load);
-    console.log("catalogs :>> ", catalogs);
+    // const { catalogs, load } = this.props.catalogs;
 
     return (
       <nav className="navbar navbar-expand-lg navbar-dark ">
         <div className="container">
-          <a className="navbar-brand mt-2" href="#">
+          <Link className="navbar-brand mt-2" to="/">
             <h1>BRAND</h1>{" "}
-          </a>
+          </Link>
           <button
             className="navbar-toggler bg-orange"
             type="button"
@@ -104,13 +103,13 @@ class Header extends Component {
                   mt-xl-0 mt-lg-0 mt-md-2 mt-sm-2
                 "
               >
-                <a
+                <Link
                   className="text-decoration-none active text-uppercase fw-bold"
                   aria-current="page"
-                  href="#"
+                  to="/san-pham"
                 >
                   shop
-                </a>
+                </Link>
               </li>
             </ul>
 

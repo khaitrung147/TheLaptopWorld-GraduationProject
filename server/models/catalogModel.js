@@ -14,6 +14,10 @@ const schema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    HangSanXuat: {
+      type: mongoose.Schema.Types.ObjectId,
+      required: true,
+    },
     AnHien: {
       type: Boolean,
       default: true,
