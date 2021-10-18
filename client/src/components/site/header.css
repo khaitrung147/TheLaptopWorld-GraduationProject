@@ -29,6 +29,7 @@
 
 .fixed{
   top: 0;
+  z-index: 2;
     width: 100%;
     position: fixed;
     background-color: rgba(47, 212, 234, 0.877);
@@ -97,4 +98,9 @@ input[type="text"] {
   
 ::placeholder {
     color: black;
+}
+
+@keyframes opacity { 
+  from { opacity:0; } 
+  to { opacity: 1; } 
 }
