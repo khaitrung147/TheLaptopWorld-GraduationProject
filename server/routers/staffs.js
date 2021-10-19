@@ -6,6 +6,7 @@ import {
   deleteById,
   getById,
   updateById,
+  login,
 } from "../controllers/staffs.js";
 
 const router = express.Router();
@@ -19,4 +20,6 @@ router.get("/:id", getById);
 router.delete("/:id", deleteById);
 
 router.patch("/:id", updateById);
+
+router.post("/login", login);
 export default router;
