@@ -21,13 +21,13 @@ class Header extends Component {
     // const { catalogs, load } = this.props.catalogs;
 
     return (
-      <nav className="navbar navbar-expand-lg navbar-dark ">
+      <nav className="navbar navbar-expand-lg navbar-dark">
         <div className="container">
-          <Link className="navbar-brand mt-2" to="/">
-            <h1 className='text-light'>BRAND</h1>{" "}
+          <Link className="navbar-brand mt-4 " to="/">
+            <h1 className="text-light">BRAND</h1>{" "}
           </Link>
           <button
-            className="navbar-toggler bg-orange"
+            className="navbar-toggler bg-orange "
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#navbarScroll"
