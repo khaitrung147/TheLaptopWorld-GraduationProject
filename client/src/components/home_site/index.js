@@ -10,7 +10,7 @@ import News from "./news";
 import Saleproduct from "./saleproduct";
 import Slider_home from "./slider";
 import Coming from "./upcoming";
-
+import "./index.css";
 const Home = () => {
   return (
     <main className="">
