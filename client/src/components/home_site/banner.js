@@ -8,7 +8,7 @@ const Banner = () => {
       <div className="container shopnow py-5">
         <div className="row">
           <div className="col-xl-6 col-lg-6 content1  ">
-            <h1 className="text-light">Apple Macbook Air MQD32 Laptop</h1>
+            <h1 className="text-light">Apple Macbook Air MQD32 Laptop</h1> 
             <p className="fw-bold text-light">
               Hệ thống cửa hàng cung cấp Laptop toàn quốc , với những mẫu mã sản
               phẩm đa dạng và đảm bảo uy tín chất lượng sản phầm

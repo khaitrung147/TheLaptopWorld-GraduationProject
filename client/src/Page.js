@@ -22,7 +22,7 @@ const Page = {
     {
       path: '/san-pham',
       component: Product_site,
-      exact: false
+      exact: true
     },
     {
       path: '/san-pham/:key',
