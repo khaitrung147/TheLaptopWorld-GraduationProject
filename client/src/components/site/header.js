@@ -24,7 +24,7 @@ class Header extends Component {
       <nav className="navbar navbar-expand-lg navbar-dark ">
         <div className="container">
           <Link className="navbar-brand mt-2" to="/">
-            <h1>BRAND</h1>{" "}
+            <h1 className='text-light'>BRAND</h1>{" "}
           </Link>
           <button
             className="navbar-toggler bg-orange"
