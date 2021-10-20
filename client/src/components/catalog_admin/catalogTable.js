@@ -1,38 +1,16 @@
 import React, { useState } from 'react';
-import { Table, Tag, Space } from 'antd';
+import { Table, Tag, Space, Button } from 'antd';
+import { Link } from 'react-router-dom';
 
-function CatalogTable() {
+function CatalogTable(props) {
+    const { data } = props;
     const [selectedRowKeys, setSelectedRowKeys]= useState([]);
-    const data = [
-        {
-            _id: '6156af316692f53d4e7a15db',
-            TenLoaiSanPham: 'Vostro',
-            HangSanXuat: "Asus",
-            DanhMuc: 0,
-            AnHien: true,
-        },
-        {
-            _id: '6156af316692f53d4e7a15db',
-            TenLoaiSanPham: 'Presicion',
-            HangSanXuat: "Dell",
-            DanhMuc: 0,
-            AnHien: false,
-        },
-        {
-            _id: '6156af316692f53d4e7a15db',
-            TenLoaiSanPham: 'Latitude',
-            HangSanXuat: "Dell",
-            DanhMuc: 0,
-            AnHien: true,
-        },
-    ];
-
     const columns = [
         {
             title: 'Tên loại sản phẩm',
             dataIndex: 'TenLoaiSanPham',
             key: 'TenLoaiSanPham',
-            render: text => <a>{text}</a>,
+            render: (text,data) => <Link to={`/admin/loai-san-pham/${data._id}`}>{text}</Link>,
         },
         {
             title: 'Hãng sản xuất',
@@ -62,8 +40,7 @@ function CatalogTable() {
             key: 'action',
             render: (text, record) => (
                 <Space size="middle">
-                    <a>Invite {record.name}</a>
-                    <a>Delete</a>
+                    <Button>Delete</Button>
                 </Space>
             ),
         },
@@ -78,6 +55,7 @@ function CatalogTable() {
     };
     return (
         <Table
+            rowKey='_id'
             rowSelection={rowSelection}
             columns={columns}
             dataSource={data}

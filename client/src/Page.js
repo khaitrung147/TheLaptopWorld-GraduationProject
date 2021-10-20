@@ -7,6 +7,7 @@ import Login from "./components/login";
 // Admin page
 import Dashboard_admin from "./components/dashboard_admin";
 import Catalog_admin from "./components/catalog_admin";
+import CatalogDetail_admin from "./components/catalog_admin/catalogDetail";
 
 const Page = {
   Site: [
@@ -40,6 +41,11 @@ const Page = {
     {
       path: '/admin/loai-san-pham',
       component: Catalog_admin,
+      exact: true
+    },
+    {
+      path: '/admin/loai-san-pham/:id',
+      component: CatalogDetail_admin,
       exact: false
     }
   ]

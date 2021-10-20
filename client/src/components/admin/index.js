@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
 import 'antd/dist/antd.css';
-import { Layout, Breadcrumb } from 'antd';
+import { Layout} from 'antd';
 import MenuDesktop from "./MenuDesktop";
 import MenuMobile from './MenuMobile'
 import Header from "./Header";
 import { useViewport } from "../../constants/viewPort";
-import sliderConfig from '../admin/sliderConfig'
 
 const Index = ({children}) => {
     const viewPort = useViewport();
