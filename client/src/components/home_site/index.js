@@ -5,10 +5,6 @@ import Banner from "./banner";
 import Brand from "./brand";
 import Currency from "./currency";
 import Products from "./currentproduct";
-import News from "./news";
-import Saleproduct from "./saleproduct";
-import Slider_home from "./slider";
-import Coming from "./upcoming";
 import "./index.css";
 const Home = () => {
   return (
