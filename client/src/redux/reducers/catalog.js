@@ -3,7 +3,7 @@ import {
   GET_LIST_CATALOG_SUCCESS,
 } from "../constants/catalog";
 
-const postsReducer = (state = [], action) => {
+const catalogReducer = (state = [], action) => {
   switch (action.type) {
     case GET_LIST_CATALOG:
       return {
@@ -22,4 +22,4 @@ const postsReducer = (state = [], action) => {
   }
 };
 
-export default postsReducer;
+export default catalogReducer;

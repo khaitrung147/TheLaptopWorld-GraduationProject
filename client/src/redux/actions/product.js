@@ -2,7 +2,7 @@ import {
   GET_LIST_PRODUCT,
   GET_LIST_PRODUCT_SUCCESS,
   GET_DETAIL_PRODUCT,
-  GET_DETAIL_PRODUCT_SUCCESS,
+  GET_DETAIL_PRODUCT_SUCCESS
 } from "../constants/product";
 
 export const getListProduct = (payload) => {

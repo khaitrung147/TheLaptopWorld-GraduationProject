@@ -6,5 +6,7 @@ export const getListProduct = async () => {
 };
 
 export const getDetailProduct = async (key) => {
+  console.log('key :>> ', key);
   return await axios.get(`${URL}/san-pham/${key}`);
 };
+

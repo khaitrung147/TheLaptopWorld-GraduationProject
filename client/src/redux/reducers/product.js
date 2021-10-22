@@ -3,7 +3,7 @@ import {
   GET_LIST_PRODUCT_SUCCESS,
 } from "../constants/product";
 
-const postProductReducer = (state = [], action) => {
+const productReducer = (state = [], action) => {
   switch (action.type) {
     case GET_LIST_PRODUCT:
       return {
@@ -22,4 +22,4 @@ const postProductReducer = (state = [], action) => {
   }
 };
 
-export default postProductReducer;
+export default productReducer;

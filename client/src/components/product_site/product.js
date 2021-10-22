@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import ProductColumn from "./productCulumn";
 import { useDispatch, useSelector } from "react-redux";
-import { getListProduct } from "../../redux/actions/product";
+import { getListProduct, getDetailProduct } from "../../redux/actions/product";
 import { SpinnerCircular } from "spinners-react";
 
 function Products() {
   const products = useSelector((state) => state.products.data);
+  const productDetail = useSelector((state) => state.detailProduct.data);
   const loading = useSelector((state) => state.products.load);
   const [view, setView] = useState(false);
   const [data, setData] = useState([]);
@@ -13,6 +14,7 @@ function Products() {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getListProduct());
+    dispatch(getDetailProduct('hp-elitebook-840'));
   }, [dispatch]);
 
   useEffect(() => {
@@ -25,6 +27,8 @@ function Products() {
   const changeViewList = () => {
     setView(false);
   };
+
+  console.log('productDetail :>> ', productDetail);
 
   return (
     <div>
