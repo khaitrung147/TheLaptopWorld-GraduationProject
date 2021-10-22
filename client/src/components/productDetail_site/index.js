@@ -5,63 +5,80 @@ import ProductImg from "./productImg_slide";
 import ProductConfig from "./product_config";
 import Rating from "./rating";
 import Comment from "./comment";
-import { getListProduct } from "../../redux/actions/product";
+import { getDetailProduct } from "../../redux/actions/product";
 import "./index.css";
 import { useSelector, useDispatch } from "react-redux";
+import { SpinnerCircular } from "spinners-react";
 const Detail = () => {
-  const products = useSelector((state) => state.products.data);
+  const product = useSelector((state) => state.detailProduct.data);
+
+  const loading = useSelector((state) => state.detailProduct.load);
   const [paramKey, setKey] = useState([]);
-  const [productData, setProduct] = useState([]);
-
   const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(getListProduct());
-  }, [dispatch]);
-  useEffect(() => {
-    key();
-    setProduct(products);
 
-    (productData || []).map((e) => {
-      if (e.Key === paramKey) {
-        console.log(e);
-      }
-    });
-  }, [products, productData, paramKey]);
-  const key = () => {
+  const Key = () => {
     const key = window.location.pathname
       .split("/san-pham/")
       .splice(1)
       .toString();
     setKey(key);
   };
+  useEffect(() => {
+    Key();
+    dispatch(getDetailProduct(paramKey));
+    return () => {
+      dispatch(getDetailProduct(paramKey));
+    };
+  }, [dispatch, paramKey]);
 
   return (
     <main className="">
-      <form>
-        <div className="bg-white">
-          <div className="container">
-            <div className="pt-3">
-              <Breadcrumb
-                key=""
-                currentPage="Chi tiết Laptop"
-                listBread={[
-                  {
-                    path: "/",
-                    pageName: "Trang chủ",
-                  },
-                ]}
-              />
-            </div>
-          </div>
-          <div className="container">
-            <div className="row ">
-              <ProductImg />
-
-              <ProductConfig />
-            </div>
+      <div className="bg-white">
+        <div className="container">
+          <div className="pt-3">
+            <Breadcrumb
+              key=""
+              currentPage="Chi tiết Laptop"
+              listBread={[
+                {
+                  path: "/",
+                  pageName: "Trang chủ",
+                },
+              ]}
+            />
           </div>
         </div>
-      </form>
+        <div className="container">
+          <div className="row ">
+            {product == undefined ? (
+              <SpinnerCircular
+                size={90}
+                thickness={80}
+                speed={150}
+                color="rgb(255, 93, 0)"
+                secondaryColor="rgb(47, 212, 234)"
+                className="m-auto"
+              />
+            ) : loading ? (
+              <SpinnerCircular
+                size={90}
+                thickness={80}
+                speed={150}
+                color="rgb(255, 93, 0)"
+                secondaryColor="rgb(47, 212, 234)"
+                className="m-auto"
+              />
+            ) : product ? (
+              <>
+                <ProductImg data={product} />
+                <ProductConfig data={product} />
+              </>
+            ) : (
+              <p>no data</p>
+            )}
+          </div>
+        </div>
+      </div>
 
       <div className="container bg-white mt-5">
         <div className="mt-3 mb-3 p-5" id="danhgia">

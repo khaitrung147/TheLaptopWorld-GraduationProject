@@ -21,9 +21,9 @@ const createProduct = async (req, res) => {
 };
 
 const getById = async (req, res) => {
-  const id = req.params.id;
+  const key = req.params.id;
   try {
-    const productId = await ProductsModel.findById(id);
+    const productId = await ProductsModel.findOne({ Key: key });
     res.status(200).json(productId);
   } catch (error) {
     res.status(500).json({ error: err });
