@@ -7,11 +7,11 @@ function ProductColumn(props) {
   const [price, setPrice] = useState([]);
   const [config, setConfig] = useState([]);
   useEffect(() => {
-    props.data.HinhAnh.map((e) => setImgUrl(e.Url));
+    props.data.HinhAnh.splice(0, 1).map((e) => setImgUrl(e.Url));
   }, [props.data.HinhAnh]);
 
   useEffect(() => {
-    props.data.CauHinhSanPham.map((e) =>
+    props.data.CauHinhSanPham.splice(0, 1).map((e) =>
       setPrice(
         (((100 - e.PhanTramGiamGia) / 100) * e.GiaSanPham).toLocaleString(
           "vi-vn"
