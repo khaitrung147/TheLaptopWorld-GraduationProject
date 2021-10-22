@@ -55,7 +55,7 @@ const ProductImg = () => {
         className={className}
         style={{
           ...style,
-          display: "block",
+          display: "none",
           background: "rgba(194, 191, 191, 0.911)",
           marginRight: "1rem",
           zIndex: "2",
@@ -73,7 +73,7 @@ const ProductImg = () => {
         className={className}
         style={{
           ...style,
-          display: "block",
+          display: "none",
           background: "rgba(194, 191, 191, 0.911)",
           marginLeft: "1rem",
           zIndex: "2",
@@ -85,15 +85,19 @@ const ProductImg = () => {
   }
 
   return (
-    <div className="w-75 img-slide d-block m-auto ">
-      <Slider {...settings}>
-        {img.map((e) => (
-          <div className="ctn ">
-            <img className="w-100 h-100" src={e.img} />
-          </div>
-        ))}
-      </Slider>
-    </div>
+    <>
+      <div className="col-xl-6 col-lg-6 col-md-12 col-sm-12 img-slider">
+        <div className="w-75 img-slide d-block m-auto ">
+          <Slider {...settings}>
+            {img.map((e) => (
+              <div className="ctn ">
+                <img className="w-100 h-100" src={e.img} />
+              </div>
+            ))}
+          </Slider>
+        </div>
+      </div>
+    </>
   );
 };
 export default ProductImg;

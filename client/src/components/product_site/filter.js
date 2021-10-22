@@ -3,15 +3,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { getListCatalog } from "../../redux/actions/catalog";
 const Filter = () => {
   const catalog = useSelector((state) => state.catalogs);
-  console.log(catalog);
+
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getListCatalog());
   }, [dispatch]);
-  const check = () => {
-    let myElement = document.getElementById("#check");
-    console.log(myElement);
-  };
+
   return (
     <>
       <ul class="list-group">
