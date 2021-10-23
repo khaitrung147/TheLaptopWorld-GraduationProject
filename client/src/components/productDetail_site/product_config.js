@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 
 const ProductConfig = (props) => {
   const [saleprice, setSalePrice] = useState([]);
   const [config, setConfig] = useState([]);
+
   useEffect(() => {
     setConfig(props.data.CauHinhSanPham[0]);
     setSalePrice(
@@ -11,8 +12,30 @@ const ProductConfig = (props) => {
         config.GiaSanPham
       ).toLocaleString("vi-vn")
     );
+    Checked();
+    Highlight();
   }, [props.data.CauHinhSanPham, config]);
 
+  const Checked = () => {
+    var input = document.getElementsByName("myCheckbox");
+    input[0].checked = true;
+  };
+
+  const Highlight = () => {};
+
+  const AddCart = () => {
+    var value = document.querySelector("input[type=radio]:checked");
+
+    if (value.checked == true) {
+      if (value.value === "disabled") {
+        alert("cấu hình hết hàng ! chọn 1 cấu hình khác");
+      } else {
+        alert("Đã thêm vào giỏ : " + value.value);
+      }
+    } else {
+      alert("Chọn 1 cấu hình");
+    }
+  };
   return (
     <>
       <div className="col-xl-6 col-lg-6 col-md-12 col-sm-12 ">
@@ -31,6 +54,7 @@ const ProductConfig = (props) => {
                 </b>
               )}
             </h4>
+
             <p className="mt-4">
               5 <i className="fas fa-star text-warning"></i>
               <i className="fas fa-star text-warning"></i>
@@ -43,7 +67,6 @@ const ProductConfig = (props) => {
                 16 bình luận
               </b>{" "}
             </p>
-
             <p>
               <b>Thương hiệu:</b> {props.data.HangSanXuat}
             </p>
@@ -97,14 +120,15 @@ const ProductConfig = (props) => {
             <div className="mt-3">
               <button
                 type="submit"
-                className="p-2 rounded-pill cart-btn fw-bold w-25 "
+                className="p-2 rounded-pill cart-btn fw-bold  "
+                onClick={() => AddCart()}
               >
                 {" "}
                 <i className="fas fa-shopping-cart me-2"></i>Thêm vào giỏ
               </button>
               <button
                 type="submit"
-                className="p-2 rounded-pill love-btn fw-bold w-25 ms-3"
+                className="p-2 rounded-pill love-btn fw-bold  ms-3"
               >
                 {" "}
                 <i className="far fa-heart me-2"></i>Yêu thích
@@ -133,12 +157,42 @@ const ProductConfig = (props) => {
 
             {props.data.CauHinhSanPham.map((e) => (
               <div className="col-xl-6 col-lg-6 col-md-12 col-sm-12">
-                <div className="card bg-light p-2 mt-1 form-check" for="">
+                <label
+                  className="position-relative rounded-3 p-2 mt-1 form-check configs"
+                  style={{ cursor: "pointer" }}
+                >
                   <div className="d-flex align-items-center">
-                    <input type="checkbox" id="" />
+                    {e.SoLuongSanPham == 0 ? (
+                      <div className="checklist">
+                        <input
+                          type="radio"
+                          id=""
+                          name="myCheckbox"
+                          value={"disabled"}
+                          // disabled
+                        />
+                        <label className="checkmark">
+                          {" "}
+                          <i class="fas fa-check "></i>
+                        </label>
+                      </div>
+                    ) : (
+                      <div className="checklist">
+                        <input
+                          type="radio"
+                          className=""
+                          value={e.PhanTramGiamGia}
+                          name="myCheckbox"
+                        />
+                        <label className="checkmark">
+                          <i class="fas fa-check "></i>
+                        </label>
+                      </div>
+                    )}
+
                     <b className="ms-2 text-info">-{e.PhanTramGiamGia}%</b>
                   </div>
-                  <p className="mt-5">
+                  <p className="mt-5 ch">
                     {e.CanNang} , {e.ViXuLy} , {e.ManHinh} , {e.Mau} , {e.BoNho}{" "}
                     , {e.LuuTru} , {e.Pin}
                   </p>
@@ -182,7 +236,7 @@ const ProductConfig = (props) => {
                       </>
                     )}
                   </div>
-                </div>
+                </label>
               </div>
             ))}
           </div>

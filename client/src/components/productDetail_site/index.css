@@ -114,3 +114,42 @@
   transition: 0.3s;
   border: unset;
 }
+
+.configs{
+  background-color: rgba(128, 128, 128, 0.062);
+  border: 1px solid rgba(128, 128, 128, 0.39);
+  transition: 0.3s;
+}
+
+.configs:hover{
+  border:1px solid rgba(47, 212, 234, 0.877);
+  transition: 0.3s;
+}
+
+.checklist input{
+  position: absolute;
+  opacity: 0;
+}
+
+.checklist .checkmark {
+  border: 2px solid black;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+}
+.checklist i{
+  opacity: 0;
+}
+.checklist input:checked~.checkmark{
+  background-color: rgba(47, 212, 234, 0.877);
+}
+.checklist input:checked~.checkmark i{
+  opacity: 1;
+}
+
+input[type=radio]:checked p{
+  font-weight: bold;
+}
+

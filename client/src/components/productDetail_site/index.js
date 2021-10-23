@@ -81,7 +81,7 @@ const Detail = () => {
       </div>
 
       <div className="container bg-white mt-5">
-        <div className="mt-3 mb-3 p-5" id="danhgia">
+        <div className="mt-3 mb-3 " id="danhgia">
           <h2>
             <b>Đánh giá của khách hàng</b>{" "}
           </h2>
