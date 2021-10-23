@@ -169,7 +169,7 @@ const ProductConfig = (props) => {
                           id=""
                           name="myCheckbox"
                           value={"disabled"}
-                          // disabled
+                          disabled
                         />
                         <label className="checkmark">
                           {" "}
