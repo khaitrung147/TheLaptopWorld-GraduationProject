@@ -2,6 +2,7 @@ import { call, put, takeLatest } from "@redux-saga/core/effects";
 import { getListProduct, getDetailProduct } from "../../api/product";
 import { getListProductSuccess, getDetailProductSuccess } from "../actions/product";
 
+
 function* getListProductSaga(action) {
   try {
     const data = yield call(getListProduct);

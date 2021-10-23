@@ -29,7 +29,7 @@
 
 .fixed{
   top: 0;
-  z-index: 2;
+  z-index: 10;
     width: 100%;
     position: fixed;
     background-color: rgba(47, 212, 234, 0.877);

@@ -1,0 +1,155 @@
+.img-slide .slick-track{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.img-slider{
+   position: relative;
+ 
+}
+.img-slide{
+    position: sticky;
+    top: 8rem;
+    cursor: pointer;
+}
+
+.img-slide .slick-dots{
+    bottom: 10px;
+}
+
+.rating {
+    display: inline-block;
+    position: relative;
+    height: 50px;
+    line-height: 50px;
+    font-size: 1.5rem;
+  }
+  
+  .rating label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    cursor: pointer;
+  }
+  
+  .rating label:last-child {
+    position: static;
+  }
+  
+  .rating label:nth-child(1) {
+    z-index: 5;
+  }
+  
+  .rating label:nth-child(2) {
+    z-index: 4;
+  }
+  
+  .rating label:nth-child(3) {
+    z-index: 3;
+  }
+  
+  .rating label:nth-child(4) {
+    z-index: 2;
+  }
+  
+  .rating label:nth-child(5) {
+    z-index: 1;
+  }
+  
+  .rating label input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+  }
+  
+  .rating label .icon {
+    float: left;
+    color: transparent;
+  }
+  
+  .rating label:last-child .icon {
+    color: #000;
+  }
+  
+  .rating:not(:hover) label input:checked ~ .icon,
+  .rating:hover label:hover input ~ .icon {
+    color: #0dcaf0;
+  }
+  
+  .rating label input:focus:not(:checked) ~ .icon:last-child {
+    color: #000;
+    text-shadow: 0 0 5px #0dcaf0;
+  }
+
+.cart-btn{
+  background-color: rgba(47, 212, 234, 0.877);
+  color:white;
+  outline: 2px solid rgba(47, 212, 234, 0.877);
+  transition: 0.3s;
+  border: unset;
+}
+
+.love-btn{
+  background-color: rgb(255, 93, 0);
+  color:white;
+  outline: 2px solid rgb(255, 93, 0);
+  transition: 0.3s;
+  border: unset;
+}
+
+
+.cart-btn:hover{
+  background-color: unset;
+  color: rgba(47, 212, 234, 0.877);
+  transition: 0.3s;
+  border: unset;
+}
+
+.love-btn:hover{
+  background-color: unset;
+  color: rgb(255, 93, 0);
+  transition: 0.3s;
+  border: unset;
+}
+
+.configs{
+  background-color: rgba(128, 128, 128, 0.062);
+  border: 1px solid rgba(128, 128, 128, 0.39);
+  transition: 0.3s;
+}
+
+.configs:hover{
+  border:1px solid rgba(47, 212, 234, 0.877);
+  transition: 0.3s;
+}
+
+.checklist input{
+  position: absolute;
+  opacity: 0;
+}
+
+.checklist .checkmark {
+  border: 2px solid black;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+}
+.checklist i{
+  opacity: 0;
+}
+.checklist input:checked~.checkmark{
+  background-color: rgba(47, 212, 234, 0.877);
+}
+.checklist input:checked~.checkmark i{
+  opacity: 1;
+}
+
+input[type=radio]:checked p{
+  font-weight: bold;
+}
+

@@ -7,7 +7,7 @@ function ProductColumn(props) {
   const [price, setPrice] = useState([]);
   const [config, setConfig] = useState([]);
   useEffect(() => {
-    props.data.HinhAnh.slice(0, 1).map((e) => setImgUrl(e.Url));
+    props.data.HinhAnh.splice(0, 1).map((e) => setImgUrl(e.Url));
   }, [props.data.HinhAnh]);
 
   useEffect(() => {

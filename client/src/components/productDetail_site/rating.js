@@ -63,7 +63,7 @@ const Rating = () => {
 
           <button
             type="submit"
-            className="addcart-btn rounded-pill mt-1 view-all float-end"
+            className="cart-btn mt-2 rounded-pill mt-1 view-all float-end"
           >
             {" "}
             <b>Gửi đánh giá</b>{" "}
@@ -114,9 +114,13 @@ const Rating = () => {
             bè máy ở đây rồi đến giờ vẫn chưa gặp vấn đề gì!
           </p>
           <b>19/07/2020 20:06</b>
+          <hr />
         </div>
-        <hr />
       </div>
+      <button className="cart-btn rounded-pill mt-4 view-all m-auto d-block">
+        {" "}
+        <b>Xem Thêm đánh giá</b>{" "}
+      </button>
     </>
   );
 };

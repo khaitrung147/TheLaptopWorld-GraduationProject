@@ -10,6 +10,7 @@ function Products() {
   const loading = useSelector((state) => state.products.load);
   const [view, setView] = useState(false);
   const [data, setData] = useState([]);
+
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getListProduct());
