@@ -2,23 +2,17 @@
 import React, { useEffect, useState } from "react";
 
 const RateList = (props) => {
-  useEffect(() => {
-    (props.data || []).map((dg) =>
-      (props.customer || []).map((kh) => {
-        if (dg.MaKhachHang == kh._id) {
-          console.log(dg, kh);
-        }
-      })
-    );
-  }, []);
   return (
     <div className="row">
-      {(props.data || []).map((e) =>
+      {(props.rate || []).map((e) =>
         (props.customer || []).map((kh) => (
           <>
             {e.MaKhachHang == kh._id ? (
               <>
-                <div className="col-xl-2 col-lg-2 col-md-2 col-sm-2  ">
+                <div
+                  className="col-xl-2 col-lg-2 col-md-2 col-sm-2  "
+                  key={e._id}
+                >
                   {kh.Avatar == "" ? (
                     <img
                       className="rounded-circle d-block m-auto mt-3"
@@ -36,17 +30,17 @@ const RateList = (props) => {
                   )}
                 </div>
                 <div className="col-xl-10 col-lg-10 col-md-10 col-sm-10">
-                  <div>
+                  <div className="d-flex align-items-center">
                     {" "}
-                    {e.Rate}
-                    <i className="fas fa-star  text-warning ms-1"></i>
-                    <span className="ms-3">
+                    <span className="me-3">
                       <b className="fw-bold">{kh.TenKhachHang}</b>{" "}
-                    </span>{" "}
+                    </span>
+                    {e.Rate}
+                    <i className="far fa-star custom"></i>{" "}
                   </div>
 
                   <p className="mt-2">{e.NoiDungDanhGia}</p>
-                  <b>{e.createdAt}</b>
+                  <span>{e.createdAt}</span>
                   <hr />
                 </div>
               </>

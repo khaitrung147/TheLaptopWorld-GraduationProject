@@ -5,15 +5,22 @@ import RateList from "./listrating";
 import { SpinnerCircular } from "spinners-react";
 const Rating = (props) => {
   const dispatch = useDispatch();
-  const rate = useSelector((state) => state.rate.data);
+  const data = useSelector((state) => state.rate.data);
   const load = useSelector((state) => state.rate.load);
   const productID = props.product._id;
+  const [rate, setRate] = useState([]);
+  const [customer, setCustomer] = useState([]);
   useEffect(() => {
     dispatch(getListRate(productID));
     return () => {
       dispatch(getListRate(productID));
     };
   }, [dispatch, productID]);
+
+  useEffect(() => {
+    setRate(data);
+    setCustomer(props.customer);
+  }, [data, props.customer]);
 
   return (
     <>
@@ -23,31 +30,31 @@ const Rating = (props) => {
             <label>
               <input type="radio" name="stars" value="1" required />
               <span class="icon">
-                <i className="fas fa-star"></i>
+                <i className="far fa-star"></i>
               </span>
             </label>
             <label>
               <input type="radio" name="stars" value="2" required />
               <span class="icon">
-                <i className="fas fa-star"></i>
-                <i className="fas fa-star"></i>
+                <i className="far fa-star"></i>
+                <i className="far fa-star"></i>
               </span>
             </label>
             <label>
               <input type="radio" name="stars" value="3" required />
               <span class="icon">
-                <i className="fas fa-star"></i>
-                <i className="fas fa-star"></i>
-                <i className="fas fa-star"></i>
+                <i className="far fa-star"></i>
+                <i className="far fa-star"></i>
+                <i className="far fa-star"></i>
               </span>
             </label>
             <label>
               <input type="radio" name="stars" value="4" required />
               <span class="icon">
-                <i className="fas fa-star"></i>
-                <i className="fas fa-star"></i>
-                <i className="fas fa-star"></i>
-                <i className="fas fa-star"></i>
+                <i className="far fa-star"></i>
+                <i className="far fa-star"></i>
+                <i className="far fa-star"></i>
+                <i className="far fa-star"></i>
               </span>
             </label>
             <label>
@@ -59,11 +66,11 @@ const Rating = (props) => {
                 required
               />
               <span class="icon">
-                <i className="fas fa-star"></i>
-                <i className="fas fa-star"></i>
-                <i className="fas fa-star"></i>
-                <i className="fas fa-star"></i>
-                <i className="fas fa-star"></i>
+                <i className="far fa-star"></i>
+                <i className="far fa-star"></i>
+                <i className="far fa-star"></i>
+                <i className="far fa-star"></i>
+                <i className="far fa-star"></i>
               </span>
             </label>
           </div>
@@ -97,21 +104,21 @@ const Rating = (props) => {
       ) : (
         <>
           {(rate || []).length == 0 ? (
-            <h5 className="text-center p-3 custom">
+            <h5 className="text-center p-3 ">
               {" "}
               <b>Sản phẩm chưa có đánh giá...</b>{" "}
             </h5>
           ) : (
             <>
               <h4 className="mt-5">
-                <b href="" className="text-decoration-underline ms-2 custom">
+                <b href="" className=" ms-2">
                   <small>
                     <i class="fas fa-award me-2"></i> {(rate || []).length} đánh
                     giá
                   </small>{" "}
                 </b>{" "}
               </h4>
-              <RateList data={rate} customer={props.customer} />
+              <RateList rate={rate} customer={customer} />
 
               <button className="cart-btn rounded-pill mt-4 view-all m-auto d-block">
                 {" "}

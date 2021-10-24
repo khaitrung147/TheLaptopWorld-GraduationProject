@@ -55,22 +55,6 @@ const ProductConfig = (props) => {
                 </b>
               )}
             </h5>
-
-            {/* <p className="mt-4">
-              <a
-                href={"#danhgia"}
-                className="text-decoration-underline fw-bold custom"
-              >
-                 7 đánh giá
-              </a>
-              <a
-                href={"#binhluan"}
-                className="text-decoration-underline ms-2 fw-bold custom"
-              >
-                <i class="fas fa-comments ms-2"></i>
-                16 bình luận
-              </a>{" "}
-            </p> */}
             <p className="mt-5">
               <b>Thương hiệu:</b> {props.data.HangSanXuat}
             </p>
@@ -227,18 +211,14 @@ const ProductConfig = (props) => {
                       </>
                     ) : (
                       <>
-                        <p className="text-info">
-                          <b>
-                            VNĐ{" "}
-                            {(
-                              ((100 - e.PhanTramGiamGia) / 100) *
-                              e.GiaSanPham
-                            ).toLocaleString("vi-vn")}
-                          </b>{" "}
+                        <p className="text-info fw-bold">
+                          VNĐ{" "}
+                          {(
+                            ((100 - e.PhanTramGiamGia) / 100) *
+                            e.GiaSanPham
+                          ).toLocaleString("vi-vn")}{" "}
                         </p>
-                        <del>
-                          <b>VNĐ {e.GiaSanPham.toLocaleString("vi-vn")}</b>{" "}
-                        </del>
+                        <del>VNĐ {e.GiaSanPham.toLocaleString("vi-vn")}</del>
                       </>
                     )}
                   </div>
@@ -247,7 +227,9 @@ const ProductConfig = (props) => {
             ))}
           </div>
 
-          <h6 className="mt-3 mb-3">{props.data.MoTa}</h6>
+          <p className="mt-3 mb-3" style={{ fontSize: "1.1rem" }}>
+            {props.data.MoTa}
+          </p>
         </div>
       </div>
     </>

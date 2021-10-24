@@ -11,31 +11,31 @@ const Filter = () => {
 
   return (
     <>
-      <ul class="list-group">
+      <ul className="list-group">
         <h5 className="fw-bolder">Thương hiệu</h5>
 
-        <li class="list-group-item brand d-flex justify-content-between align-items-center fw-bold">
+        <li className="list-group-item brand d-flex justify-content-between align-items-center fw-bold">
           Apple
-          <span class="badge rounded-pill">(14)</span>
+          <span className="badge rounded-pill">(14)</span>
         </li>
       </ul>
 
-      <ul class="list-group mt-3">
+      <ul className="list-group mt-3">
         <h5 className="fw-bolder">Cấu hình</h5>
 
-        <div class="form-check w-100 list-group-item config d-flex align-items-center">
+        <div className="form-check w-100 list-group-item config d-flex align-items-center">
           <input
-            class="form-check"
+            className="form-check"
             type="checkbox"
             value=""
             id="flexCheckDefault"
           />
           <label
-            class="form-check-label w-100 fw-bold ms-2"
-            for="flexCheckDefault"
+            className="form-check-label w-100 fw-bold ms-2"
+            htmlFor="flexCheckDefault"
           >
             i5
-            <span class="badge rounded-pill float-end">(14)</span>
+            <span className="badge rounded-pill float-end">(14)</span>
           </label>
         </div>
       </ul>

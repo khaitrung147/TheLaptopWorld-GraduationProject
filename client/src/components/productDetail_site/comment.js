@@ -1,5 +1,34 @@
 import React, { useEffect, useState } from "react";
-const Comment = () => {
+import { useDispatch, useSelector } from "react-redux";
+import { getListComment } from "../../redux/actions/comment";
+import { SpinnerCircular } from "spinners-react";
+import CommentList from "./listcomment";
+import { getListStaff } from "../../redux/actions/staff";
+const Comment = (props) => {
+  const dispatch = useDispatch();
+  const data = useSelector((state) => state.comment.data);
+  const load = useSelector((state) => state.comment.load);
+  const staffData = useSelector((state) => state.staff.data);
+
+  const [comment, setComment] = useState([]);
+  const [customer, setCustomer] = useState([]);
+  const [staff, setStaff] = useState([]);
+
+  const productID = props.product._id;
+  useEffect(() => {
+    dispatch(getListComment(productID));
+    dispatch(getListStaff());
+    return () => {
+      dispatch(getListComment(productID));
+      dispatch(getListStaff());
+    };
+  }, [dispatch, productID]);
+
+  useEffect(() => {
+    setComment(data);
+    setCustomer(props.customer);
+    setStaff(staffData);
+  }, [data, props.customer, staffData]);
   return (
     <>
       <form action="" className="mb-5">
@@ -21,36 +50,47 @@ const Comment = () => {
           </button>
         </div>
       </form>
-
-      <div className="row ">
-        <div
-          className="col-xl-2 col-md-2 col-sm-2 d-block m-auto mt-5"
-          style={{ width: "6rem" }}
-        >
-          <img
-            className="w-100 rounded-circle"
-            src="https://cdn-icons-png.flaticon.com/512/147/147144.png"
-            alt=""
+      <>
+        {load ? (
+          <SpinnerCircular
+            size={70}
+            thickness={80}
+            speed={150}
+            color="rgb(255, 93, 0)"
+            secondaryColor="rgb(47, 212, 234)"
+            className="m-auto d-block"
           />
-        </div>
-        <div className="col-xl-10 col-md-10 col-sm-10 mt-5">
-          <b>19/07/2020 20:06</b>
-          <span className="ms-3">
-            <small className="fw-bold">Trần văn C</small>{" "}
-          </span>{" "}
-          <p>
-            Giá tiền đi đôi với chất lượng: + Máy đẹp, ngon nghẻ + Các bạn nhân
-            viên tư vấn nhiệt tình và đúng theo yêu cầu khách hàng, không phải
-            kiểu dí khách mua máy như một số bên khác. Mua cho nhiều anh em bạn
-            bè máy ở đây rồi đến giờ vẫn chưa gặp vấn đề gì!
-          </p>
-          <hr />
-        </div>
-      </div>
-      <button className="cart-btn  rounded-pill mt-4 view-all m-auto d-block">
-        {" "}
-        <b>Xem Thêm bình luận</b>{" "}
-      </button>
+        ) : (
+          <>
+            {(comment || []).length == 0 ? (
+              <h5 className="text-center p-3 ">
+                {" "}
+                <b>Sản phẩm chưa có bình luận...</b>{" "}
+              </h5>
+            ) : (
+              <>
+                <h4 className="mt-5">
+                  <b href="" className="ms-2">
+                    <small>
+                      <i className="far fa-comments"></i>{" "}
+                      {(comment || []).length} bình luận
+                    </small>{" "}
+                  </b>{" "}
+                </h4>
+                <CommentList
+                  comment={comment}
+                  customer={customer}
+                  staff={staff}
+                />
+                <button className="cart-btn  rounded-pill mt-4 view-all m-auto d-block">
+                  {" "}
+                  <b>Xem Thêm bình luận</b>{" "}
+                </button>{" "}
+              </>
+            )}
+          </>
+        )}
+      </>
     </>
   );
 };

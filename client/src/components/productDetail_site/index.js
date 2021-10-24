@@ -54,16 +54,7 @@ const Detail = () => {
 
         <div className="container">
           <div className="row ">
-            {product == undefined ? (
-              <SpinnerCircular
-                size={90}
-                thickness={80}
-                speed={150}
-                color="rgb(255, 93, 0)"
-                secondaryColor="rgb(47, 212, 234)"
-                className="m-auto mb-5 mt-5"
-              />
-            ) : loading ? (
+            {loading ? (
               <SpinnerCircular
                 size={90}
                 thickness={80}
@@ -84,16 +75,7 @@ const Detail = () => {
         </div>
       </div>
 
-      {product == undefined ? (
-        <SpinnerCircular
-          size={90}
-          thickness={80}
-          speed={150}
-          color="rgb(255, 93, 0)"
-          secondaryColor="rgb(47, 212, 234)"
-          className=" d-none"
-        />
-      ) : loading ? (
+      {loading ? (
         <SpinnerCircular
           size={90}
           thickness={80}
@@ -118,7 +100,7 @@ const Detail = () => {
               <h2>
                 <b>Bình luận về sản phẩm</b>{" "}
               </h2>
-              <Comment />
+              <Comment product={product} customer={customer} />
             </div>
           </div>
         </>
