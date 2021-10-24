@@ -76,12 +76,12 @@
   
   .rating:not(:hover) label input:checked ~ .icon,
   .rating:hover label:hover input ~ .icon {
-    color: #0dcaf0;
+    color: rgb(255, 93, 0);
   }
   
   .rating label input:focus:not(:checked) ~ .icon:last-child {
     color: #000;
-    text-shadow: 0 0 5px #0dcaf0;
+    text-shadow: 0 0 5px rgb(255, 93, 0);
   }
 
 .cart-btn{
@@ -138,6 +138,7 @@
   text-align: center;
   display: flex;
   align-items: center;
+  border-radius: 5px;
 }
 .checklist i{
   opacity: 0;
@@ -153,3 +154,6 @@ input[type=radio]:checked p{
   font-weight: bold;
 }
 
+.custom{
+  color: rgb(255, 93, 0);
+}

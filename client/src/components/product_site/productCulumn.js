@@ -23,7 +23,7 @@ function ProductColumn(props) {
   return (
     <>
       {props.view ? (
-        <div className="container">
+        <div className="container" key={props.data._id}>
           <div className=" card mt-3">
             <div className="row">
               <div

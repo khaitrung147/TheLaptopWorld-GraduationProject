@@ -1,4 +1,5 @@
-import React, { useEffect, useState, useRef } from "react";
+/* eslint-disable eqeqeq */
+import React, { useEffect, useState } from "react";
 
 const ProductConfig = (props) => {
   const [saleprice, setSalePrice] = useState([]);
@@ -13,15 +14,12 @@ const ProductConfig = (props) => {
       ).toLocaleString("vi-vn")
     );
     Checked();
-    Highlight();
   }, [props.data.CauHinhSanPham, config]);
 
   const Checked = () => {
     var input = document.getElementsByName("myCheckbox");
     input[0].checked = true;
   };
-
-  const Highlight = () => {};
 
   const AddCart = () => {
     var value = document.querySelector("input[type=radio]:checked");
@@ -38,11 +36,14 @@ const ProductConfig = (props) => {
   };
   return (
     <>
-      <div className="col-xl-6 col-lg-6 col-md-12 col-sm-12 ">
+      <div
+        className="col-xl-6 col-lg-6 col-md-12 col-sm-12 "
+        key={props.data._id}
+      >
         <div className="row">
           <div className="col-12">
             <h1 className="fw-bold">{props.data.TenSanPham}</h1>
-            <h4 className="text-info">
+            <h5 className="text-info">
               {config.PhanTramGiamGia == 0 ? (
                 <b>VNĐ {saleprice} </b>
               ) : (
@@ -53,21 +54,24 @@ const ProductConfig = (props) => {
                   </del>
                 </b>
               )}
-            </h4>
+            </h5>
 
-            <p className="mt-4">
-              5 <i className="fas fa-star text-warning"></i>
-              <i className="fas fa-star text-warning"></i>
-              <i className="fas fa-star text-warning"></i>
-              <i className="fas fa-star text-warning"></i>
-              <i className="fas fa-star text-warning"></i>
-              <b className="text-decoration-underline ms-2">7 đánh giá</b>
-              <b className="text-decoration-underline ms-2">
-                {" "}
+            {/* <p className="mt-4">
+              <a
+                href={"#danhgia"}
+                className="text-decoration-underline fw-bold custom"
+              >
+                 7 đánh giá
+              </a>
+              <a
+                href={"#binhluan"}
+                className="text-decoration-underline ms-2 fw-bold custom"
+              >
+                <i class="fas fa-comments ms-2"></i>
                 16 bình luận
-              </b>{" "}
-            </p>
-            <p>
+              </a>{" "}
+            </p> */}
+            <p className="mt-5">
               <b>Thương hiệu:</b> {props.data.HangSanXuat}
             </p>
             <p>
@@ -107,9 +111,9 @@ const ProductConfig = (props) => {
           </div>
 
           <div className="mt-5">
-            <div className="card p-3  ">
+            <div className="card p-3">
               {props.data.KhuyenMai.map((e) => (
-                <p className="text-danger">
+                <p className="custom fw-bold">
                   <i class="fas fa-gifts me-3"></i>
                   {e.KhuyenMai === ""
                     ? "Sản phẩm hiện chưa có khuyến mãi !!!"
@@ -117,7 +121,7 @@ const ProductConfig = (props) => {
                 </p>
               ))}
             </div>
-            <div className="mt-3">
+            <div className="mt-5">
               <button
                 type="submit"
                 className="p-2 rounded-pill cart-btn fw-bold  "
@@ -156,7 +160,10 @@ const ProductConfig = (props) => {
             <h2 className="fw-bold">Các cấu hình tùy chọn</h2>
 
             {props.data.CauHinhSanPham.map((e) => (
-              <div className="col-xl-6 col-lg-6 col-md-12 col-sm-12">
+              <div
+                className="col-xl-6 col-lg-6 col-md-12 col-sm-12"
+                key={e._id}
+              >
                 <label
                   className="position-relative rounded-3 p-2 mt-1 form-check configs"
                   style={{ cursor: "pointer" }}
@@ -169,7 +176,6 @@ const ProductConfig = (props) => {
                           id=""
                           name="myCheckbox"
                           value={"disabled"}
-                          disabled
                         />
                         <label className="checkmark">
                           {" "}
@@ -184,7 +190,7 @@ const ProductConfig = (props) => {
                           value={e.PhanTramGiamGia}
                           name="myCheckbox"
                         />
-                        <label className="checkmark">
+                        <label className="checkmark ">
                           <i class="fas fa-check "></i>
                         </label>
                       </div>
@@ -241,7 +247,7 @@ const ProductConfig = (props) => {
             ))}
           </div>
 
-          <h6 className="mt-3">{props.data.MoTa}</h6>
+          <h6 className="mt-3 mb-3">{props.data.MoTa}</h6>
         </div>
       </div>
     </>

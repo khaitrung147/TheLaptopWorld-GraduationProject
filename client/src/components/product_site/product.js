@@ -14,7 +14,7 @@ function Products() {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getListProduct());
-    dispatch(getDetailProduct('hp-elitebook-840'));
+    dispatch(getDetailProduct("hp-elitebook-840"));
   }, [dispatch]);
 
   useEffect(() => {
@@ -27,8 +27,6 @@ function Products() {
   const changeViewList = () => {
     setView(false);
   };
-
-  console.log('productDetail :>> ', productDetail);
 
   return (
     <div>
