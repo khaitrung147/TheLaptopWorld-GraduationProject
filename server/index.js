@@ -10,6 +10,7 @@ import productCompany from "./routers/productCompany.js";
 import customers from "./routers/customers.js";
 import staffs from "./routers/staffs.js";
 import rate from "./routers/rates.js";
+import comment from "./routers/comment.js";
 const app = express();
 const PORT = process.env.port || 5000;
 const URL =
@@ -30,6 +31,7 @@ app.use("/api/v1/hang-san-xuat", productCompany);
 app.use("/api/v1/tai-khoan-khach-hang", customers);
 app.use("/api/v1/tai-khoan-nhan-vien", staffs);
 app.use("/api/v1/danh-gia", rate);
+app.use("/api/v1/binh-luan-khach-hang", comment);
 mongoose
   .connect(URL, {
     useNewUrlParser: true,

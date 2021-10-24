@@ -32,7 +32,7 @@ function Products() {
     <div>
       <div className="left d-flex align-items-center ">
         <i
-          class="list fas fa-bars  p-2 rounded-pill"
+          className="list fas fa-bars  p-2 rounded-pill"
           style={
             view
               ? { background: "rgba(255, 94, 0, 0.26)" }
@@ -41,7 +41,7 @@ function Products() {
           onClick={() => changeViewColumn()}
         ></i>
         <i
-          class="column fas fa-columns ms-xl-2 ms-lg-2 ms-md-2 p-2 rounded-pill"
+          className="column fas fa-columns ms-xl-2 ms-lg-2 ms-md-2 p-2 rounded-pill"
           style={
             view
               ? { background: "unset" }

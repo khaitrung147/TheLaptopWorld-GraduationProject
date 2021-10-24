@@ -4,12 +4,16 @@ import productReducer from "./product";
 import detailProductReducer from "./detailProduct";
 import rateReducer from "./rate";
 import customerReducer from "./customer";
+import commentReducer from "./comment";
+import staffReducer from "./staff";
 const rootReducer = combineReducers({
   catalogs: catalogReducer,
   products: productReducer,
   detailProduct: detailProductReducer,
   rate: rateReducer,
   customer: customerReducer,
+  comment: commentReducer,
+  staff: staffReducer,
 });
 
 export default rootReducer;
