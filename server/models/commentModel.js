@@ -1,18 +1,18 @@
-import mongoose   from "mongoose";
+import mongoose from "mongoose";
 
 const schema = new mongoose.Schema(
-  {   
+  {
     MaSanPham: mongoose.Schema.Types.ObjectId,
-    MaKhachHang: mongoose.Schema.Types.ObjectId ,
-    NongDungBingLuan:String,
-    PhanHoi:[
-        {
-            MaNhanVien:mongoose.Schema.Types.ObjectId,
-            MaKhachHang: mongoose.Schema.Types.ObjectId,
-            NoiDungTraLoi:String,
-            ThoiGian:Timestamp,
-        }
-    ]
+    MaKhachHang: mongoose.Schema.Types.ObjectId,
+    NoiDungBinhLuan: String,
+    PhanHoi: [
+      {
+        MaNhanVien: mongoose.Schema.Types.ObjectId,
+        MaKhachHang: mongoose.Schema.Types.ObjectId,
+        NoiDungTraLoi: String,
+        ThoiGian: { type: Date, default: Date.now },
+      },
+    ],
   },
   { timestamps: true }
 );

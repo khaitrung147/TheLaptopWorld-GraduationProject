@@ -1,16 +1,13 @@
-import {
-  GET_LIST_PRODUCT,
-  GET_LIST_PRODUCT_SUCCESS,
-} from "../constants/product";
+import { GET_LIST_RATEID, GET_LIST_RATEID_SUCCESS } from "../constants/rate";
 
-const productReducer = (state = [], action) => {
+const rateReducer = (state = [], action) => {
   switch (action.type) {
-    case GET_LIST_PRODUCT:
+    case GET_LIST_RATEID:
       return {
         ...state,
         load: true,
       };
-    case GET_LIST_PRODUCT_SUCCESS:
+    case GET_LIST_RATEID_SUCCESS:
       const { data } = action.payload;
       return {
         ...state,
@@ -22,4 +19,4 @@ const productReducer = (state = [], action) => {
   }
 };
 
-export default productReducer;
+export default rateReducer;

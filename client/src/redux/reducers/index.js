@@ -1,10 +1,19 @@
 import { combineReducers } from "redux";
 import catalogReducer from "./catalog";
-import postProductReducer from "./product";
-
+import productReducer from "./product";
+import detailProductReducer from "./detailProduct";
+import rateReducer from "./rate";
+import customerReducer from "./customer";
+import commentReducer from "./comment";
+import staffReducer from "./staff";
 const rootReducer = combineReducers({
   catalogs: catalogReducer,
-  products: postProductReducer,
+  products: productReducer,
+  detailProduct: detailProductReducer,
+  rate: rateReducer,
+  customer: customerReducer,
+  comment: commentReducer,
+  staff: staffReducer,
 });
 
 export default rootReducer;

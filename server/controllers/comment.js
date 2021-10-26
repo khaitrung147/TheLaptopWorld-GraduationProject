@@ -1,9 +1,9 @@
-import { comment } from "../models/commentModel.js";
+import { commentModel } from "../models/commentModel.js";
 
 const getComment = async (req, res) => {
   try {
-    const  comment = await comment.find();
-    res.status(200).json( comment);
+    const comment = await commentModel.find().sort({ createdAt: "desc" });
+    res.status(200).json(comment);
   } catch (error) {
     res.status(500).json({ error: err });
   }
@@ -12,7 +12,7 @@ const getComment = async (req, res) => {
 const createComment = async (req, res) => {
   const create = req.body;
   try {
-    const post = new comment(create);
+    const post = new commentModel(create);
     const response = await post.save();
     res.status(200).json(response);
   } catch (error) {
@@ -23,8 +23,10 @@ const createComment = async (req, res) => {
 const getById = async (req, res) => {
   const id = req.params.id;
   try {
-    const  commentId = await commentId.findById(id);
-    res.status(200).json( commentId);
+    const commentId = await commentModel
+      .find({ MaSanPham: id })
+      .sort({ createdAt: "desc" });
+    res.status(200).json(commentId);
   } catch (error) {
     res.status(500).json({ error: err });
   }
@@ -33,8 +35,8 @@ const getById = async (req, res) => {
 const deleteById = async (req, res) => {
   const id = req.params.id;
   try {
-    const  commentId = await commentId.findByIdAndRemove(id);
-    res.status(200).json( commentId);
+    const commentId = await commentModel.findByIdAndRemove(id);
+    res.status(200).json(commentId);
   } catch (error) {
     res.status(500).json({ error: err });
   }
@@ -44,9 +46,10 @@ const updateById = async (req, res) => {
   const id = req.params.id;
   const updates = req.body;
   try {
-    const  commentId = await commentId.findByIdAndUpdate(id, updates);
-    res.status(200).json( commentId);
+    const commentId = await commentModel.findByIdAndUpdate(id, updates);
+    res.status(200).json(commentId);
   } catch (error) {
+    console.log(error);
     res.status(500).json({ error: err });
   }
 };

@@ -82,7 +82,18 @@ const login = async (req, res) => {
         },
       });
     } else {
-      res.status(200).json("mat khau sai");
+      if (bcrypt.compareSync(password, user.Password)) {
+        const loginToken = jwt.sign({ userId: user._id }, "myKey");
+        return res.status(200).json({
+          status: "success",
+          token: {
+            useName: username,
+            loginToken,
+          },
+        });
+      } else {
+        res.status(200).json("mat khau sai");
+      }
     }
   } catch (error) {
     console.log(error);

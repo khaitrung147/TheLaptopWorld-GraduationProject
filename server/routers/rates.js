@@ -15,4 +15,5 @@ router.post("/", createRates);
 router.get("/:id", getById);
 
 router.patch("/:id", updateById);
+
 export default router;
