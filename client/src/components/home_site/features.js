@@ -5,7 +5,7 @@ const Features = ()=>{
         <div className="">
         <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-3">
         <div class="col">
-          <div class="card card-cover h-100 overflow-hidden text-dark bg-white rounded-5 shadow-lg">
+          <div class="card card-cover h-100 overflow-hidden text-dark bg-white rounded-5 shadow-sm">
           <div className="row">
           <div class="col-sm-6">
           <div className='w-100 ms-3 mt-3'>
@@ -17,14 +17,14 @@ const Features = ()=>{
             <div class="rating">
             <i class="fa fa-star clicked"></i>
             <i class="fa fa-star clicked"></i>
-            <i class="far fa-star"></i>
-            <i class="far fa-star"></i>
-            <i class="far fa-star"></i>
+            <i class="fa fa-star bg"></i>
+            <i class="fa fa-star bg"></i>
+            <i class="fa fa-star bg"></i>
             </div>
             <div className='price'>
             <h6>
                 <p>
-                  Giá từ : <b className="text-danger">200.000vnđ</b>
+                 <b className='text-info'>Giá từ :</b><b className="text-info">200.000vnđ</b>
                 </p>
               </h6>
             </div>
@@ -33,7 +33,7 @@ const Features = ()=>{
         </div>
         </div>
         <div class="col">
-          <div class="card card-cover h-100 overflow-hidden text-dark bg-white rounded-5 shadow-lg">
+          <div class="card card-cover h-100 overflow-hidden text-dark bg-white rounded-5 shadow-sm">
           <div className="row">
           <div class="col-sm-6">
           <div className='w-100 ms-3 mt-3'>
@@ -45,14 +45,14 @@ const Features = ()=>{
             <div class="rating">
             <i class="fa fa-star clicked"></i>
             <i class="fa fa-star clicked"></i>
-            <i class="far fa-star"></i>
-            <i class="far fa-star"></i>
-            <i class="far fa-star"></i>
+            <i class="fa fa-star bg"></i>
+            <i class="fa fa-star bg"></i>
+            <i class="fa fa-star bg"></i>
             </div>
             <div className='price'>
             <h6>
                 <p>
-                  Giá từ : <b className="text-danger">200.000vnđ</b>
+                 <b className='text-info'>Giá từ :</b><b className="text-info">200.000vnđ</b>
                 </p>
               </h6>
             </div>
@@ -61,7 +61,7 @@ const Features = ()=>{
         </div>
         </div>
         <div class="col">
-          <div class="card card-cover h-100 overflow-hidden text-dark bg-white rounded-5 shadow-lg">
+          <div class="card card-cover h-100 overflow-hidden text-dark bg-white rounded-5 shadow-sm">
           <div className="row">
           <div class="col-sm-6">
           <div className='w-100 ms-3 mt-3'>
@@ -73,14 +73,14 @@ const Features = ()=>{
             <div class="rating">
             <i class="fa fa-star clicked"></i>
             <i class="fa fa-star clicked"></i>
-            <i class="far fa-star"></i>
-            <i class="far fa-star"></i>
-            <i class="far fa-star"></i>
+            <i class="fa fa-star bg"></i>
+            <i class="fa fa-star bg"></i>
+            <i class="fa fa-star bg"></i>
             </div>
             <div className='price'>
             <h6>
                 <p>
-                  Giá từ : <b className="text-danger">200.000vnđ</b>
+                 <b className='text-info'>Giá từ :</b><b className="text-info">200.000vnđ</b>
                 </p>
               </h6>
             </div>
@@ -89,7 +89,7 @@ const Features = ()=>{
         </div>
         </div>
         <div class="col">
-          <div class="card card-cover h-100 overflow-hidden text-dark bg-white rounded-5 shadow-lg">
+          <div class="card card-cover h-100 overflow-hidden text-dark bg-white rounded-5 shadow-sm">
           <div className="row">
           <div class="col-sm-6">
           <div className='w-100 ms-3 mt-3'>
@@ -101,14 +101,14 @@ const Features = ()=>{
             <div class="rating">
             <i class="fa fa-star clicked"></i>
             <i class="fa fa-star clicked"></i>
-            <i class="far fa-star"></i>
-            <i class="far fa-star"></i>
-            <i class="far fa-star"></i>
+            <i class="fa fa-star bg"></i>
+            <i class="fa fa-star bg"></i>
+            <i class="fa fa-star bg"></i>
             </div>
             <div className='price'>
             <h6>
                 <p>
-                  Giá từ : <b className="text-danger">200.000vnđ</b>
+                 <b className='text-info'>Giá từ :</b><b className="text-info">200.000vnđ</b>
                 </p>
               </h6>
             </div>
@@ -117,7 +117,7 @@ const Features = ()=>{
         </div>
         </div>
         <div class="col">
-          <div class="card card-cover h-100 overflow-hidden text-dark bg-white rounded-5 shadow-lg">
+          <div class="card card-cover h-100 overflow-hidden text-dark bg-white rounded-5 shadow-sm">
           <div className="row">
           <div class="col-sm-6">
           <div className='w-100 ms-3 mt-3'>
@@ -129,14 +129,14 @@ const Features = ()=>{
             <div class="rating">
             <i class="fa fa-star clicked"></i>
             <i class="fa fa-star clicked"></i>
-            <i class="far fa-star"></i>
-            <i class="far fa-star"></i>
-            <i class="far fa-star"></i>
+            <i class="fa fa-star bg"></i>
+            <i class="fa fa-star bg"></i>
+            <i class="fa fa-star bg"></i>
             </div>
             <div className='price'>
             <h6>
                 <p>
-                  Giá từ : <b className="text-danger">200.000vnđ</b>
+                 <b className='text-info'>Giá từ :</b><b className="text-info">200.000vnđ</b>
                 </p>
               </h6>
             </div>
@@ -145,7 +145,7 @@ const Features = ()=>{
         </div>
         </div>
         <div class="col">
-          <div class="card card-cover h-100 overflow-hidden text-dark bg-white rounded-5 shadow-lg">
+          <div class="card card-cover h-100 overflow-hidden text-dark bg-white rounded-5 shadow-sm">
           <div className="row">
           <div class="col-sm-6">
           <div className='w-100 ms-3 mt-3'>
@@ -157,14 +157,14 @@ const Features = ()=>{
             <div class="rating">
             <i class="fa fa-star clicked"></i>
             <i class="fa fa-star clicked"></i>
-            <i class="far fa-star"></i>
-            <i class="far fa-star"></i>
-            <i class="far fa-star"></i>
+            <i class="fa fa-star bg"></i>
+            <i class="fa fa-star bg"></i>
+            <i class="fa fa-star bg"></i>
             </div>
             <div className='price'>
             <h6>
                 <p>
-                  Giá từ : <b className="text-danger">200.000vnđ</b>
+                 <b className='text-info'>Giá từ :</b><b className="text-info">200.000vnđ</b>
                 </p>
               </h6>
             </div>
