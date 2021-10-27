@@ -12,29 +12,29 @@ import CatalogDetail_admin from "./components/catalog_admin/catalogDetail";
 const Page = {
   Site: [
     {
-      path: '/',
+      path: "/",
       component: Home_site,
-      exact: true
+      exact: true,
     },
     {
-      path: '/dang-nhap',
+      path: "/dang-nhap",
       component: Login,
-      exact: true
+      exact: true,
     },
     {
-      path: '/san-pham',
+      path: "/san-pham",
       component: Product_site,
-      exact: true
+      exact: true,
     },
     {
-      path: '/san-pham/:key',
+      path: "/san-pham/:key",
       component: DetailProduct_site,
-      exact: false
-    }
+      exact: false,
+    },
   ],
   Admin: [
     {
-      path: '/admin',
+      path: "/admin",
       component: Dashboard_admin,
       exact: true
     },

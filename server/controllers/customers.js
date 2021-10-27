@@ -70,6 +70,17 @@ const login = async (req, res) => {
     });
     if (!user) {
       res.status(200).json("Tai khoan không ton tai");
+    }
+    if (bcrypt.compareSync(password, user.Password)) {
+      const loginToken = jwt.sign({ userId: user._id }, "myKey");
+      return res.status(200).json({
+        status: "success",
+        token: {
+          useName: user.TenKhachHang,
+          userId: user._id,
+          loginToken,
+        },
+      });
     } else {
       if (bcrypt.compareSync(password, user.Password)) {
         const loginToken = jwt.sign({ userId: user._id }, "myKey");

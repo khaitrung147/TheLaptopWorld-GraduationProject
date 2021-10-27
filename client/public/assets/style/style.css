@@ -7,9 +7,9 @@
     font-family: 'Roboto', sans-serif;
     scroll-behavior: smooth;
 }
+
 main {
     background-color: rgba(128, 128, 128, 0.034);
-    text-decoration: none;
 }
 
 .currentcy button {
@@ -94,9 +94,9 @@ main {
     transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
-input[type="radio"] {
+/* input[type="radio"] {
     display: none;
-}
+} */
 
 #signup:checked~.slider-tab {
     left: 50%;
@@ -276,20 +276,6 @@ form .btn input[type="submit"] {
     left: -6px;
 }
 
-.img-slide .slick-track{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.img-slider{
-   position: relative;
- 
-}
-.img-slide{
-    position: sticky;
-    top: 10rem;
-}
 
 
 .slide-brand {
@@ -310,71 +296,7 @@ form .btn input[type="submit"] {
     margin-left: 75%;
 }
 
-.rating {
-    display: inline-block;
-    position: relative;
-    height: 50px;
-    line-height: 50px;
-    font-size: 1.5rem;
-  }
-  
-  .rating label {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    cursor: pointer;
-  }
-  
-  .rating label:last-child {
-    position: static;
-  }
-  
-  .rating label:nth-child(1) {
-    z-index: 5;
-  }
-  
-  .rating label:nth-child(2) {
-    z-index: 4;
-  }
-  
-  .rating label:nth-child(3) {
-    z-index: 3;
-  }
-  
-  .rating label:nth-child(4) {
-    z-index: 2;
-  }
-  
-  .rating label:nth-child(5) {
-    z-index: 1;
-  }
-  
-  .rating label input {
-    position: absolute;
-    top: 0;
-    left: 0;
-    opacity: 0;
-  }
-  
-  .rating label .icon {
-    float: left;
-    color: transparent;
-  }
-  
-  .rating label:last-child .icon {
-    color: #000;
-  }
-  
-  .rating:not(:hover) label input:checked ~ .icon,
-  .rating:hover label:hover input ~ .icon {
-    color: #0dcaf0;
-  }
-  
-  .rating label input:focus:not(:checked) ~ .icon:last-child {
-    color: #000;
-    text-shadow: 0 0 5px #0dcaf0;
-  }
+
 
 .product-slide .slick-track .slick-slide .product-card{
     height: 100%;
@@ -563,13 +485,9 @@ li:hover i {
 
 }
 
-
 @media only screen and (max-width: 426px) {
     .foot-logo {
         margin-left: 24%;
     }
 
-    .container-news {
-        width: 100%;
-    }  
 }
