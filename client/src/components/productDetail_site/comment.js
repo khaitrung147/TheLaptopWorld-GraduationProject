@@ -1,8 +1,51 @@
-import React, { useEffect, useState } from "react";
-const Comment = () => {
+import React, { useEffect, useRef, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getListComment, postComment } from "../../redux/actions/comment";
+import { SpinnerCircular } from "spinners-react";
+import CommentList from "./listcomment";
+import { getListStaff } from "../../redux/actions/staff";
+import axios from "axios";
+
+const Comment = (props) => {
+  const dispatch = useDispatch();
+  const data = useSelector((state) => state.comment.data);
+  const load = useSelector((state) => state.comment.load);
+  const staffData = useSelector((state) => state.staff.data);
+
+  const productID = props.product._id;
+  useEffect(() => {
+    dispatch(getListComment(productID));
+    dispatch(getListStaff());
+    return () => {
+      dispatch(getListComment(productID));
+      dispatch(getListStaff());
+    };
+  }, [dispatch, productID]);
+
+  useEffect(() => {}, [data, props.customer, staffData]);
+
+  const formValue = useRef();
+
+  const PostUserComment = async (e) => {
+    e.preventDefault();
+    let body = {
+      MaSanPham: productID,
+      MaKhachHang: "616e9dc3fa01938e427f1dba",
+      NoiDungBinhLuan: formValue.current.value,
+      PhanHoi: [],
+    };
+    await axios
+      .post("http://localhost:5000/api/v1/binh-luan-khach-hang", body)
+      .then((res) => {
+        dispatch(getListComment(productID));
+        dispatch(getListStaff());
+      });
+  };
+  console.log(data);
+
   return (
     <>
-      <form action="" className="mb-5">
+      <form action="" className="mb-5" onSubmit={PostUserComment}>
         <div className="form-group">
           <textarea
             className="form-control"
@@ -10,43 +53,48 @@ const Comment = () => {
             id="exampleFormControlTextarea1"
             rows="3"
             required
+            ref={formValue}
           ></textarea>
 
           <button
             type="submit"
-            className="addcart-btn rounded-pill mt-1 view-all float-end"
+            className="cart-btn mt-2 rounded-pill mt-1 view-all float-end fw-bold"
           >
             {" "}
-            <b>Gửi bình luận</b>{" "}
+            Gửi bình luận{" "}
           </button>
         </div>
       </form>
-
-      <div className="row ">
-        <div
-          className="col-xl-2 col-md-2 col-sm-2 d-block m-auto mt-5"
-          style={{ width: "6rem" }}
-        >
-          <img
-            className="w-100 rounded-circle"
-            src="https://cdn-icons-png.flaticon.com/512/147/147144.png"
-            alt=""
-          />
-        </div>
-        <div className="col-xl-10 col-md-10 col-sm-10 mt-5">
-          <b>19/07/2020 20:06</b>
-          <span className="ms-3">
-            <small className="fw-bold">Trần văn C</small>{" "}
-          </span>{" "}
-          <p>
-            Giá tiền đi đôi với chất lượng: + Máy đẹp, ngon nghẻ + Các bạn nhân
-            viên tư vấn nhiệt tình và đúng theo yêu cầu khách hàng, không phải
-            kiểu dí khách mua máy như một số bên khác. Mua cho nhiều anh em bạn
-            bè máy ở đây rồi đến giờ vẫn chưa gặp vấn đề gì!
-          </p>
-        </div>
-        <hr />
-      </div>
+      <>
+        <>
+          {(data || []).length == 0 ? (
+            <h5 className="text-center p-3 ">
+              {" "}
+              <b>Sản phẩm chưa có bình luận...</b>{" "}
+            </h5>
+          ) : (
+            <>
+              <h4 className="mt-5">
+                <b href="" className="ms-2">
+                  <small>
+                    <i className="far fa-comments"></i> {(data || []).length}{" "}
+                    bình luận
+                  </small>{" "}
+                </b>{" "}
+              </h4>
+              <CommentList
+                comment={data}
+                customer={props.customer}
+                staff={staffData}
+              />
+              <button className="cart-btn  rounded-pill mt-4 view-all m-auto d-block">
+                {" "}
+                <b>Xem Thêm bình luận</b>{" "}
+              </button>{" "}
+            </>
+          )}
+        </>
+      </>
     </>
   );
 };

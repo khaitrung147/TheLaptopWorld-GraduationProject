@@ -17,24 +17,6 @@ const Review = () => {
     setData(arr);
   }, []);
 
-  return (
-    <>
-      <div className="row">
-        <div className="col-xl-6">
-          <div className="card p-3">
-            Ưu điểm
-            <li>{review.advance}</li>
-          </div>
-        </div>
-        <div className="col-xl-6">
-          <div className="card p-3">
-            Nhược điểm
-            <li>{review.defect}</li>
-          </div>
-        </div>
-      </div>
-      <p className="mt-3">{review.content} </p>
-    </>
-  );
+  return <></>;
 };
 export default Review;

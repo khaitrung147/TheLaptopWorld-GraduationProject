@@ -1,17 +1,20 @@
 import React, { useEffect, useState } from "react";
 import ProductColumn from "./productCulumn";
 import { useDispatch, useSelector } from "react-redux";
-import { getListProduct } from "../../redux/actions/product";
+import { getListProduct, getDetailProduct } from "../../redux/actions/product";
 import { SpinnerCircular } from "spinners-react";
 
 function Products() {
   const products = useSelector((state) => state.products.data);
+  const productDetail = useSelector((state) => state.detailProduct.data);
   const loading = useSelector((state) => state.products.load);
   const [view, setView] = useState(false);
   const [data, setData] = useState([]);
+
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getListProduct());
+    dispatch(getDetailProduct("hp-elitebook-840"));
   }, [dispatch]);
 
   useEffect(() => {
@@ -29,7 +32,7 @@ function Products() {
     <div>
       <div className="left d-flex align-items-center ">
         <i
-          class="list fas fa-bars  p-2 rounded-pill"
+          className="list fas fa-bars  p-2 rounded-pill"
           style={
             view
               ? { background: "rgba(255, 94, 0, 0.26)" }
@@ -38,7 +41,7 @@ function Products() {
           onClick={() => changeViewColumn()}
         ></i>
         <i
-          class="column fas fa-columns ms-xl-2 ms-lg-2 ms-md-2 p-2 rounded-pill"
+          className="column fas fa-columns ms-xl-2 ms-lg-2 ms-md-2 p-2 rounded-pill"
           style={
             view
               ? { background: "unset" }

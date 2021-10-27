@@ -7,7 +7,7 @@ function ProductColumn(props) {
   const [price, setPrice] = useState([]);
   const [config, setConfig] = useState([]);
   useEffect(() => {
-    props.data.HinhAnh.slice(0, 1).map((e) => setImgUrl(e.Url));
+    props.data.HinhAnh.splice(0, 1).map((e) => setImgUrl(e.Url));
   }, [props.data.HinhAnh]);
 
   useEffect(() => {
@@ -24,7 +24,7 @@ function ProductColumn(props) {
     <>
       {props.view ? (
         <div className="container">
-          <div className=" card mt-3">
+          <div className=" card mt-3" key={props.data._id}>
             <div className="row">
               <div
                 className="col-5  d-flex align-items-center"
@@ -80,12 +80,9 @@ function ProductColumn(props) {
           </div>
         </div>
       ) : (
-        <div
-          className="col-xl-3 col-lg-4 col-md-6 col-sm-6  product-box mb-3  mt-3"
-          key={props.data._id}
-        >
+        <div className="col-xl-3 col-lg-4 col-md-6 col-sm-6  product-box mb-3  mt-3">
           <div className="card product-card ">
-            <div className="row card-body">
+            <div className="row card-body" key={props.data._id}>
               <div className="col-6">
                 <small className="product-sale fw-bold text-center p-1 rounded-pill ">
                   -{config.PhanTramGiamGia}%

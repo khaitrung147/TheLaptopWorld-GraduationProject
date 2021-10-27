@@ -30,9 +30,9 @@ const schema = new mongoose.Schema(
   { timestamps: false }
 );
 
-schema.pre("save", async function (next) {
+schema.pre("save", function (next) {
   if (!this.isModified("Password")) return next();
-  await bcrypt.hash(this.Password, 10, (err, PasswordHash) => {
+  bcrypt.hash(this.Password, 10, (err, PasswordHash) => {
     if (err) return next();
     this.Password = PasswordHash;
     next();

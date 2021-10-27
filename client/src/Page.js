@@ -10,33 +10,33 @@ import Dashboard_admin from "./components/admin/dashboard";
 const Page = {
   Site: [
     {
-      path: '/',
+      path: "/",
       component: Home_site,
-      exact: true
+      exact: true,
     },
     {
-      path: '/dang-nhap',
+      path: "/dang-nhap",
       component: Login,
-      exact: true
+      exact: true,
     },
     {
-      path: '/san-pham',
+      path: "/san-pham",
       component: Product_site,
-      exact: false
+      exact: true,
     },
     {
-      path: '/san-pham/:key',
+      path: "/san-pham/:key",
       component: DetailProduct_site,
-      exact: false
-    }
+      exact: false,
+    },
   ],
   Admin: [
     {
-      path: '/admin',
+      path: "/admin",
       component: Dashboard_admin,
-      exact: true
-    }
-  ]
+      exact: true,
+    },
+  ],
 };
 
 export default Page;

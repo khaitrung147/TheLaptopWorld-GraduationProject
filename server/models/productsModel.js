@@ -37,6 +37,7 @@ const schema = new mongoose.Schema(
         CanNang: String,
         HeDieuHanh: String,
         LuuTru: String,
+        CardDoHoa: String,
         Mau: String,
         ViXuLy: String,
         BoNho: String,

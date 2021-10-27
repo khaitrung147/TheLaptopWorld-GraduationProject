@@ -1,16 +1,16 @@
 import {
-  GET_LIST_PRODUCT,
-  GET_LIST_PRODUCT_SUCCESS,
-} from "../constants/product";
+  GET_LIST_CUSTOMER,
+  GET_LIST_CUSTOMER_SUCCESS,
+} from "../constants/customer";
 
-const productReducer = (state = [], action) => {
+const customerReducer = (state = [], action) => {
   switch (action.type) {
-    case GET_LIST_PRODUCT:
+    case GET_LIST_CUSTOMER:
       return {
         ...state,
         load: true,
       };
-    case GET_LIST_PRODUCT_SUCCESS:
+    case GET_LIST_CUSTOMER_SUCCESS:
       const { data } = action.payload;
       return {
         ...state,
@@ -22,4 +22,4 @@ const productReducer = (state = [], action) => {
   }
 };
 
-export default productReducer;
+export default customerReducer;

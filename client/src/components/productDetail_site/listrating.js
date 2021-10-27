@@ -1,0 +1,57 @@
+/* eslint-disable array-callback-return */
+import React, { useEffect, useState } from "react";
+
+const RateList = (props) => {
+  return (
+    <div className="row">
+      {(props.rate || []).map((e) =>
+        (props.customer || []).map((kh) => (
+          <>
+            {e.MaKhachHang == kh._id ? (
+              <>
+                <div
+                  className="col-xl-2 col-lg-2 col-md-2 col-sm-2  "
+                  key={e._id}
+                >
+                  {kh.Avatar == "" ? (
+                    <img
+                      className="rounded-circle d-block m-auto mt-3"
+                      style={{ width: "4rem", height: "4rem" }}
+                      src="https://cdn-icons-png.flaticon.com/512/147/147144.png"
+                      alt=""
+                    />
+                  ) : (
+                    <img
+                      className="rounded-circle d-block m-auto mt-3"
+                      style={{ width: "4rem", height: "4rem" }}
+                      src={kh.Avatar}
+                      alt=""
+                    />
+                  )}
+                </div>
+                <div className="col-xl-10 col-lg-10 col-md-10 col-sm-10">
+                  <div className="d-flex align-items-center">
+                    {" "}
+                    <span className="me-3">
+                      <b className="fw-bold">{kh.TenKhachHang}</b>{" "}
+                    </span>
+                    {e.Rate}
+                    <i className="far fa-star custom"></i>{" "}
+                  </div>
+
+                  <p className="mt-2">{e.NoiDungDanhGia}</p>
+                  <span>{e.createdAt}</span>
+                  <hr />
+                </div>
+              </>
+            ) : (
+              <p></p>
+            )}
+          </>
+        ))
+      )}
+    </div>
+  );
+};
+
+export default RateList;
