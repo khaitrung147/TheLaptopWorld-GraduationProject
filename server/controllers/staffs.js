@@ -69,13 +69,13 @@ const login = async (req, res) => {
       Username: username,
     });
     if (!user) {
-      return res.status(200).json("Tai khoan không ton tai");
+      return res.status(200).json({ status: "not-found" });
     } else {
       if (bcrypt.compareSync(password, user.Password)) {
         const loginToken = jwt.sign({ userId: user._id }, "myKey");
         return res.status(200).json({
           status: "success",
-          token: {
+          response: {
             useName: user.TenNhanVien,
             userId: user._id,
             role: user.PhanQuyen,
@@ -83,7 +83,7 @@ const login = async (req, res) => {
           },
         });
       } else {
-        return res.status(200).json("mat khau sai");
+        return res.status(200).json({ status: "wrong-pass" });
       }
     }
   } catch (error) {
