@@ -69,30 +69,20 @@ const login = async (req, res) => {
       Username: username,
     });
     if (!user) {
-      res.status(200).json("Tai khoan không ton tai");
-    }
-    if (bcrypt.compareSync(password, user.Password)) {
-      const loginToken = jwt.sign({ userId: user._id }, "myKey");
-      return res.status(200).json({
-        status: "success",
-        token: {
-          useName: user.TenKhachHang,
-          userId: user._id,
-          loginToken,
-        },
-      });
+      res.status(200).json({ status: "not-found" });
     } else {
       if (bcrypt.compareSync(password, user.Password)) {
         const loginToken = jwt.sign({ userId: user._id }, "myKey");
         return res.status(200).json({
           status: "success",
-          token: {
-            useName: username,
+          response: {
+            useName: user.TenKhachHang,
+            userId: user._id,
             loginToken,
           },
         });
       } else {
-        res.status(200).json("mat khau sai");
+        res.status(200).json({ status: "wrong-pass" });
       }
     }
   } catch (error) {
