@@ -1,11 +1,12 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const CommentList = (props) => {
   const [rep, setRep] = useState([true]);
+
   const Showreply = () => {
     setRep(!rep);
   };
-  console.log(props.staff);
+  console.log(props.comment);
   return (
     <div className="row">
       {(props.comment || []).map((e) =>
@@ -73,8 +74,8 @@ const CommentList = (props) => {
 
                   <hr />
 
-                  {e.PhanHoi.map((rep) =>
-                    props.customer.map((repper) => (
+                  {(e.PhanHoi || []).map((rep) =>
+                    (props.customer || []).map((repper) => (
                       <>
                         {rep.MaKhachHang == repper._id ? (
                           <div className="row">
@@ -117,8 +118,8 @@ const CommentList = (props) => {
                     ))
                   )}
 
-                  {e.PhanHoi.map((rep) =>
-                    props.staff.map((repper) => (
+                  {(e.PhanHoi || []).map((rep) =>
+                    (props.staff || []).map((repper) => (
                       <>
                         {rep.MaKhachHang == repper._id ? (
                           <div className="row">
