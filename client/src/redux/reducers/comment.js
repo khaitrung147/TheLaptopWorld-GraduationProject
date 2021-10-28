@@ -8,6 +8,11 @@ import {
 const commentReducer = (state = [], action) => {
   switch (action.type) {
     case POST_COMMENT:
+      return {
+        ...state,
+        postload: true,
+        status: false,
+      };
     case GET_LIST_COMMENTID:
       return {
         ...state,
@@ -24,7 +29,8 @@ const commentReducer = (state = [], action) => {
     case POST_COMMENT_SUCCESS:
       return {
         ...state,
-        load: false,
+        postload: false,
+        status: true,
       };
 
     default:
