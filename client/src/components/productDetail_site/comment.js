@@ -1,18 +1,18 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getListComment, postComment } from "../../redux/actions/comment";
-import { SpinnerCircular } from "spinners-react";
 import CommentList from "./listcomment";
 import { getListStaff } from "../../redux/actions/staff";
-import axios from "axios";
-
+import { SpinnerCircular } from "spinners-react";
 const Comment = (props) => {
   const dispatch = useDispatch();
   const data = useSelector((state) => state.comment.data);
-  const load = useSelector((state) => state.comment.load);
-  const staffData = useSelector((state) => state.staff.data);
-
+  const status = useSelector((state) => state.comment.status);
+  const postLoading = useSelector((state) => state.comment.postload);
+  const staffData = useSelector((state) => state.staff.postload);
   const productID = props.product._id;
+  const formValue = useRef();
+
   useEffect(() => {
     dispatch(getListComment(productID));
     dispatch(getListStaff());
@@ -22,9 +22,16 @@ const Comment = (props) => {
     };
   }, [dispatch, productID]);
 
-  useEffect(() => {}, [data, props.customer, staffData]);
-
-  const formValue = useRef();
+  useEffect(() => {
+    if (status == true) {
+      dispatch(getListComment(productID));
+      dispatch(getListStaff());
+    }
+    return () => {
+      dispatch(getListComment(productID));
+      dispatch(getListStaff());
+    };
+  }, [dispatch, productID, status]);
 
   const PostUserComment = async (e) => {
     e.preventDefault();
@@ -34,14 +41,8 @@ const Comment = (props) => {
       NoiDungBinhLuan: formValue.current.value,
       PhanHoi: [],
     };
-    await axios
-      .post("http://localhost:5000/api/v1/binh-luan-khach-hang", body)
-      .then((res) => {
-        dispatch(getListComment(productID));
-        dispatch(getListStaff());
-      });
+    dispatch(postComment(body));
   };
-  console.log(data);
 
   return (
     <>
@@ -55,22 +56,32 @@ const Comment = (props) => {
             required
             ref={formValue}
           ></textarea>
-
-          <button
-            type="submit"
-            className="cart-btn mt-2 rounded-pill mt-1 view-all float-end fw-bold"
-          >
-            {" "}
-            Gửi bình luận{" "}
-          </button>
+          {postLoading ? (
+            <SpinnerCircular
+              size={40}
+              thickness={80}
+              speed={150}
+              color="rgb(255, 93, 0)"
+              secondaryColor="rgb(47, 212, 234)"
+              className="mt-2 float-end"
+            />
+          ) : (
+            <button
+              type="submit"
+              className="cart-btn mt-2 rounded-pill  px-3 py-2 float-end fw-bold"
+            >
+              {" "}
+              Gửi bình luận{" "}
+            </button>
+          )}
         </div>
       </form>
       <>
         <>
           {(data || []).length == 0 ? (
-            <h5 className="text-center p-3 ">
+            <h5 className="text-center p-3 fw-bold">
               {" "}
-              <b>Sản phẩm chưa có bình luận...</b>{" "}
+              Sản phẩm chưa có bình luận...{" "}
             </h5>
           ) : (
             <>
@@ -86,10 +97,11 @@ const Comment = (props) => {
                 comment={data}
                 customer={props.customer}
                 staff={staffData}
+                load={dispatch(getListComment(productID))}
               />
-              <button className="cart-btn  rounded-pill mt-4 view-all m-auto d-block">
+              <button className="cart-btn  rounded-pill mt-4 px-3 py-2 m-auto d-block fw-bold">
                 {" "}
-                <b>Xem Thêm bình luận</b>{" "}
+                Xem Thêm bình luận{" "}
               </button>{" "}
             </>
           )}
