@@ -42,7 +42,7 @@ const ProductConfig = (props) => {
       >
         <div className="row">
           <div className="col-12">
-            <h1 className="fw-bold">{props.data.TenSanPham}</h1>
+            <h2 className="fw-bold">{props.data.TenSanPham}</h2>
             <h5 className="text-info">
               {config.PhanTramGiamGia == 0 ? (
                 <b>VNĐ {saleprice} </b>

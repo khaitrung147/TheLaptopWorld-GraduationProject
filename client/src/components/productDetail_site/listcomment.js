@@ -1,12 +1,8 @@
-import React, { useEffect, useState } from "react";
-
+/* eslint-disable eqeqeq */
+/* eslint-disable jsx-a11y/anchor-is-valid */
+import React from "react";
+import moment from "moment";
 const CommentList = (props) => {
-  const [rep, setRep] = useState([true]);
-
-  const Showreply = () => {
-    setRep(!rep);
-  };
-  console.log(props.comment);
   return (
     <div className="row">
       {(props.comment || []).map((e) =>
@@ -43,37 +39,29 @@ const CommentList = (props) => {
                   </div>
 
                   <p className="mt-2">{e.NoiDungBinhLuan}</p>
-                  <a className="text-info fw-bold" onClick={() => Showreply()}>
-                    Trả lời
-                  </a>
 
-                  <span className="ms-3">{e.createdAt}</span>
-                  {rep ? (
-                    <p></p>
-                  ) : (
-                    <form action="" className="mb-5">
-                      <div className="form-group">
-                        <textarea
-                          className="form-control"
-                          placeholder="Viết bình luận"
-                          id="exampleFormControlTextarea1"
-                          rows="3"
-                          required
-                        ></textarea>
+                  <input type="checkbox" className="check mb-2" />
+                  <span className="ms-3">
+                    {moment(e.createdAt).format("DD/MM/YYYY, HH:mm A")}
+                  </span>
 
-                        <button
-                          type="submit"
-                          className="cart-btn mt-2  rounded-pill mt-1 view-all float-end"
-                        >
-                          {" "}
-                          <b>Gửi bình luận</b>{" "}
-                        </button>
-                      </div>
-                    </form>
-                  )}
-
+                  <form action="" className="repform mt-3">
+                    <div className="">
+                      <textarea
+                        className="form-control w-100"
+                        placeholder="Viết bình luận"
+                        rows="3"
+                        required
+                      ></textarea>
+                      <button
+                        type="submit"
+                        className="cart-btn mt-2 rounded-pill mt-1 py-1 px-4 fw-bold"
+                      >
+                        Gửi
+                      </button>
+                    </div>
+                  </form>
                   <hr />
-
                   {(e.PhanHoi || []).map((rep) =>
                     (props.customer || []).map((repper) => (
                       <>
@@ -107,7 +95,12 @@ const CommentList = (props) => {
                               </div>
 
                               <p className="mt-2">{rep.NoiDungTraLoi}</p>
-                              <span className="">{rep.ThoiGian}</span>
+                              <span className="">
+                                {" "}
+                                {moment(rep.ThoiGian).format(
+                                  "DD/MM/YYYY, HH:mm A"
+                                )}
+                              </span>
                               <hr />
                             </div>
                           </div>
@@ -151,7 +144,11 @@ const CommentList = (props) => {
                               </div>
 
                               <p className="mt-2">{rep.NoiDungTraLoi}</p>
-                              <span className="">{rep.ThoiGian}</span>
+                              <span className="">
+                                {moment(rep.ThoiGian).format(
+                                  "DD/MM/YYYY, HH:mm A"
+                                )}
+                              </span>
                               <hr />
                             </div>
                           </div>

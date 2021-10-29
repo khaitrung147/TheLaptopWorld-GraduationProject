@@ -26,8 +26,9 @@ export const postComment = (body) => {
   };
 };
 
-export const postCommentSuccess = () => {
+export const postCommentSuccess = (payload) => {
   return {
     type: POST_COMMENT_SUCCESS,
+    payload,
   };
 };
