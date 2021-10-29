@@ -2,10 +2,25 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
 import moment from "moment";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const CommentList = (props) => {
+  const Rep = async (id, i) => {
+    const value = document.querySelectorAll("#repValue");
+    if (value[i].value == "") {
+      toast.warning("Chưa nhập nội dung trả lời !", {
+        position: "top-center",
+      });
+    } else {
+      console.log(value[i].value);
+      console.log(id);
+      value[i].value = "";
+    }
+  };
+
   return (
     <div className="row">
-      {(props.comment || []).map((e) =>
+      {(props.comment || []).map((e, i) =>
         (props.customer || []).map((kh) => (
           <>
             {e.MaKhachHang == kh._id ? (
@@ -48,19 +63,22 @@ const CommentList = (props) => {
                   <form action="" className="repform mt-3">
                     <div className="">
                       <textarea
-                        className="form-control w-100"
+                        className="form-control w-100 formValue"
                         placeholder="Viết bình luận"
                         rows="3"
                         required
+                        id="repValue"
                       ></textarea>
                       <button
-                        type="submit"
-                        className="cart-btn mt-2 rounded-pill mt-1 py-1 px-4 fw-bold"
+                        type="button"
+                        onClick={() => Rep(e._id, i)}
+                        className="cart-btn mt-2 rounded-pill mt-1 py-1 px-4 fw-bold send"
                       >
                         Gửi
                       </button>
                     </div>
                   </form>
+
                   <hr />
                   {(e.PhanHoi || []).map((rep) =>
                     (props.customer || []).map((repper) => (

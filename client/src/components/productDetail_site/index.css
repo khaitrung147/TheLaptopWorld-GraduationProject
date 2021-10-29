@@ -163,7 +163,7 @@ input[type=radio]:checked p{
 
 
 
-input[type=checkbox]{
+.check{
   visibility: hidden;
   cursor: pointer;
   width: 2.5rem;
@@ -171,13 +171,12 @@ input[type=checkbox]{
   color: rgba(47, 212, 234, 0.877);
   transform: translate(0 , -0.15rem);
 }
-input[type=checkbox]:after {
-  
+.check:after {
   content: "Trả lời";
   visibility: visible;
   cursor: pointer;
 }
-input[type=checkbox]:checked:after {
+.check:checked:after {
   content: "Đóng";
 }
 
@@ -189,3 +188,4 @@ input[type=checkbox]:checked:after {
   display: block;
 
 }
+

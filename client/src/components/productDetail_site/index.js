@@ -10,6 +10,8 @@ import { getListCustomer } from "../../redux/actions/customer";
 import "./index.css";
 import { useSelector, useDispatch } from "react-redux";
 import { SpinnerCircular } from "spinners-react";
+import { ToastContainer } from "react-toastify";
+
 const Detail = () => {
   const product = useSelector((state) => state.detailProduct.data);
   const loading = useSelector((state) => state.detailProduct.load);
@@ -36,6 +38,7 @@ const Detail = () => {
 
   return (
     <main className="">
+      <ToastContainer autoClose={4000} closeOnClick={true} />
       <div className="bg-white">
         <div className="container">
           <div className="pt-3">
