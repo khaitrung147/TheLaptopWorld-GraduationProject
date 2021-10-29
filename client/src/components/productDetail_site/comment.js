@@ -42,6 +42,7 @@ const Comment = (props) => {
       PhanHoi: [],
     };
     dispatch(postComment(body));
+    formValue.current.value = "";
   };
 
   return (
