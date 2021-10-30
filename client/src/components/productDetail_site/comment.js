@@ -1,12 +1,9 @@
-/* eslint-disable eqeqeq */
 import React, { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getListComment, postComment } from "../../redux/actions/comment";
 import CommentList from "./listcomment";
 import { getListStaff } from "../../redux/actions/staff";
 import { SpinnerCircular } from "spinners-react";
-import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 const Comment = (props) => {
   const dispatch = useDispatch();
   const data = useSelector((state) => state.comment.data);
@@ -15,6 +12,7 @@ const Comment = (props) => {
   const staffData = useSelector((state) => state.staff.postload);
   const productID = props.product._id;
   const formValue = useRef();
+
   useEffect(() => {
     dispatch(getListComment(productID));
     dispatch(getListStaff());
@@ -36,23 +34,20 @@ const Comment = (props) => {
   }, [dispatch, productID, status]);
 
   const PostUserComment = async (e) => {
+    e.preventDefault();
     let body = {
       MaSanPham: productID,
       MaKhachHang: "616e9dc3fa01938e427f1dba",
       NoiDungBinhLuan: formValue.current.value,
       PhanHoi: [],
     };
-    if (formValue.current.value == "") {
-      toast.warn("Chưa nhập nội dung bình luận !", { position: "top-center" });
-    } else {
-      dispatch(postComment(body));
-      formValue.current.value = "";
-    }
+    dispatch(postComment(body));
+    formValue.current.value = "";
   };
 
   return (
     <>
-      <form action="" className="mb-5">
+      <form action="" className="mb-5" onSubmit={PostUserComment}>
         <div className="form-group">
           <textarea
             className="form-control"
@@ -73,8 +68,7 @@ const Comment = (props) => {
             />
           ) : (
             <button
-              type="button"
-              onClick={PostUserComment}
+              type="submit"
               className="cart-btn mt-2 rounded-pill  px-3 py-2 float-end fw-bold"
             >
               {" "}
@@ -83,7 +77,6 @@ const Comment = (props) => {
           )}
         </div>
       </form>
-
       <>
         <>
           {(data || []).length == 0 ? (

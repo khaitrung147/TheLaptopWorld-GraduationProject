@@ -3,7 +3,6 @@ import Breadcrumb from "../../constants/breadcrumb";
 import Products from "./product";
 import "./index.css";
 import Filter from "./filter";
-
 const Product = () => {
   return (
     <main>
