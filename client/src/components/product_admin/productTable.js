@@ -2,31 +2,39 @@ import React, { useState } from 'react';
 import { Table, Tag, Space, Button } from 'antd';
 import { Link } from 'react-router-dom';
 
-function CatalogTable(props) {
-    const { data, productCompany, loading } = props;
+function ProductTable(props) {
+    const { data, catalogs, loading } = props;
+    const location= window.location
     const [selectedRowKeys, setSelectedRowKeys]= useState([]);
+    console.log('data :>> ', data);
     
-    const filterHangSanXuat = (HangSanXuat) => {
-        let company= [];
-        company = productCompany?.filter(e=> e._id===HangSanXuat);
-        if(company){
-            return company[0].TenHangSanXuat;
+    const filterLoaiSanPham = (LoaiSanPham) => {
+        let cata= [];
+        cata = catalogs?.filter(e=> e._id===LoaiSanPham);
+        if(cata){
+            return cata[0].TenLoaiSanPham;
         }
         else return null
     }
 
     const columns = [
         {
-            title: 'Tên loại sản phẩm',
-            dataIndex: 'TenLoaiSanPham',
-            key: 'TenLoaiSanPham',
-            render: (text,data) => <Link to={`/admin/loai-san-pham/${data._id}`}>{text}</Link>,
+            title: 'Tên sản phẩm',
+            dataIndex: 'TenSanPham',
+            key: 'TenSanPham',
+            render: (TenSanPham, data) => <Link to={`/admin/san-pham/${data._id}`}>{TenSanPham}</Link>,
         },
         {
-            title: 'Hãng sản xuất',
-            dataIndex: 'HangSanXuat',
-            key: 'HangSanXuat',
-            render: HangSanXuat => filterHangSanXuat(HangSanXuat)
+            title: 'URL',
+            dataIndex: 'Key',
+            key: 'Key',
+            render: Key => <a target="_blank" href={`${location.origin}/san-pham/${Key}`} rel="noreferrer">{`${location.origin}/san-pham/${Key}`}</a>
+        },
+        {
+            title: 'Loại sản phẩm',
+            dataIndex: 'LoaiSanPham',
+            key: 'LoaiSanPham',
+            render: LoaiSanPham => filterLoaiSanPham(LoaiSanPham)
         },
         {
             title: 'Trạng thái',
@@ -75,4 +83,4 @@ function CatalogTable(props) {
     );
 }
 
-export default CatalogTable;
+export default ProductTable;
