@@ -85,10 +85,10 @@ const Rating = (props) => {
 
           <button
             type="submit"
-            className="cart-btn mt-2 rounded-pill mt-1 px-3 py-2 float-end fw-bold"
+            className="cart-btn mt-2 rounded-pill mt-1 view-all float-end"
           >
             {" "}
-            Gửi đánh giá{" "}
+            <b>Gửi đánh giá</b>{" "}
           </button>
         </div>
       </form>
@@ -120,9 +120,9 @@ const Rating = (props) => {
               </h4>
               <RateList rate={rate} customer={customer} />
 
-              <button className="cart-btn rounded-pill mt-4 px-3 py-2 m-auto d-block fw-bold">
+              <button className="cart-btn rounded-pill mt-4 view-all m-auto d-block">
                 {" "}
-                Xem Thêm đánh giá{" "}
+                <b>Xem Thêm đánh giá</b>{" "}
               </button>
             </>
           )}

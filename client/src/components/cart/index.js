@@ -2,6 +2,8 @@ import React from "react";
 import Breadcrumb from "../../constants/breadcrumb";
 import "./cart.css"
 export default function Cart() {
+  const [itemCount, setItemCount] = React.useState(1);
+  
   return (
 <section class="h-100">
     <div class="container h-100 py-5">

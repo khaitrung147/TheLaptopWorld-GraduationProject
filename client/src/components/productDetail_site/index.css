@@ -6,7 +6,6 @@
 
 .img-slider{
    position: relative;
-  
  
 }
 .img-slide{
@@ -91,7 +90,6 @@
   outline: 2px solid rgba(47, 212, 234, 0.877);
   transition: 0.3s;
   border: unset;
-  
 }
 
 .love-btn{
@@ -108,7 +106,6 @@
   color: rgba(47, 212, 234, 0.877);
   transition: 0.3s;
   border: unset;
- 
 }
 
 .love-btn:hover{
@@ -159,33 +156,4 @@ input[type=radio]:checked p{
 
 .custom{
   color: rgb(255, 93, 0);
-}
-
-
-
-input[type=checkbox]{
-  visibility: hidden;
-  cursor: pointer;
-  width: 2.5rem;
-  font-weight: bold;
-  color: rgba(47, 212, 234, 0.877);
-  transform: translate(0 , -0.15rem);
-}
-input[type=checkbox]:after {
-  
-  content: "Trả lời";
-  visibility: visible;
-  cursor: pointer;
-}
-input[type=checkbox]:checked:after {
-  content: "Đóng";
-}
-
-.repform{
-  display: none;
-}
-
- input[type=checkbox]:checked ~ .repform {
-  display: block;
-
 }

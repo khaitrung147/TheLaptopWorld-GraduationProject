@@ -1,6 +1,6 @@
 /* eslint-disable array-callback-return */
 import React, { useEffect, useState } from "react";
-import moment from "moment";
+
 const RateList = (props) => {
   return (
     <div className="row">
@@ -40,9 +40,7 @@ const RateList = (props) => {
                   </div>
 
                   <p className="mt-2">{e.NoiDungDanhGia}</p>
-                  <span>
-                    {moment(e.createdAt).format("DD/MM/YYYY, HH:mm A")}
-                  </span>
+                  <span>{e.createdAt}</span>
                   <hr />
                 </div>
               </>

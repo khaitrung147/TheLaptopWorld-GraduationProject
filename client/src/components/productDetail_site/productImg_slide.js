@@ -73,11 +73,11 @@ const ProductImg = (props) => {
   return (
     <>
       <div className="col-xl-6 col-lg-6 col-md-12 col-sm-12 img-slider ">
-        <div className="w-100 img-slide d-block m-auto ">
+        <div className="w-75 img-slide d-block m-auto ">
           <Slider {...settings}>
             {(props.data.HinhAnh || []).map((e) => (
               <div className="ctn">
-                <img className="w-100" width="" height="" src={e.Url} />
+                <img className="w-100" src={e.Url} />
               </div>
             ))}
           </Slider>
