@@ -8,6 +8,7 @@ import Login from "./components/login";
 import Dashboard_admin from "./components/dashboard_admin";
 import Catalog_admin from "./components/catalog_admin";
 import CatalogDetail_admin from "./components/catalog_admin/catalogDetail";
+import Product_admin from "./components/product_admin";
 
 const Page = {
   Site: [
@@ -47,7 +48,12 @@ const Page = {
       path: '/admin/loai-san-pham/:id',
       component: CatalogDetail_admin,
       exact: false
-    }
+    },
+    {
+      path: '/admin/san-pham',
+      component: Product_admin,
+      exact: true
+    },
   ]
 };
 
