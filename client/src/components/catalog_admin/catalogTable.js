@@ -1,18 +1,24 @@
 import React, { useState } from 'react';
-import { Table, Tag, Space, Button } from 'antd';
+import { Table, Tag, Space, Button, Popconfirm, notification } from 'antd';
 import { Link } from 'react-router-dom';
+import { DeleteOutlined } from '@ant-design/icons';
 
 function CatalogTable(props) {
     const { data, productCompany, loading } = props;
     const [selectedRowKeys, setSelectedRowKeys]= useState([]);
-    
-    const filterHangSanXuat = (HangSanXuat) => {
-        let company= [];
-        company = productCompany?.filter(e=> e._id===HangSanXuat);
-        if(company){
-            return company[0].TenHangSanXuat;
-        }
-        else return null
+
+
+    function deleteConfirm(e) {
+        notification.open({
+            message: 'Xoá thành công',
+            description:
+              'Đã xoá thành công loại sản phẩm ...',
+            icon: <DeleteOutlined style={{ color: '#52c41a' }} />,
+        });
+    }
+
+    function deleteCancel(e) {
+        
     }
 
     const columns = [
@@ -26,7 +32,7 @@ function CatalogTable(props) {
             title: 'Hãng sản xuất',
             dataIndex: 'HangSanXuat',
             key: 'HangSanXuat',
-            render: HangSanXuat => filterHangSanXuat(HangSanXuat)
+            render: () => <>{productCompany}</>
         },
         {
             title: 'Trạng thái',
@@ -51,7 +57,15 @@ function CatalogTable(props) {
             key: 'action',
             render: (text, record) => (
                 <Space size="middle">
-                    <Button>Delete</Button>
+                    <Popconfirm
+                        title="Bạn có chắc là muốn xoá?"
+                        onConfirm={deleteConfirm}
+                        onCancel={deleteCancel}
+                        okText="Xoá"
+                        cancelText="Huỷ"
+                    >
+                        <Button>Xoá</Button>
+                    </Popconfirm>
                 </Space>
             ),
         },
@@ -71,6 +85,7 @@ function CatalogTable(props) {
             rowSelection={rowSelection}
             columns={columns}
             dataSource={data}
+            pagination={{ pageSize:5}}
         />
     );
 }

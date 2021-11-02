@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
-import { Table, Tag, Space, Button, notification,Popconfirm } from 'antd';
+import { Table, Space, Button, notification, Popconfirm } from 'antd';
 import { Link } from 'react-router-dom';
 import { DeleteOutlined } from '@ant-design/icons';
 
-function ProductTable(props) {
-    const { data, catalogs, loading } = props;
-    const location= window.location
+function CatalogTable(props) {
+    const { data, products, loading } = props;
     const [selectedRowKeys, setSelectedRowKeys]= useState([]);
     
     function deleteConfirm(e) {
@@ -21,51 +20,24 @@ function ProductTable(props) {
         
     }
 
-    const filterLoaiSanPham = (LoaiSanPham) => {
-        let cata= [];
-        cata = catalogs?.filter(e=> e._id===LoaiSanPham);
-        if(cata){
-            return cata[0].TenLoaiSanPham;
-        }
-        else return null
+    const totalRecordProduct = (productList, productCompanyId) => {
+        let company= [];
+        company = productList?.filter(e=> e.HangSanXuat===productCompanyId);
+        return company?.length
     }
 
     const columns = [
         {
-            title: 'Tên sản phẩm',
-            dataIndex: 'TenSanPham',
-            key: 'TenSanPham',
-            render: (TenSanPham, data) => <Link to={`/admin/san-pham/${data._id}`}>{TenSanPham}</Link>,
+            title: 'Tên hãng sản xuất',
+            dataIndex: 'TenHangSanXuat',
+            key: 'TenHangSanXuat',
+            render: (text,data) => <Link to={`/admin/hang-san-xuat/${data._id}`}>{text}</Link>,
         },
         {
-            title: 'URL',
-            dataIndex: 'Key',
-            key: 'Key',
-            render: Key => <a target="_blank" href={`${location.origin}/san-pham/${Key}`} rel="noreferrer">{`${location.origin}/san-pham/${Key}`}</a>
-        },
-        {
-            title: 'Loại sản phẩm',
-            dataIndex: 'LoaiSanPham',
-            key: 'LoaiSanPham',
-            render: LoaiSanPham => filterLoaiSanPham(LoaiSanPham)
-        },
-        {
-            title: 'Trạng thái',
-            dataIndex: 'AnHien',
-            render: AnHien => (
-                <>
-                    {
-                        !AnHien?
-                        <Tag color='volcano'>
-                            ẨN
-                        </Tag>
-                        :
-                        <Tag color='green'>
-                            HIỆN
-                        </Tag>
-                    }
-                </>
-            ),
+            title: 'Số lượng sản phẩm hiện có',
+            dataIndex: '_id',
+            key: 'SoLuongSanPhamHienCo',
+            render: (_id) => totalRecordProduct(products,_id),
         },
         {
             title: 'Action',
@@ -89,12 +61,10 @@ function ProductTable(props) {
     const onSelectChange = selectedRowKeys => {
         setSelectedRowKeys(selectedRowKeys)
       };
-    
     const rowSelection = {
       selectedRowKeys,
       onChange: onSelectChange,
     };
-
     return (
         <Table
             loading={loading}
@@ -107,4 +77,4 @@ function ProductTable(props) {
     );
 }
 
-export default ProductTable;
+export default CatalogTable;

@@ -9,6 +9,8 @@ import Dashboard_admin from "./components/dashboard_admin";
 import Catalog_admin from "./components/catalog_admin";
 import CatalogDetail_admin from "./components/catalog_admin/catalogDetail";
 import Product_admin from "./components/product_admin";
+import ProductCompany_admin from "./components/productCompany_admin";
+import Order_admin from "./components/order_admin";
 
 const Page = {
   Site: [
@@ -52,6 +54,16 @@ const Page = {
     {
       path: '/admin/san-pham',
       component: Product_admin,
+      exact: true
+    },
+    {
+      path: '/admin/hang-san-xuat',
+      component: ProductCompany_admin,
+      exact: true
+    },
+    {
+      path: '/admin/don-hang',
+      component: Order_admin,
       exact: true
     },
   ]

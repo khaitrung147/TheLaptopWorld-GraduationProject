@@ -4,6 +4,7 @@ import {
     BarsOutlined,
     TeamOutlined,
     ShoppingCartOutlined,
+    ToolOutlined,
   } from '@ant-design/icons';
 
 const menuItemConfig= [
@@ -27,6 +28,22 @@ const menuItemConfig= [
             {
                 path: '/admin/loai-san-pham',
                 name: 'Quản lý loại sản phẩm',
+            },
+        ]
+    },
+    {
+        key: 'hang-san-xuat',
+        path: null,
+        icon: <ToolOutlined />,
+        name: 'Hãng sản xuất',
+        submenu: [
+            {
+                path: '/admin/them-hang-san-xuat',
+                name: 'Thêm hãng sản xuất',
+            },
+            {
+                path: '/admin/hang-san-xuat',
+                name: 'Quản lý hãng sản xuất',
             },
         ]
     },
@@ -64,7 +81,7 @@ const menuItemConfig= [
     },
     {
         key: 'don-hang',
-        path: '/admin/quan-li-don-hang',
+        path: '/admin/don-hang',
         icon:<ShoppingCartOutlined />,
         name: 'Quản lí đơn hàng',
         submenu: null
