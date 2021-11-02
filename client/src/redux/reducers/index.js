@@ -7,6 +7,7 @@ import customerReducer from "./customer";
 import commentReducer from "./comment";
 import staffReducer from "./staff";
 import productCompanyReducer from "./productCompany";
+import orderReducer from "./order";
 const rootReducer = combineReducers({
   catalogs: catalogReducer,
   products: productReducer,
@@ -16,6 +17,7 @@ const rootReducer = combineReducers({
   comment: commentReducer,
   staff: staffReducer,
   productCompany: productCompanyReducer,
+  order: orderReducer,
 });
 
 export default rootReducer;
