@@ -8,13 +8,14 @@ import Comment from "./comment";
 import { getDetailProduct } from "../../redux/actions/product";
 import { getListCustomer } from "../../redux/actions/customer";
 import "./index.css";
+import "react-toastify/dist/ReactToastify.css";
 import { useSelector, useDispatch } from "react-redux";
 import { SpinnerCircular } from "spinners-react";
+import { ToastContainer } from "react-toastify";
 const Detail = () => {
   const product = useSelector((state) => state.detailProduct.data);
   const loading = useSelector((state) => state.detailProduct.load);
   const customer = useSelector((state) => state.customer.data);
-
   const [paramKey, setKey] = useState([]);
   const dispatch = useDispatch();
   const Key = () => {
@@ -28,14 +29,11 @@ const Detail = () => {
     Key();
     dispatch(getDetailProduct(paramKey));
     dispatch(getListCustomer());
-    return () => {
-      dispatch(getDetailProduct(paramKey));
-      dispatch(getListCustomer());
-    };
   }, [dispatch, paramKey]);
 
   return (
     <main className="">
+      <ToastContainer />
       <div className="bg-white">
         <div className="container">
           <div className="pt-3">
@@ -82,7 +80,7 @@ const Detail = () => {
           speed={150}
           color="rgb(255, 93, 0)"
           secondaryColor="rgb(47, 212, 234)"
-          className="d-none"
+          className="invisible"
         />
       ) : product ? (
         <>

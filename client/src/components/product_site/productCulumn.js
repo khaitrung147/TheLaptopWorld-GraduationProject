@@ -34,8 +34,8 @@ function ProductColumn(props) {
                   <img
                     src={imgUrl}
                     className=""
-                    width="160"
-                    height="155"
+                    width="180"
+                    height="130"
                     alt=""
                   />
                 </Link>

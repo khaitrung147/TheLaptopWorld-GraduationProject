@@ -7,6 +7,7 @@ import { SpinnerCircular } from "spinners-react";
 const Comment = (props) => {
   const dispatch = useDispatch();
   const data = useSelector((state) => state.comment.data);
+  let load = useSelector((state) => state.comment.load);
   const status = useSelector((state) => state.comment.status);
   const postLoading = useSelector((state) => state.comment.postload);
   const staffData = useSelector((state) => state.staff.postload);
@@ -16,10 +17,6 @@ const Comment = (props) => {
   useEffect(() => {
     dispatch(getListComment(productID));
     dispatch(getListStaff());
-    return () => {
-      dispatch(getListComment(productID));
-      dispatch(getListStaff());
-    };
   }, [dispatch, productID]);
 
   useEffect(() => {
@@ -27,10 +24,6 @@ const Comment = (props) => {
       dispatch(getListComment(productID));
       dispatch(getListStaff());
     }
-    return () => {
-      dispatch(getListComment(productID));
-      dispatch(getListStaff());
-    };
   }, [dispatch, productID, status]);
 
   const PostUserComment = async (e) => {
@@ -78,6 +71,16 @@ const Comment = (props) => {
         </div>
       </form>
       <>
+        {/* {load ? (
+          <SpinnerCircular
+            size={70}
+            thickness={80}
+            speed={150}
+            color="rgb(255, 93, 0)"
+            secondaryColor="rgb(47, 212, 234)"
+            className="mt-2 m-auto d-block"
+          />
+        ) : ( */}
         <>
           {(data || []).length == 0 ? (
             <h5 className="text-center p-3 fw-bold">
@@ -98,7 +101,6 @@ const Comment = (props) => {
                 comment={data}
                 customer={props.customer}
                 staff={staffData}
-                load={dispatch(getListComment(productID))}
               />
               <button className="cart-btn  rounded-pill mt-4 px-3 py-2 m-auto d-block fw-bold">
                 {" "}
@@ -107,6 +109,7 @@ const Comment = (props) => {
             </>
           )}
         </>
+        {/* )} */}
       </>
     </>
   );
