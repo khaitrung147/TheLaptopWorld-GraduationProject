@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/TheLaptopWorld-GraduationProject/static/css/main.a2c010bd.chunk.css",
+    "main.js": "/TheLaptopWorld-GraduationProject/static/js/main.bdfb5674.chunk.js",
+    "main.js.map": "/TheLaptopWorld-GraduationProject/static/js/main.bdfb5674.chunk.js.map",
+    "runtime-main.js": "/TheLaptopWorld-GraduationProject/static/js/runtime-main.427a1ed1.js",
+    "runtime-main.js.map": "/TheLaptopWorld-GraduationProject/static/js/runtime-main.427a1ed1.js.map",
+    "static/css/2.5ecad508.chunk.css": "/TheLaptopWorld-GraduationProject/static/css/2.5ecad508.chunk.css",
+    "static/js/2.145abef6.chunk.js": "/TheLaptopWorld-GraduationProject/static/js/2.145abef6.chunk.js",
+    "static/js/2.145abef6.chunk.js.map": "/TheLaptopWorld-GraduationProject/static/js/2.145abef6.chunk.js.map",
+    "static/js/3.fb000d55.chunk.js": "/TheLaptopWorld-GraduationProject/static/js/3.fb000d55.chunk.js",
+    "static/js/3.fb000d55.chunk.js.map": "/TheLaptopWorld-GraduationProject/static/js/3.fb000d55.chunk.js.map",
+    "index.html": "/TheLaptopWorld-GraduationProject/index.html",
+    "static/css/2.5ecad508.chunk.css.map": "/TheLaptopWorld-GraduationProject/static/css/2.5ecad508.chunk.css.map",
+    "static/css/main.a2c010bd.chunk.css.map": "/TheLaptopWorld-GraduationProject/static/css/main.a2c010bd.chunk.css.map",
+    "static/js/2.145abef6.chunk.js.LICENSE.txt": "/TheLaptopWorld-GraduationProject/static/js/2.145abef6.chunk.js.LICENSE.txt",
+    "static/media/slick-theme.css": "/TheLaptopWorld-GraduationProject/static/media/slick.c94f7671.ttf"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.427a1ed1.js",
+    "static/css/2.5ecad508.chunk.css",
+    "static/js/2.145abef6.chunk.js",
+    "static/css/main.a2c010bd.chunk.css",
+    "static/js/main.bdfb5674.chunk.js"
+  ]
+}
