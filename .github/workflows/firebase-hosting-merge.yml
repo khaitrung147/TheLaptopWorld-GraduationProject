@@ -15,6 +15,6 @@ jobs:
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
-          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_THEGIOILAPTOP_EF80B }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_TOKEN }}'
           channelId: live
           projectId: thegioilaptop-ef80b
