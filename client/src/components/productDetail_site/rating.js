@@ -122,7 +122,7 @@ const Rating = (props) => {
 
               <button className="cart-btn rounded-pill mt-4 px-3 py-2 m-auto d-block fw-bold">
                 {" "}
-                Xem Thêm đánh giá{" "}
+                Xem Thêm đánh giáa{" "}
               </button>
             </>
           )}
