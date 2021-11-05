@@ -1,3 +1,5 @@
+/* eslint-disable eqeqeq */
+/* eslint-disable array-callback-return */
 import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getListRate, postRate } from "../../redux/actions/rate";
@@ -43,7 +45,8 @@ const Rating = (props) => {
   };
 
   const formValue = useRef();
-  const PostRating = () => {
+  const PostRating = (e) => {
+    e.preventDefault();
     const star = document.getElementsByName("stars");
     let number = [];
     for (let i = 0; i < star.length; i++) {
@@ -64,16 +67,16 @@ const Rating = (props) => {
       toast.warn("Nhập nội dung đánh giá !", { position: "top-center" });
     } else {
       dispatch(postRate(body));
+      formValue.current.value = "";
       toast.success("Cảm ơn bạn đã gửi đánh giá !", {
         position: "top-center",
       });
     }
-    formValue.current.value = "";
   };
 
   return (
     <>
-      <form action="" className="mb-5">
+      <form action="" className="mb-5" onSubmit={PostRating}>
         <div className="form-group">
           <div className="float-end rating ">
             <label>
@@ -156,9 +159,8 @@ const Rating = (props) => {
                 <i className=" mt-2  mt-1 px-3 py-2 float-end fw-bold"> ...</i>
               ) : (
                 <button
-                  type="button"
+                  type="submit"
                   className="cart-btn mt-2 rounded-pill mt-1 px-3 py-2 float-end fw-bold"
-                  onClick={() => PostRating()}
                 >
                   {" "}
                   Gửi đánh giá{" "}

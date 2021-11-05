@@ -4,10 +4,10 @@ import { getListComment, postComment } from "../../redux/actions/comment";
 import CommentList from "./listcomment";
 import { getListStaff } from "../../redux/actions/staff";
 import { SpinnerCircular } from "spinners-react";
+import { toast } from "react-toastify";
 const Comment = (props) => {
   const dispatch = useDispatch();
   const data = useSelector((state) => state.comment.data);
-  let load = useSelector((state) => state.comment.load);
   const status = useSelector((state) => state.comment.status);
   const postLoading = useSelector((state) => state.comment.postload);
   const staffData = useSelector((state) => state.staff.postload);
@@ -28,14 +28,22 @@ const Comment = (props) => {
 
   const PostUserComment = async (e) => {
     e.preventDefault();
-    let body = {
-      MaSanPham: productID,
-      MaKhachHang: "616e9dc3fa01938e427f1dba",
-      NoiDungBinhLuan: formValue.current.value,
-      PhanHoi: [],
-    };
-    dispatch(postComment(body));
-    formValue.current.value = "";
+    if (!localStorage.idUser) {
+      toast.error("Đăng nhập để gửi bình luận !", { position: "top-center" });
+    } else {
+      let body = {
+        MaSanPham: productID,
+        MaKhachHang: localStorage.idUser,
+        NoiDungBinhLuan: formValue.current.value,
+        PhanHoi: [],
+      };
+      if (formValue.current.value == "") {
+        toast.warn("Nhập nội dung bình luận", { position: "top-center" });
+      } else {
+        dispatch(postComment(body));
+        formValue.current.value = "";
+      }
+    }
   };
 
   return (
@@ -47,7 +55,6 @@ const Comment = (props) => {
             placeholder="Viết bình luận"
             id="exampleFormControlTextarea1"
             rows="3"
-            required
             ref={formValue}
           ></textarea>
           {postLoading ? (
