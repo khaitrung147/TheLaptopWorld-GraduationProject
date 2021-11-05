@@ -17,7 +17,6 @@
     "react-file-base64": "^1.0.3",
     "react-redux": "^7.2.5",
     "react-router-dom": "^5.2.1",
-    "react-scripts": "^4.0.3",
     "react-slick": "^0.28.1",
     "recharts": "^2.1.4",
     "redux": "^4.1.1",
@@ -49,5 +48,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "react-scripts": "^4.0.3"
   }
 }
