@@ -1,18 +1,23 @@
-import { call, put, takeLatest } from "redux-saga/effects";
-import { getList } from "../../api/order";
+import { call, put, delay, fork, all, takeEvery } from "redux-saga/effects";
+import { getListOrder } from "../../api/order";
 import { getListOrderSuccess } from "../actions/order";
 
-function* getListOrderSaga(action) {
+function* getListOrderIdSaga(action) {
   try {
-    const data = yield call(getList);
+    const data = yield call(getListOrder, action.payload.id);
+    yield delay(-100);
     yield put(getListOrderSuccess(data));
   } catch (error) {
     console.log("error :>> ", error);
   }
 }
 
-function* orderSaga() {
-  yield takeLatest("GET_LIST_ORDER", getListOrderSaga);
+function* todoGet() {
+  yield takeEvery("GET_LIST_ORDERID", getListOrderIdSaga);
 }
 
-export default orderSaga;
+const rootSaga = [fork(todoGet)];
+
+export default function* orderSaga() {
+  yield all([...rootSaga]);
+}
