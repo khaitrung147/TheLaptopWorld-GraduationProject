@@ -1,6 +1,6 @@
 import React, { Children, Component } from "react";
 import { Switch, Route, BrowserRouter } from "react-router-dom";
-
+import "./index.css";
 import Page from "../../Page";
 import ScrollToTop from "./scrollTop";
 import Footer from "./footer";
