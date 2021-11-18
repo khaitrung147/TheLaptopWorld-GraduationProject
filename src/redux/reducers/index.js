@@ -8,6 +8,7 @@ import commentReducer from "./comment";
 import staffReducer from "./staff";
 import productCompanyReducer from "./productCompany";
 import orderReducer from "./order";
+
 const rootReducer = combineReducers({
   catalogs: catalogReducer,
   products: productReducer,

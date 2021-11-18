@@ -5,8 +5,7 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
 import { getListCatalog } from "../../redux/actions/catalog";
-import "./header.css";
-import Logo from './Logo.png'
+import Logo from "./Logo.png";
 
 class Header extends Component {
   constructor(props) {
@@ -22,11 +21,10 @@ class Header extends Component {
     // const { catalogs, load } = this.props.catalogs;
 
     return (
-      <nav className="navbar navbar-expand-lg navbar-dark">
+      <nav className="navbar navbar-expand-lg navbar-dark main-bg">
         <div className="container py-2">
           <Link className="navbar-brand" to="/">
             <img src={Logo} />
-
           </Link>
           <button
             className="navbar-toggler bg-orange "

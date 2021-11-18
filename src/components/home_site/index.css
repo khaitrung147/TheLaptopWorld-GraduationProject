@@ -21,6 +21,7 @@ header {
 .content2 {
   animation: 1s ease-out 0s 1 slideInFromRight;
   position: relative;
+  z-index: 3;
 }
 
 .content1 h1 {
@@ -62,7 +63,7 @@ header {
     transform: translateX(0%);
   }
   0% {
-    transform: translateX(100%);
+    transform: translateX(55%);
   }
 }
 @media only screen and (max-width: 992px) {
