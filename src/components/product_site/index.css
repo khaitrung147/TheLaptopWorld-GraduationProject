@@ -103,3 +103,18 @@
 .config label span{
     color: black;
 }
+
+.filter-product .brand-checkbox{
+    display: flex;
+    flex-direction: column;
+    padding: 0 16px;
+}
+
+.filter-product .ant-checkbox-group-item{
+    margin-top: 2%;
+}
+
+.filter-product .cauhinh li{
+    list-style-type: none;
+    padding: 8px 16px;
+}
