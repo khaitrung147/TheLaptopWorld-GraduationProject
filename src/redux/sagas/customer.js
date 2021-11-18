@@ -1,4 +1,4 @@
-import { call, put, takeLatest } from "redux-saga/effects";
+import { call, put, takeEvery } from "redux-saga/effects";
 import { getListCustomer } from "../../api/customer";
 import { getListCustomerSuccess } from "../actions/customer";
 
@@ -12,7 +12,7 @@ function* getListCustomerSaga(action) {
 }
 
 function* customerSaga() {
-  yield takeLatest("GET_LIST_CUSTOMER", getListCustomerSaga);
+  yield takeEvery("GET_LIST_CUSTOMER", getListCustomerSaga);
 }
 
 export default customerSaga;

@@ -1,0 +1,12 @@
+.customer{
+    background-color: white;
+    padding: 24px;
+}
+
+.customer .avatar{
+    width: 70px;
+}
+
+.customer .avatar img{
+    width: 100%;
+}

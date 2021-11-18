@@ -1,16 +1,13 @@
-import {
-  GET_LIST_ORDER,
-  GET_LIST_ORDER_SUCCESS,
-} from "../constants/order";
+import { GET_LIST_ORDERID, GET_LIST_ORDERID_SUCCESS } from "../constants/order";
 
 const orderReducer = (state = [], action) => {
   switch (action.type) {
-    case GET_LIST_ORDER:
+    case GET_LIST_ORDERID:
       return {
         ...state,
         load: true,
       };
-    case GET_LIST_ORDER_SUCCESS:
+    case GET_LIST_ORDERID_SUCCESS:
       const { data } = action.payload;
       return {
         ...state,
