@@ -1,10 +1,11 @@
 import React from 'react';
 import CartTable from './cartTable';
+import './style.css'
 
 function Cart() {
     return ( 
         <>
-            <div className='container mt-5 text-center'>
+            <div className='cart-page container my-5 text-center'>
                 <h2>Giỏ hàng</h2>
                 <CartTable />
             </div>
