@@ -99,12 +99,14 @@ function Header() {
               </Link>
             </li>
           </ul>
-
           <div className="d-flex align-items-center justify-content-center">
             <a href="" className="me-4 text-decoration-none  cart">
               <i className="fas fa-shopping-cart"></i>
             </a>
-
+            <div className="d-flex align-items-center justify-content-center">
+              <Link to="/gio-hang" className="me-4 text-decoration-none  cart">
+                <i className="fas fa-shopping-cart"></i>
+              </Link>
             {!token ? (
               <Link
                 to="/dang-nhap-site"
