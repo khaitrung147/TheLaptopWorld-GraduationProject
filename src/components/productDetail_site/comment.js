@@ -28,7 +28,7 @@ const Comment = (props) => {
 
   const PostUserComment = async (e) => {
     e.preventDefault();
-    if (!localStorage.idUser) {
+    if (!localStorage.thelaptopworld_token) {
       toast.error("Đăng nhập để gửi bình luận !", { position: "top-center" });
     } else {
       let body = {

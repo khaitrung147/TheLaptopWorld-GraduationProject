@@ -1,6 +1,7 @@
 header {
   background-color: rgb(47, 212, 234);
   width: 100%;
+  overflow-x: hidden;
 }
 .custom-btn {
   color: #fff;
@@ -52,18 +53,22 @@ header {
 @keyframes slideInFromLeft {
   0% {
     transform: translateX(-100%);
+    opacity: 0;
   }
   100% {
     transform: translateX(0);
+    opacity: 1;
   }
 }
 
 @keyframes slideInFromRight {
   100% {
     transform: translateX(0%);
+    opacity: 1;
   }
   0% {
-    transform: translateX(55%);
+    transform: translateX(100%);
+    opacity: 0;
   }
 }
 @media only screen and (max-width: 992px) {

@@ -2,14 +2,14 @@ import React, { useEffect } from "react";
 import "antd/dist/antd.css";
 import { Form, Input, Button, Checkbox, Row, Col, Space } from "antd";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
-import { loginStaff } from "../../redux/actions/staff";
+import { loginCustomer } from "../../redux/actions/customer";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 
-const Login = () => {
+const LoginSite = () => {
   const dispatch = useDispatch();
-  const res = useSelector((state) => state.loginStaff.data);
-  const load = useSelector((state) => state.loginStaff.load);
+  const res = useSelector((state) => state.loginCustomer.data);
+  const load = useSelector((state) => state.loginCustomer.load);
   useEffect(() => {
     if (res) {
       if (res.status === "success") {
@@ -17,11 +17,9 @@ const Login = () => {
         const setToken = {
           userId: token.userId,
           userName: token.useName,
-          role: token.role,
         };
         localStorage.setItem("thelaptopworld_token", JSON.stringify(setToken));
-        toast.success("Login success", { position: "top-center" });
-        window.location.replace("/admin");
+        window.location.replace("/");
       } else if (res.status === "not-found") {
         toast.error("Can not found your Username !", {
           position: "top-center",
@@ -33,9 +31,10 @@ const Login = () => {
       }
     }
   }, [res]);
+
   const onFinish = (values) => {
     dispatch(
-      loginStaff({
+      loginCustomer({
         Username: values.username,
         Password: values.password,
       })
@@ -117,4 +116,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default LoginSite;
