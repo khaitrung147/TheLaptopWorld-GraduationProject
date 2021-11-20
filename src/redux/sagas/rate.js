@@ -1,4 +1,4 @@
-import { call, put, delay, fork, all, takeEvery } from "redux-saga/effects";
+import { call, put, delay, fork, all, takeLatest } from "redux-saga/effects";
 import { getListRate, postRate } from "../../api/rate";
 import { getListRateSuccess, postRateSuccess } from "../actions/rate";
 
@@ -24,11 +24,11 @@ function* postRateSaga(action) {
 }
 
 function* todoGet() {
-  yield takeEvery("GET_LIST_RATEID", getListRateIdSaga);
+  yield takeLatest("GET_LIST_RATEID", getListRateIdSaga);
 }
 
 function* todoPost() {
-  yield takeEvery("POST_RATE", postRateSaga);
+  yield takeLatest("POST_RATE", postRateSaga);
 }
 
 const rootSaga = [fork(todoGet), fork(todoPost)];

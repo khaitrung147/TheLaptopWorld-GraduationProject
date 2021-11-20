@@ -1,4 +1,4 @@
-import { call, put, delay, fork, all, takeEvery } from "redux-saga/effects";
+import { call, put, delay, fork, all, takeLatest } from "redux-saga/effects";
 import { getListComment, postComment } from "../../api/comment";
 import { getListCommentSuccess, postCommentSuccess } from "../actions/comment";
 
@@ -24,11 +24,11 @@ function* postCommentSaga(action) {
 }
 
 function* todoGet() {
-  yield takeEvery("GET_LIST_COMMENTID", getListCommentIdSaga);
+  yield takeLatest("GET_LIST_COMMENTID", getListCommentIdSaga);
 }
 
 function* todoPost() {
-  yield takeEvery("POST_COMMENT", postCommentSaga);
+  yield takeLatest("POST_COMMENT", postCommentSaga);
 }
 
 const rootSaga = [fork(todoGet), fork(todoPost)];

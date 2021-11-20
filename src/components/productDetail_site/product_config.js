@@ -24,7 +24,6 @@ const ProductConfig = (props) => {
 
   const AddCart = (e) => {
     var value = document.querySelector("input[type=radio]:checked");
-
     if (value.checked == true) {
       if (value.value === "disabled") {
         alert("cấu hình hết hàng ! chọn 1 cấu hình khác");
@@ -180,7 +179,6 @@ const ProductConfig = (props) => {
         <div className="mt-2">
           <div className="row">
             <h2 className="fw-bold">Các cấu hình tùy chọn</h2>
-
             {props.data.CauHinhSanPham.map((e) => (
               <div
                 className="col-xl-6 col-lg-6 col-md-12 col-sm-12"
@@ -218,7 +216,6 @@ const ProductConfig = (props) => {
                         </label>
                       </div>
                     )}
-
                     <b className="ms-2 text-info">-{e.PhanTramGiamGia}%</b>
                   </div>
                   <p className="mt-5 ch">

@@ -134,7 +134,7 @@ const Rating = (props) => {
             ref={formValue}
           ></textarea>
 
-          {!localStorage.idUser ? (
+          {!localStorage.thelaptopworld_token ? (
             <button
               type="button"
               className="cart-btn mt-2 rounded-pill mt-1 px-3 py-2 float-end fw-bold"

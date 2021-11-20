@@ -8,7 +8,6 @@ import productSaga from "../sagas/product";
 import rateSaga from "../sagas/rate";
 import commentSaga from "../sagas/comment";
 import staffSaga from "../sagas/staff";
-
 import productCompanySaga from "../sagas/productCompany";
 import orderSaga from "../sagas/order";
 const sagaMiddleware = createSagaMiddleware();
