@@ -107,21 +107,22 @@ function Header() {
               <Link to="/gio-hang" className="me-4 text-decoration-none  cart">
                 <i className="fas fa-shopping-cart"></i>
               </Link>
-            {!token ? (
-              <Link
-                to="/dang-nhap-site"
-                className="rounded-pill bg-orange fw-bold btn custom-btn"
-              >
-                <span className="p-3">Đăng nhập / Đăng ký</span>
-              </Link>
-            ) : (
-              <Link
-                to="/"
-                className="rounded-pill bg-orange fw-bold btn custom-btn"
-              >
-                <span>{token.userName}</span>
-              </Link>
-            )}
+              {!token ? (
+                <Link
+                  to="/dang-nhap-site"
+                  className="rounded-pill bg-orange fw-bold btn custom-btn"
+                >
+                  <span className="p-3">Đăng nhập / Đăng ký</span>
+                </Link>
+              ) : (
+                <Link
+                  to="/"
+                  className="rounded-pill bg-orange fw-bold btn custom-btn"
+                >
+                  <span>{token.userName}</span>
+                </Link>
+              )}
+            </div>
           </div>
         </div>
       </div>
