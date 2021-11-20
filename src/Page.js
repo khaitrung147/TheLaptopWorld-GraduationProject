@@ -3,6 +3,7 @@ import Home_site from "./components/home_site";
 import DetailProduct_site from "./components/productDetail_site";
 import Product_site from "./components/product_site";
 import Login from "./components/login";
+import Cart_site from './components/cart_site'
 
 // Admin page
 import Dashboard_admin from "./components/dashboard_admin";
@@ -35,6 +36,11 @@ const Page = {
       path: "/san-pham/:key",
       component: DetailProduct_site,
       exact: false,
+    },
+    {
+      path: "/gio-hang",
+      component: Cart_site,
+      exact: true,
     },
   ],
   Admin: [
