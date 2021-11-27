@@ -15,8 +15,10 @@ function* getListCustomerSaga(action) {
 }
 
 function* loginCustomerSaga(action) {
+  console.log(action.payload);
   try {
     const data = yield call(loginCustomer, action.payload);
+
     if (data.status === 200) {
       yield put(loginCustomerSuccess(data));
     }

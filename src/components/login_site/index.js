@@ -1,11 +1,12 @@
 import React, { useEffect } from "react";
 import "antd/dist/antd.css";
 import { Form, Input, Button, Checkbox, Row, Col, Space } from "antd";
-import { UserOutlined, LockOutlined } from "@ant-design/icons";
 import { loginCustomer } from "../../redux/actions/customer";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
-
+import { Link } from "react-router-dom";
+import Logo from "../site/Logo.png";
+import "./index.css";
 const LoginSite = () => {
   const dispatch = useDispatch();
   const res = useSelector((state) => state.loginCustomer.data);
@@ -47,16 +48,31 @@ const LoginSite = () => {
   const [form] = Form.useForm();
 
   return (
-    <main className="container py-5">
-      <Row justify="center" className="py-5">
-        <Col span={8}>
+    <main className="container py-5 mb-3 mt-3">
+      <Row justify="center" className="">
+        <Col
+          xl={12}
+          lg={15}
+          md={20}
+          sm={20}
+          xs={24}
+          style={{ backgroundColor: "rgba(47, 212, 234, 0.747)" }}
+          className="p-4 rounded-3"
+        >
+          <img src={Logo} alt="" className="d-block m-auto" />
+          <h4 className="mt-5 text-center text-light">Đăng nhập vào TGLT</h4>
+          <h6 className="text-light text-center">
+            Nhập tài khoản và mật khẩu phía dưới
+          </h6>
           <Form
             form={form}
             layout="vertical"
             onFinish={onFinish}
             onFinishFailed={onFinishFailed}
             autoComplete="off"
+            className="mt-5"
           >
+            <div className="text-uppercase text-light">Tài khoản</div>
             <Form.Item
               name="username"
               rules={[
@@ -66,12 +82,14 @@ const LoginSite = () => {
                 },
               ]}
             >
-              <Input
-                size="large"
-                placeholder="Tài khoản"
-                prefix={<UserOutlined />}
-              />
+              <Input size="large" placeholder="Tài khoản" />
             </Form.Item>
+            <div className="d-flex align-items-center justify-content-between text-light">
+              <div className="text-uppercase">Mật khẩu</div>
+              <Link to="/" className="text-light">
+                Quên mật khẩu ?
+              </Link>
+            </div>
 
             <Form.Item
               name="password"
@@ -82,34 +100,35 @@ const LoginSite = () => {
                 },
               ]}
             >
-              <Input.Password
-                size="large"
-                placeholder="Mật khẩu"
-                prefix={<LockOutlined />}
-              />
+              <Input.Password size="large" placeholder="Mật khẩu" />
             </Form.Item>
 
             <Form.Item>
-              <Space>
-                {load ? (
-                  <Button
-                    size="large"
-                    type="primary"
-                    htmlType="submit"
-                    disabled
-                  >
-                    Đăng nhập
-                  </Button>
-                ) : (
-                  <Button size="large" type="primary" htmlType="submit">
-                    Đăng nhập
-                  </Button>
-                )}
-
-                <Checkbox>Remember me</Checkbox>
-              </Space>
+              {load ? (
+                <Button
+                  size="large"
+                  type="primary"
+                  htmlType="submit"
+                  disabled
+                  style={{ width: "100%" }}
+                >
+                  Đăng nhập
+                </Button>
+              ) : (
+                <Button
+                  size="large"
+                  type="primary"
+                  htmlType="submit"
+                  style={{ width: "100%" }}
+                >
+                  Đăng nhập
+                </Button>
+              )}
             </Form.Item>
           </Form>
+          <h6 className="text-light text-center">
+            Không có tài khoản ? <Link to="/">Đăng ký</Link>
+          </h6>
         </Col>
       </Row>
     </main>
