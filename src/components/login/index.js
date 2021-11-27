@@ -5,7 +5,9 @@ import { UserOutlined, LockOutlined } from "@ant-design/icons";
 import { loginStaff } from "../../redux/actions/staff";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
-
+import { Link } from "react-router-dom";
+import Logo from "../site/Logo.png";
+import "./index.css";
 const Login = () => {
   const dispatch = useDispatch();
   const res = useSelector((state) => state.loginStaff.data);
@@ -49,15 +51,24 @@ const Login = () => {
 
   return (
     <main className="container py-5">
-      <Row justify="center" className="py-5">
-        <Col span={8}>
+      <Row justify="center" className="">
+        <Col xl={12} lg={15} md={20} sm={20} xs={24} className="p-4 rounded-3">
+          <img src={Logo} alt="" className="d-block m-auto" />
+          <h4 className="mt-5 text-center text-gray">
+            Đăng nhập trang quản trị TGLT
+          </h4>
+          <h6 className="text-gray text-center">
+            Nhập tài khoản và mật khẩu phía dưới
+          </h6>
           <Form
             form={form}
             layout="vertical"
             onFinish={onFinish}
             onFinishFailed={onFinishFailed}
             autoComplete="off"
+            className="mt-5"
           >
+            <div className="text-uppercase text-gray">Tài khoản</div>
             <Form.Item
               name="username"
               rules={[
@@ -67,12 +78,14 @@ const Login = () => {
                 },
               ]}
             >
-              <Input
-                size="large"
-                placeholder="Tài khoản"
-                prefix={<UserOutlined />}
-              />
+              <Input size="large" placeholder="Tài khoản" />
             </Form.Item>
+            <div className="d-flex align-items-center justify-content-between text-gray">
+              <div className="text-uppercase">Mật khẩu</div>
+              <Link to="/" className="text-gray">
+                Quên mật khẩu ?
+              </Link>
+            </div>
 
             <Form.Item
               name="password"
@@ -83,32 +96,30 @@ const Login = () => {
                 },
               ]}
             >
-              <Input.Password
-                size="large"
-                placeholder="Mật khẩu"
-                prefix={<LockOutlined />}
-              />
+              <Input.Password size="large" placeholder="Mật khẩu" />
             </Form.Item>
 
             <Form.Item>
-              <Space>
-                {load ? (
-                  <Button
-                    size="large"
-                    type="primary"
-                    htmlType="submit"
-                    disabled
-                  >
-                    Đăng nhập
-                  </Button>
-                ) : (
-                  <Button size="large" type="primary" htmlType="submit">
-                    Đăng nhập
-                  </Button>
-                )}
-
-                <Checkbox>Remember me</Checkbox>
-              </Space>
+              {load ? (
+                <Button
+                  size="large"
+                  type="primary"
+                  htmlType="submit"
+                  disabled
+                  style={{ width: "100%" }}
+                >
+                  Đăng nhập
+                </Button>
+              ) : (
+                <Button
+                  size="large"
+                  type="primary"
+                  htmlType="submit"
+                  style={{ width: "100%" }}
+                >
+                  Đăng nhập
+                </Button>
+              )}
             </Form.Item>
           </Form>
         </Col>
