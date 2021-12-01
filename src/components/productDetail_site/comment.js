@@ -14,6 +14,8 @@ const Comment = (props) => {
   const productID = props.product._id;
   const formValue = useRef();
 
+  const token = JSON.parse(localStorage.thelaptopworld_token)
+  
   useEffect(() => {
     dispatch(getListComment(productID));
     dispatch(getListStaff());
@@ -33,7 +35,7 @@ const Comment = (props) => {
     } else {
       let body = {
         MaSanPham: productID,
-        MaKhachHang: localStorage.idUser,
+        MaKhachHang: token.userId,
         NoiDungBinhLuan: formValue.current.value,
         PhanHoi: [],
       };
