@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
 import "antd/dist/antd.css";
 import { Form, Input, Button, Checkbox, Row, Col, Space } from "antd";
-import { loginCustomer } from "../../redux/actions/customer";
+import { loginCustomer } from "../../../redux/actions/customer";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import { Link } from "react-router-dom";
-import Logo from "../site/Logo.png";
+import Logo from "../../site/Logo.png";
 import "./index.css";
 const LoginSite = () => {
   const dispatch = useDispatch();
@@ -127,7 +127,7 @@ const LoginSite = () => {
             </Form.Item>
           </Form>
           <h6 className="text-light text-center">
-            Không có tài khoản ? <Link to="/">Đăng ký</Link>
+            Không có tài khoản ? <Link to="/dang-ky-site">Đăng ký</Link>
           </h6>
         </Col>
       </Row>

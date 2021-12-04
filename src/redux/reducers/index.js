@@ -10,6 +10,8 @@ import productCompanyReducer from "./productCompany";
 import orderReducer from "./order";
 import loginStaffReducer from "./loginStaff";
 import loginCustomerReducer from "./loginCustomer";
+import registerCustomerReducer from "./registerCustomer";
+
 const rootReducer = combineReducers({
   catalogs: catalogReducer,
   products: productReducer,
@@ -22,6 +24,7 @@ const rootReducer = combineReducers({
   order: orderReducer,
   loginStaff: loginStaffReducer,
   loginCustomer: loginCustomerReducer,
+  registerCustomer: registerCustomerReducer,
 });
 
 export default rootReducer;
