@@ -8,6 +8,7 @@ const productReducer = (state = [], action) => {
     case GET_LIST_PRODUCT:
       return {
         ...state,
+        data: [],
         load: true,
       };
     case GET_LIST_PRODUCT_SUCCESS:
