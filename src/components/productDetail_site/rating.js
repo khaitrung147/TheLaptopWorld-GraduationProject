@@ -54,9 +54,10 @@ const Rating = (props) => {
         number.push(star[i].value);
       }
     }
+    const token = JSON.parse(localStorage.thelaptopworld_token);
     const body = {
       MaSanPham: productID,
-      MaKhachHang: localStorage.idUser,
+      MaKhachHang: token.idUser,
       MaDonHang: accessRate,
       Rate: Number(number),
       NoiDungDanhGia: formValue.current.value,
