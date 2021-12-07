@@ -5,24 +5,24 @@ import { getListProduct } from "../../../redux/actions/product";
 import ListFeatures from "./list-feature";
 const Features = () => {
   const dispatch = useDispatch();
-  const { data } = useSelector((state) => state.products);
+  const { load, data } = useSelector((state) => state.products);
+
   useEffect(() => {
     dispatch(getListProduct());
+   
   }, [dispatch]);
 
   return (
     <>
       <div className="row row-cols-1 row-cols-lg-3 align-items-stretch g-3">
-        {(data || []).length > 0 ? (
-          (data || [])
-            .sort(function (a, b) {
-              return new Date(b.createdAt) - new Date(a.createdAt);
-            })
-            .splice(0, 6)
-            .map((e) => <ListFeatures data={e} />)
-        ) : (
-          <p>loading...</p>
-        )}
+        {(data || [])
+          .sort(function (a, b) {
+            return new Date(b.createdAt) - new Date(a.createdAt);
+          })
+          .splice(0, 6)
+          .map((e) => (
+            <ListFeatures data={e} />
+          ))}
       </div>
       <div className=" text-sm-end text-white  rounded">
         <div className="p-lg-5 text-end my-5 bannerfeatures bg-info">
