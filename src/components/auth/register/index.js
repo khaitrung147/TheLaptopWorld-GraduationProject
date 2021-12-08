@@ -6,26 +6,29 @@ import { toast } from "react-toastify";
 import { Link } from "react-router-dom";
 import Logo from "../../site/Logo.png";
 import { registerCustomer } from "../../../redux/actions/customer";
+import { useHistory } from "react-router";
 const RegisterSite = () => {
   const dispatch = useDispatch();
   const res = useSelector((state) => state.registerCustomer.data);
   const load = useSelector((state) => state.registerCustomer.load);
-
+  const history = useHistory()
   useEffect(() => {
     if (res) {
-      console.log(typeof res);
-
-      if (typeof res == "string") {
+      if (res === "existed") {
         toast.error("Username existed !", {
           position: "top-center",
         });
-      } else {
+      } else if( res === 'success') {
         toast.success("Register success !", {
           position: "top-center",
         });
+        setTimeout(()=>{
+          history.push('/dang-nhap-site')
+        }, 2000)
+        
       }
     }
-  }, [res]);
+  }, [res , history]);
 
   const re = /((09|03|07|08|05)+([0-9]{8})\b)/g;
   const onFinish = (values) => {
