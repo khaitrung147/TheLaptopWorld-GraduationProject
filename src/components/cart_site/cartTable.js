@@ -16,14 +16,20 @@ function CartTable() {
     }
 
     const renderProduct = (Key, CauHinh) => {
+        let cauhinh=[]
         let product = products?.filter(e => e.Key === Key);
-        let cauhinh= product[0]?.CauHinhSanPham.filter(e => e._id === CauHinh );
-        return {
-            name: product[0]?.TenSanPham,
-            img: product[0]?.HinhAnh[0].Url,
-            cauhinh: cauhinh[0]?._id,
-            price: cauhinh[0]?.GiaSanPham
-        };
+        if(product[0]){
+            cauhinh= product[0]?.CauHinhSanPham.filter(e => e._id === CauHinh );
+            return {
+                name: product[0]?.TenSanPham,
+                img: product[0]?.HinhAnh[0].Url,
+                cauhinh: cauhinh[0]?._id,
+                price: cauhinh[0]?.GiaSanPham
+            };
+        }
+        else{
+            return
+        }
     }
     
     useEffect(() => {
@@ -34,25 +40,25 @@ function CartTable() {
             title: 'Sản phẩm',
             dataIndex: 'productKey',
             key: 'productKey',
-            render: (productKey, data) => <Link to={`/san-pham/${productKey}`}>{renderProduct(productKey, data.CauHinh).name}</Link>
+            render: (productKey, data) => <Link to={`/san-pham/${productKey}`}>{renderProduct(productKey, data.CauHinh)?.name}</Link>
         },
         {
             title: 'Hình ảnh',
             dataIndex: 'productKey',
             key: 'price',
-            render: (productKey, data) => <Link to={`/san-pham/${productKey}`}><img width='100px' src={renderProduct(productKey, data.CauHinh).img} /></Link> 
+            render: (productKey, data) => <Link to={`/san-pham/${productKey}`}><img width='100px' src={renderProduct(productKey, data.CauHinh)?.img} /></Link> 
         },
         {
             title: 'Mã cấu Hình',
             dataIndex: 'productKey',
             key: 'price',
-            render: (productKey, data) => `${renderProduct(productKey, data.CauHinh).cauhinh}`
+            render: (productKey, data) => `${renderProduct(productKey, data.CauHinh)?.cauhinh}`
         },
         {
             title: 'Giá',
             dataIndex: 'productKey',
             key: 'price',
-            render: (productKey, data) => `${renderProduct(productKey, data.CauHinh).price}`
+            render: (productKey, data) => `${renderProduct(productKey, data.CauHinh)?.price}`
         },
         {
             title: 'Số lượng',
