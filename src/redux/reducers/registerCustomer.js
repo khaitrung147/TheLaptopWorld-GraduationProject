@@ -8,7 +8,7 @@ const registerCustomerReducer = (state = [], action) => {
     case REGISTER_CUSTOMER:
       return {
         ...state,
-        data: null,
+        data: [],
         load: true,
       };
 
