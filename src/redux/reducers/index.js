@@ -8,6 +8,10 @@ import commentReducer from "./comment";
 import staffReducer from "./staff";
 import productCompanyReducer from "./productCompany";
 import orderReducer from "./order";
+import loginStaffReducer from "./loginStaff";
+import loginCustomerReducer from "./loginCustomer";
+import registerCustomerReducer from "./registerCustomer";
+
 const rootReducer = combineReducers({
   catalogs: catalogReducer,
   products: productReducer,
@@ -18,6 +22,9 @@ const rootReducer = combineReducers({
   staff: staffReducer,
   productCompany: productCompanyReducer,
   order: orderReducer,
+  loginStaff: loginStaffReducer,
+  loginCustomer: loginCustomerReducer,
+  registerCustomer: registerCustomerReducer,
 });
 
 export default rootReducer;

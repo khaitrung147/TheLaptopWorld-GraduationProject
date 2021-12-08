@@ -1,6 +1,6 @@
-import axios from "axios";
 import URL from "./URL";
+import axios from "axios";
 
-export const getList = () => {
-  return axios.get(`${URL}/don-hang`);
+export const getListOrder = async (id) => {
+  return await axios.get(`${URL}/Don-hang/${id}`);
 };

@@ -1,0 +1,121 @@
+* {
+}
+.main-bg {
+  background-color: rgb(47, 212, 234);
+}
+
+.navbar {
+  background-color: rgb(47, 212, 234);
+}
+
+.search {
+  height: 2.2rem;
+  display: flex;
+}
+
+.searchbar {
+  height: 100%;
+  width: 14rem;
+  border: solid #ffffff 1px;
+  border-radius: 5px 0px 0px 5px;
+  -webkit-transition: box-shadow linear 0.2s;
+  transition: box-shadow linear 0.2s, width 500ms ease;
+}
+
+.searchbar:focus {
+  outline: none;
+  border-color: #ffffff;
+  box-shadow: 0 0 10px #797b7e;
+}
+
+.searchbar:hover {
+  outline: none;
+  border-color: #ffffff;
+  box-shadow: 0 0 10px #797b7e;
+}
+
+.fixed {
+  top: 0;
+  z-index: 10;
+  width: 100%;
+  position: fixed;
+  background-color: rgba(47, 212, 234, 0.877);
+  animation: opacity 300ms ease-in-out normal;
+  -moz-animation: opacity 300ms ease-in-out normal;
+  -ms-animation: opacity 300ms ease-in-out normal;
+  -o-animation: opacity 300ms ease-in-out normal;
+  -webkit-animation: opacity 300ms ease-in-out normal;
+}
+
+.search_button {
+  height: 100%;
+  margin-left: -5px;
+  width: 70px;
+  border: solid #ffffff 1px;
+  border-radius: 0px 5px 5px 0px;
+  border-left: 0;
+  transition: 300ms ease-out;
+  background-color: #fff;
+}
+.search_button:hover {
+  background-color: rgb(255, 93, 0);
+  color: white;
+}
+
+.bg-orange {
+  background-color: rgb(255, 93, 0);
+}
+
+.custom-btn {
+  color: #fff;
+}
+
+.custom-btn:hover {
+  background-color: #fff;
+  color: black;
+}
+
+.cart {
+  font-size: 1.5rem;
+  color: #fff;
+  transition: 0.3s;
+}
+
+.cart:hover {
+  color: rgb(255, 93, 0);
+  transition: 0.3s;
+}
+
+ul li a {
+  color: #fff;
+  transition: 0.3s;
+}
+
+ul li a:hover {
+  color: rgb(255, 93, 0);
+  transition: 0.3s;
+}
+
+input {
+  color: black;
+  padding-left: 1rem;
+}
+
+::placeholder {
+  color: black;
+}
+
+@keyframes opacity {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+footer {
+  width: 100%;
+  padding-top: 5rem;
+  padding-bottom: 4rem;
+}

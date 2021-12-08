@@ -7,6 +7,7 @@ const staffReducer = (state = [], action) => {
         ...state,
         load: true,
       };
+
     case GET_LIST_STAFF_SUCCESS:
       const { data } = action.payload;
       return {
@@ -14,6 +15,7 @@ const staffReducer = (state = [], action) => {
         data: data,
         load: false,
       };
+
     default:
       return state;
   }

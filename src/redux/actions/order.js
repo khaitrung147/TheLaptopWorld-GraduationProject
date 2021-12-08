@@ -1,18 +1,15 @@
-import {
-  GET_LIST_ORDER,
-  GET_LIST_ORDER_SUCCESS,
-} from "../constants/order";
+import { GET_LIST_ORDERID, GET_LIST_ORDERID_SUCCESS } from "../constants/order";
 
-export const getListOrder = (payload) => {
+export const getListOrder = (id) => {
   return {
-    type: GET_LIST_ORDER,
-    payload,
+    type: GET_LIST_ORDERID,
+    payload: { id },
   };
 };
 
 export const getListOrderSuccess = (payload) => {
   return {
-    type: GET_LIST_ORDER_SUCCESS,
+    type: GET_LIST_ORDERID_SUCCESS,
     payload,
   };
 };

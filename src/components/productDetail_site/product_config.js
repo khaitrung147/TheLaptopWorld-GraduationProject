@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 const ProductConfig = (props) => {
   const [saleprice, setSalePrice] = useState([]);
   const [config, setConfig] = useState([]);
+  console.log('props.data :>> ', props.data);
 
   useEffect(() => {
     setConfig(props.data.CauHinhSanPham[0]);
@@ -21,14 +22,50 @@ const ProductConfig = (props) => {
     input[0].checked = true;
   };
 
-  const AddCart = () => {
+  const AddCart = (e) => {
     var value = document.querySelector("input[type=radio]:checked");
-
     if (value.checked == true) {
       if (value.value === "disabled") {
         alert("cấu hình hết hàng ! chọn 1 cấu hình khác");
       } else {
-        alert("Đã thêm vào giỏ : " + value.value);
+        let cart= [];
+        if(localStorage.cart){
+          cart= JSON.parse(localStorage.cart);
+          let cartFilter= cart.filter(e=> e.productKey === props.data.Key && e.CauHinh === value.id);
+          console.log('cartFilter :>> ', cartFilter);
+          if(cartFilter[0]){
+            cart= [
+              ...cart.filter(e=> e.productKey !== props.data.Key && e.CauHinh !== value.id),
+              {
+                productKey: cartFilter[0].productKey,
+                CauHinh: cartFilter[0].CauHinh,
+                SoLuong: cartFilter[0].SoLuong+1
+              }
+            ]
+          }
+          else{
+            cart= [
+              ...cart,
+              {
+                productKey: props.data.Key,
+                CauHinh: value.id,
+                SoLuong: 1
+              }
+            ]
+          }
+          localStorage.cart=JSON.stringify(cart);
+        }
+        else{
+          localStorage.cart= JSON.stringify([
+            {
+              productKey: props.data.Key,
+              CauHinh: value.id,
+              SoLuong: 1
+            }
+          ])
+        }
+        console.log('value.id :>> ', value.id);
+        alert("Đã thêm vào giỏ hàng");
       }
     } else {
       alert("Chọn 1 cấu hình");
@@ -142,7 +179,6 @@ const ProductConfig = (props) => {
         <div className="mt-2">
           <div className="row">
             <h2 className="fw-bold">Các cấu hình tùy chọn</h2>
-
             {props.data.CauHinhSanPham.map((e) => (
               <div
                 className="col-xl-6 col-lg-6 col-md-12 col-sm-12"
@@ -171,6 +207,7 @@ const ProductConfig = (props) => {
                         <input
                           type="radio"
                           className=""
+                          id={e._id}
                           value={e.PhanTramGiamGia}
                           name="myCheckbox"
                         />
@@ -179,7 +216,6 @@ const ProductConfig = (props) => {
                         </label>
                       </div>
                     )}
-
                     <b className="ms-2 text-info">-{e.PhanTramGiamGia}%</b>
                   </div>
                   <p className="mt-5 ch">

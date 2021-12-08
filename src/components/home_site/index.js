@@ -5,7 +5,7 @@ import Banner from "./banner";
 import Brand from "./brand";
 import Currency from "./currency";
 import Products from "./currentproduct";
-import Features from "./features";
+import Features from "./Feature/features";
 import "./index.css";
 const Home = () => {
   return (
@@ -13,8 +13,8 @@ const Home = () => {
       <Banner />
       <div className="container">
         <div className="mt-5">
-        <h2 className="fw-bold">Sản phẩm nổi bật</h2>
-          <Features/>
+          <h2 className="fw-bold">Sản phẩm mới</h2>
+          <Features />
           <h2 className="fw-bold">Laptop hiện có</h2>
           <Brand />
           <div className="mt-3">

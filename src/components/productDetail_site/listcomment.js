@@ -14,7 +14,7 @@ const CommentList = (props) => {
                   className="col-xl-2 col-lg-2 col-md-2 col-sm-2  "
                   key={e._id}
                 >
-                  {kh.Avatar == "" ? (
+                  {kh.Avatar == "NULL" ? (
                     <img
                       className="rounded-circle d-block m-auto mt-3"
                       style={{ width: "4rem", height: "4rem" }}
@@ -68,7 +68,7 @@ const CommentList = (props) => {
                         {rep.MaKhachHang == repper._id ? (
                           <div className="row">
                             <div className="col-2  ">
-                              {repper.Avatar == "" ? (
+                              {repper.Avatar == "NULL" ? (
                                 <img
                                   className="rounded-circle mt-3 m-auto d-block"
                                   style={{ width: "4rem", height: "4rem" }}
@@ -117,7 +117,7 @@ const CommentList = (props) => {
                         {rep.MaKhachHang == repper._id ? (
                           <div className="row">
                             <div className="col-2  ">
-                              {repper.Avatar == "" ? (
+                              {repper.Avatar == "NULL" ? (
                                 <img
                                   className="rounded-circle mt-3 m-auto d-block"
                                   style={{ width: "4rem", height: "4rem" }}

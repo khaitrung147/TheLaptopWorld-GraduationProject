@@ -1,15 +1,14 @@
-import React from 'react';
-import { Redirect, Route } from 'react-router-dom';
+import React from "react";
+import { Redirect, Route } from "react-router-dom";
 
 function PrivateRoute(props) {
-    const Token = localStorage.getItem('thelaptopworld_token');
-
-    if(Token){
-        window.location.replace('/dang-nhap')
-    }
-    else{
-        return <Route {...props} />
-    }
+  const Token = JSON.parse(localStorage.getItem("thelaptopworld_token"));
+  console.log(Token);
+  if (!Token || !Token.role) {
+    window.location.replace("/dang-nhap");
+  } else {
+    return <Route {...props} />;
+  }
 }
 
 export default PrivateRoute;
