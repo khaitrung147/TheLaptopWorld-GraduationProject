@@ -2,7 +2,9 @@ import {
   GET_LIST_PRODUCT,
   GET_LIST_PRODUCT_SUCCESS,
   GET_DETAIL_PRODUCT,
-  GET_DETAIL_PRODUCT_SUCCESS
+  GET_DETAIL_PRODUCT_SUCCESS,
+  SEARCH_PRODUCT,
+  SEARCH_PRODUCT_SUCCESS,
 } from "../constants/product";
 
 export const getListProduct = (payload) => {
@@ -29,6 +31,20 @@ export const getDetailProduct = (key) => {
 export const getDetailProductSuccess = (payload) => {
   return {
     type: GET_DETAIL_PRODUCT_SUCCESS,
+    payload,
+  };
+};
+
+export const searchProduct = (key) => {
+  return {
+    type: SEARCH_PRODUCT,
+    payload: { key },
+  };
+};
+
+export const searchProductSuccess = (payload) => {
+  return {
+    type: SEARCH_PRODUCT_SUCCESS,
     payload,
   };
 };

@@ -8,3 +8,7 @@ export const getListProduct = async () => {
 export const getDetailProduct = async (key) => {
   return await axios.get(`${URL}/san-pham/${key}`);
 };
+
+export const searchProduct = async (key) => {
+  return await axios.get(`http://localhost:5000/api/v1/search?q=${key}`);
+};

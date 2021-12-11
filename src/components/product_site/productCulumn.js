@@ -97,7 +97,7 @@ function ProductColumn(props) {
               </div>
             </div>
             <Link
-              className="product-tag  d-flex align-items-center h-50"
+              className="product-tag  d-flex align-items-center h-50 overflow-hidden"
               to={"/san-pham/" + props.data.Key}
             >
               <div className="img-box w-100 ">
