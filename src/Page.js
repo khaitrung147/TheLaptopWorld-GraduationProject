@@ -6,6 +6,7 @@ import Login from "./components/login";
 import LoginSite from "./components/auth/login_site";
 import Cart_site from "./components/cart_site";
 import RegisterSite from "./components/auth/register";
+import Search from "./components/search_site";
 // Admin page
 import Dashboard_admin from "./components/dashboard_admin";
 import Catalog_admin from "./components/catalog_admin";
@@ -51,6 +52,11 @@ const Page = {
     {
       path: "/gio-hang",
       component: Cart_site,
+      exact: true,
+    },
+    {
+      path: "/tim-kiem",
+      component: Search,
       exact: true,
     },
   ],
