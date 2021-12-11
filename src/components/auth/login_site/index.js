@@ -13,11 +13,12 @@ const LoginSite = () => {
   const load = useSelector((state) => state.loginCustomer.load);
   useEffect(() => {
     if (res) {
+      const token = res.response;
+      console.log(res);
       if (res.status === "success") {
-        const token = res.response;
         const setToken = {
           userId: token.userId,
-          userName: token.useName,
+          userName: token.userName,
         };
         localStorage.setItem("thelaptopworld_token", JSON.stringify(setToken));
         window.location.replace("/");
