@@ -10,5 +10,5 @@ export const getDetailProduct = async (key) => {
 };
 
 export const searchProduct = async (key) => {
-  return await axios.get(`http://localhost:5000/api/v1/search?q=${key}`);
+  return await axios.get(`${URL}/search?q=${key}`);
 };
