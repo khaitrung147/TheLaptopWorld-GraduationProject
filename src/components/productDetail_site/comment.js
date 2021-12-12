@@ -14,6 +14,7 @@ const Comment = (props) => {
   const productID = props.product._id;
   const formValue = useRef();
 
+  
   useEffect(() => {
     dispatch(getListComment(productID));
     dispatch(getListStaff());
@@ -28,12 +29,14 @@ const Comment = (props) => {
 
   const PostUserComment = async (e) => {
     e.preventDefault();
+    
     if (!localStorage.thelaptopworld_token) {
       toast.error("Đăng nhập để gửi bình luận !", { position: "top-center" });
     } else {
+      const token = JSON.parse(localStorage.thelaptopworld_token)
       let body = {
         MaSanPham: productID,
-        MaKhachHang: localStorage.idUser,
+        MaKhachHang: token.userId,
         NoiDungBinhLuan: formValue.current.value,
         PhanHoi: [],
       };

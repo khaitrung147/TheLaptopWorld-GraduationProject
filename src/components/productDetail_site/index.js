@@ -17,15 +17,13 @@ const Detail = () => {
   const customer = useSelector((state) => state.customer.data);
   const [paramKey, setKey] = useState([]);
   const dispatch = useDispatch();
-  const Key = () => {
+
+  useEffect(() => {
     const key = window.location.pathname
       .split("/san-pham/")
       .splice(1)
       .toString();
     setKey(key);
-  };
-  useEffect(() => {
-    Key();
     dispatch(getDetailProduct(paramKey));
     dispatch(getListCustomer());
   }, [dispatch, paramKey]);

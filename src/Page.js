@@ -3,8 +3,10 @@ import Home_site from "./components/home_site";
 import DetailProduct_site from "./components/productDetail_site";
 import Product_site from "./components/product_site";
 import Login from "./components/login";
-import LoginSite from "./components/login_site";
-import Cart_site from './components/cart_site'
+import LoginSite from "./components/auth/login_site";
+import Cart_site from "./components/cart_site";
+import RegisterSite from "./components/auth/register";
+import Search from "./components/search_site";
 // Admin page
 import Dashboard_admin from "./components/dashboard_admin";
 import Catalog_admin from "./components/catalog_admin";
@@ -40,11 +42,21 @@ const Page = {
     {
       path: "/dang-nhap-site",
       component: LoginSite,
-       exact: true,
+      exact: true,
+    },
+    {
+      path: "/dang-ky-site",
+      component: RegisterSite,
+      exact: true,
     },
     {
       path: "/gio-hang",
       component: Cart_site,
+      exact: true,
+    },
+    {
+      path: "/tim-kiem",
+      component: Search,
       exact: true,
     },
   ],

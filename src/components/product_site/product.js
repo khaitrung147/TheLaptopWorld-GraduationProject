@@ -14,7 +14,6 @@ function Products() {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getListProduct());
-    dispatch(getDetailProduct("hp-elitebook-840"));
   }, [dispatch]);
 
   useEffect(() => {

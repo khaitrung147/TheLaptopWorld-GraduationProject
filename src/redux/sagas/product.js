@@ -1,8 +1,13 @@
-import { call, put, takeLatest, delay } from "@redux-saga/core/effects";
-import { getListProduct, getDetailProduct } from "../../api/product";
+import { call, put, takeLatest } from "@redux-saga/core/effects";
+import {
+  getListProduct,
+  getDetailProduct,
+  searchProduct,
+} from "../../api/product";
 import {
   getListProductSuccess,
   getDetailProductSuccess,
+  searchProductSuccess,
 } from "../actions/product";
 
 function* getListProductSaga(action) {
@@ -24,9 +29,19 @@ function* getDetailProductSaga(action) {
   }
 }
 
+function* searchProductSaga(action) {
+  try {
+    const data = yield call(searchProduct, action.payload.key);
+    yield put(searchProductSuccess(data));
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 function* productSaga() {
   yield takeLatest("GET_LIST_PRODUCT", getListProductSaga);
   yield takeLatest("GET_DETAIL_PRODUCT", getDetailProductSaga);
+  yield takeLatest("SEARCH_PRODUCT", searchProductSaga);
 }
 
 export default productSaga;

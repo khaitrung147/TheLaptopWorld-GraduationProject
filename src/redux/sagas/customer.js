@@ -1,8 +1,13 @@
 import { call, put, takeLatest, fork, all } from "redux-saga/effects";
-import { getListCustomer, loginCustomer } from "../../api/customer";
+import {
+  getListCustomer,
+  loginCustomer,
+  registerCustomer,
+} from "../../api/customer";
 import {
   getListCustomerSuccess,
   loginCustomerSuccess,
+  registerCustomerSuccess,
 } from "../actions/customer";
 
 function* getListCustomerSaga(action) {
@@ -15,12 +20,23 @@ function* getListCustomerSaga(action) {
 }
 
 function* loginCustomerSaga(action) {
-  console.log(action.payload);
   try {
     const data = yield call(loginCustomer, action.payload);
 
     if (data.status === 200) {
       yield put(loginCustomerSuccess(data));
+    }
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+function* registerCustomerSaga(action) {
+  try {
+    const data = yield call(registerCustomer, action.payload);
+
+    if (data.status === 200) {
+      yield put(registerCustomerSuccess(data));
     }
   } catch (error) {
     console.log(error);
@@ -35,7 +51,11 @@ function* todoLogin() {
   yield takeLatest("LOGIN_CUSTOMER", loginCustomerSaga);
 }
 
-const rootSaga = [fork(todoGet), fork(todoLogin)];
+function* todoRegister() {
+  yield takeLatest("REGISTER_CUSTOMER", registerCustomerSaga);
+}
+
+const rootSaga = [fork(todoGet), fork(todoLogin), fork(todoRegister)];
 
 export default function* customerSaga() {
   yield all([...rootSaga]);
