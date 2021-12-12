@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import CartTable from './cartTable';
-import { Alert, Button, Modal } from 'antd';
+import { Form, Alert, Button, Modal, Input } from 'antd';
 import './style.css'
 import { CarOutlined } from '@ant-design/icons';
 import { useDispatch, useSelector } from "react-redux";
 import { getListProduct } from "../../redux/actions/product";
 import { Link } from 'react-router-dom';
+import { postOrder } from '../../redux/actions/order';
 
 function Cart() {
     const [visible, setVisible] = useState(false);
@@ -20,7 +21,6 @@ function Cart() {
     const renderProduct = (products) => {
         let array=[];
         let cart = localStorage.cart;
-        console.log('cart :>> ', cart);
         if (cart) {
             let cartStorage = JSON.parse(cart);
             if(products){
@@ -82,6 +82,23 @@ function Cart() {
     useEffect(()=>{
         renderProduct(products);
     },[dispatch, products])
+    /* eslint-disable no-template-curly-in-string */
+    const validateMessages = {
+        required: '${label} không được trống!',
+        types: {
+          email: '${label} is not a valid email!',
+          number: '${label} is not a valid number!',
+        },
+        number: {
+          range: '${label} must be between ${min} and ${max}',
+        },
+      };
+
+    const onFinish = (values) => {
+        console.log(values);
+        console.log('data :>> ', data);
+        // setVisible(false);
+    };
 
     return ( 
         <>
@@ -120,16 +137,32 @@ function Cart() {
                 </div>
             </div>
             <Modal
-                title="Thông tin thanh toán"
+                title="Thông tin nhận hàng"
                 centered
                 visible={visible}
                 onOk={() => setVisible(false)}
                 onCancel={() => setVisible(false)}
-                width={1000}
+                footer={null}
             >
-                <p>some contents...</p>
-                <p>some contents...</p>
-                <p>some contents...</p>
+                <Form labelCol={{span: 7}} labelAlign='left' onFinish={onFinish} validateMessages={validateMessages}>
+                    <Form.Item name='TenNguoiNhan' label="Tên người nhận" rules={[{ required: true }]}>
+                        <Input />
+                    </Form.Item>
+                    <Form.Item name='SoDienThoaiNhanHang' label="Số điện thoại" rules={[{ required: true }]}>
+                        <Input />
+                    </Form.Item>
+                    <Form.Item name='DiaChiGiaoHang' label="Địa chỉ nhận hàng" rules={[{ required: true }]}>
+                        <Input />
+                    </Form.Item>
+                    <Form.Item name='GhiChu' label="Ghi chú" rules={[{ required: true }]}>
+                        <Input.TextArea showCount maxLength={100} />
+                    </Form.Item>
+                    <Form.Item>
+                        <Button type="primary" htmlType="submit" style={{ margin: '0 auto', display: 'block'}}>
+                        Xác nhận
+                        </Button>
+                    </Form.Item>
+                </Form>
             </Modal>
         </>
      );

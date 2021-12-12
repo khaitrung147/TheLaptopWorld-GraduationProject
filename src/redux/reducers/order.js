@@ -1,4 +1,9 @@
-import { GET_LIST_ORDERID, GET_LIST_ORDERID_SUCCESS } from "../constants/order";
+import {
+  GET_LIST_ORDERID,
+  GET_LIST_ORDERID_SUCCESS,
+  POST_ORDER, 
+  POST_ORDER_SUCCESS,
+} from "../constants/order";
 
 const orderReducer = (state = [], action) => {
   switch (action.type) {
@@ -13,6 +18,18 @@ const orderReducer = (state = [], action) => {
         ...state,
         data: data,
         load: false,
+      };
+    case POST_ORDER:
+      return {
+        ...state,
+        postload: true,
+        status: false,
+      };
+    case POST_ORDER_SUCCESS:
+      return {
+        ...state,
+        postload: false,
+        status: true,
       };
     default:
       return state;
