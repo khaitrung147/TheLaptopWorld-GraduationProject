@@ -1,47 +1,52 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom'
-import { Table, Tag, Space } from 'antd';
+import { Table, Tag, Space, InputNumber, Form } from 'antd';
 import { useDispatch, useSelector } from "react-redux";
 import './style.css'
 
 function CartTable(props) {
-    const { renderProduct, data, loading } = props
-    
+    const { changeQuantity, data, loading } = props;
+
     const columns = [
         {
             title: 'Sản phẩm',
-            dataIndex: 'productKey',
-            key: 'productKey',
-            render: (productKey, data) => <Link to={`/san-pham/${productKey}`}>{renderProduct(productKey, data.CauHinh, data.SoLuong)?.name}</Link>
+            dataIndex: 'name',
+            key: 'name',
+            render: (name, data) => <Link to={`/san-pham/${data.Key}`}>{name}</Link>
         },
         {
             title: 'Hình ảnh',
-            dataIndex: 'productKey',
-            key: 'price',
-            render: (productKey, data) => <Link to={`/san-pham/${productKey}`}><img width='100px' src={renderProduct(productKey, data.CauHinh, data.SoLuong)?.img} /></Link> 
+            dataIndex: 'img',
+            key: 'img',
+            render: (img, data) => <Link to={`/san-pham/${data.Key}`}><img width='100px' src={img} /></Link> 
         },
         {
             title: 'Mã cấu Hình',
-            dataIndex: 'productKey',
-            key: 'price',
-            render: (productKey, data) => <>{renderProduct(productKey, data.CauHinh, data.SoLuong)?.cauhinh}</>
+            dataIndex: 'cauhinh',
+            key: 'cauhinh',
         },
         {
             title: 'Giá',
-            dataIndex: 'productKey',
+            dataIndex: 'price',
             key: 'price',
-            render: (productKey, data) => <>{renderProduct(productKey, data.CauHinh, data.SoLuong)?.price}</>
+            render: price => <>{price?.toLocaleString("vi-vn")}đ</>
         },
         {
             title: 'Số lượng',
-            dataIndex: 'SoLuong',
-            key: 'SoLuong',
+            dataIndex: 'soluong',
+            key: 'soluong',
+            render: (soluong, data) =>
+            <Form onFieldsChange={changeQuantity}>
+                <Form.Item name={JSON.stringify({Key: data.Key, CauHinh: data.cauhinh})} initialValue={soluong}>
+                    <InputNumber min={0} max={10}/>
+                </Form.Item>
+            </Form>
         },
         {
-            title: 'Thành tiền',
-            dataIndex: 'productKey',
-            key: 'totalProduct',
-            render: (productKey, data) => <>{renderProduct(productKey, data.CauHinh, data.SoLuong)?.totalProduct}</>
+            title: 'Thành Tiền',
+            dataIndex: 'total',
+            key: 'total',
+            render: total => <>{total.toLocaleString("vi-vn")}đ</>
         },
     ];
 
