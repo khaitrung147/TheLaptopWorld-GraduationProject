@@ -1,20 +1,36 @@
 import {
-  GET_LIST_ORDERID,
-  GET_LIST_ORDERID_SUCCESS,
+  GET_LIST_ORDER,
+  GET_LIST_ORDER_SUCCESS,
+  GET_DETAIL_ORDER,
+  GET_DETAIL_ORDER_SUCCESS,
   POST_ORDER, 
   POST_ORDER_SUCCESS,
 } from "../constants/order";
 
-export const getListOrder = (id) => {
+export const getListOrder = (payload) => {
   return {
-    type: GET_LIST_ORDERID,
-    payload: { id },
+    type: GET_LIST_ORDER,
+    payload,
   };
 };
 
 export const getListOrderSuccess = (payload) => {
   return {
-    type: GET_LIST_ORDERID_SUCCESS,
+    type: GET_LIST_ORDER_SUCCESS,
+    payload,
+  };
+};
+
+export const getDetailOrder = (id) => {
+  return {
+    type: GET_DETAIL_ORDER,
+    payload: { id },
+  };
+};
+
+export const getDetailOrderSuccess = (payload) => {
+  return {
+    type: GET_DETAIL_ORDER_SUCCESS,
     payload,
   };
 };

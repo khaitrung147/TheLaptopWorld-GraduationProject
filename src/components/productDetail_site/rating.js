@@ -6,7 +6,7 @@ import { getListRate, postRate } from "../../redux/actions/rate";
 import { toast } from "react-toastify";
 import RateList from "./listrating";
 import { SpinnerCircular } from "spinners-react";
-import { getListOrder } from "../../redux/actions/order";
+import { getDetailOrder } from "../../redux/actions/order";
 
 const Rating = (props) => {
   const dispatch = useDispatch();
@@ -20,7 +20,7 @@ const Rating = (props) => {
   useEffect(() => {
     dispatch(getListRate(productID));
     if (localStorage.idUser) {
-      dispatch(getListOrder(localStorage.idUser));
+      dispatch(getDetailOrder(localStorage.idUser));
     }
   }, [dispatch, productID]);
 
