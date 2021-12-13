@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getListProduct } from "../../redux/actions/product";
 import { Link } from 'react-router-dom';
 import { postOrder } from '../../redux/actions/order';
+import { useHistory } from "react-router-dom";
 
 function Cart() {
     const [visible, setVisible] = useState(false);
@@ -15,7 +16,9 @@ function Cart() {
     const [data, setData]= useState([]);
     const products = useSelector((state) => state.products.data);
     const loading = useSelector(state=> state.products.load);
-  const token = JSON.parse(localStorage.getItem("thelaptopworld_token"));
+    const token = JSON.parse(localStorage.getItem("thelaptopworld_token"));
+    const order = useSelector((state) => state.order);
+    const history = useHistory();
 
 
     const renderProduct = (products) => {
@@ -94,10 +97,36 @@ function Cart() {
         },
       };
 
-    const onFinish = (values) => {
-        console.log(values);
-        console.log('data :>> ', data);
-        // setVisible(false);
+    const onFinish = async(values) => {
+        const SanPham= data.map(item=> {
+            return {
+                MaSanPham: item.Key,
+                CauHinh: item.cauhinh,
+                SoLuong: item.soluong,
+                GiaTien: item.price
+            }
+        })
+        const body= {
+            SanPham: SanPham,
+            MaKhachHang: token.userId,
+            ...values,
+            TrangThai: 0,
+        }
+        await dispatch(postOrder(body));
+        if(order.status){
+            Modal.success({
+                content: 'Đặt hàng thành công !',
+                onOk(){
+                    history.push('/');
+                }
+              });
+        }
+        else{
+            Modal.error({
+                title: 'Đặt hàng không thành công',
+                content: 'Có vẻ đã xảy ra vấn đề gì đó, vui lòng thử lại sau !',
+              });
+        }
     };
 
     return ( 
@@ -110,29 +139,34 @@ function Cart() {
                         loading={loading}
                         changeQuantity={changeQuantity}
                     />
-                    <div className='row justify-content-between'>
-                        <div className='col-5 mt-3'>
-                            <Alert
-                                message="Hình thức thanh toán"
-                                description="Hiện tại shop chỉ hỗ trợ hình thức thanh toán COD (thanh toán khi nhận hàng)"
-                                type="error"
-                                icon={<CarOutlined />}
-                                showIcon
-                            />
+                    {
+                        !loading && data[0] ?
+                        <div className='row justify-content-between'>
+                            <div className='col-5 mt-3'>
+                                <Alert
+                                    message="Hình thức thanh toán"
+                                    description="Hiện tại shop chỉ hỗ trợ hình thức thanh toán COD (thanh toán khi nhận hàng)"
+                                    type="error"
+                                    icon={<CarOutlined />}
+                                    showIcon
+                                />
+                            </div>
+                                <div className='col-6 mt-3'>
+                                    <h5>Thanh Toán: 
+                                    <span className='text-danger'>  {totalRecord().toLocaleString("vi-vn")} VNĐ</span></h5> <br />
+                                    {
+                                        token?
+                                        <Button onClick={() => setVisible(true)} type='primary' style={{backgroundColor: 'rgb(255, 93, 0)', borderColor: 'rgb(255, 93, 0)'}} shape="round" size='large'>
+                                            Tiến hành đặt hàng
+                                        </Button>
+                                        :
+                                        <Alert message="Bạn phải đăng nhập để đặt hàng" type="warning" showIcon closable />
+                                    }
+                                </div>
                         </div>
-                        <div className='col-6 mt-3'>
-                            <h5>Thanh Toán: 
-                            <span className='text-danger'>  {totalRecord().toLocaleString("vi-vn")} VNĐ</span></h5> <br />
-                            {
-                                token?
-                                <Button onClick={() => setVisible(true)} type='primary' style={{backgroundColor: 'rgb(255, 93, 0)', borderColor: 'rgb(255, 93, 0)'}} shape="round" size='large'>
-                                    Tiến hành đặt hàng
-                                </Button>
-                                :
-                                <Alert message="Bạn phải đăng nhập để đặt hàng" type="warning" showIcon closable />
-                            }
-                        </div>
-                    </div>
+                        :
+                        null
+                    }
 
                 </div>
             </div>
@@ -145,7 +179,7 @@ function Cart() {
                 footer={null}
             >
                 <Form labelCol={{span: 7}} labelAlign='left' onFinish={onFinish} validateMessages={validateMessages}>
-                    <Form.Item name='TenNguoiNhan' label="Tên người nhận" rules={[{ required: true }]}>
+                    <Form.Item name='TenNguoiNhan' initialValue={token?.userName} label="Tên người nhận" rules={[{ required: true }]}>
                         <Input />
                     </Form.Item>
                     <Form.Item name='SoDienThoaiNhanHang' label="Số điện thoại" rules={[{ required: true }]}>

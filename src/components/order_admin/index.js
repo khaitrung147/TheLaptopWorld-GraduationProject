@@ -27,6 +27,7 @@ function Order() {
     const { TabPane } = Tabs;
     const dispatch= useDispatch();
     const order = useSelector(state => state.order);
+    console.log('order :>> ', order);
 
     useEffect(()=>{
         dispatch(getListOrder());
@@ -44,8 +45,8 @@ function Order() {
                         statusOrder?.map((item) => {
                             return <TabPane tab={TabTitle(item.status, mapDataByStatus(order?.data, item.index).totalRecords)} key={item.index}>
                                 <OrderTable
-                                    data={mapDataByStatus(order?.data, item.index).data}
-                                    loading={order.load}
+                                    data={mapDataByStatus(order?.OrderList.data, item.index).data}
+                                    loading={order.loadOrderList}
                                     status={item.status}
                                 />
                             </TabPane>
