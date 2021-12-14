@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import "antd/dist/antd.css";
-import { Form, Input, Button, Checkbox, Row, Col, Space } from "antd";
+import { Form, Input, Button, Checkbox, Row, Col, Space, message } from "antd";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
 import { loginStaff } from "../../redux/actions/staff";
 import { useDispatch, useSelector } from "react-redux";
@@ -22,7 +22,7 @@ const Login = () => {
           role: token.role,
         };
         localStorage.setItem("thelaptopworld_token", JSON.stringify(setToken));
-        toast.success("Login success", { position: "top-center" });
+        message.success('Login success');
         window.location.replace("/admin");
       } else if (res.status === "not-found") {
         toast.error("Can not found your Username !", {

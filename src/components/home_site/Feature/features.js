@@ -9,7 +9,6 @@ const Features = () => {
 
   useEffect(() => {
     dispatch(getListProduct());
-   
   }, [dispatch]);
 
   return (

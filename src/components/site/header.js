@@ -1,18 +1,35 @@
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useRef, useEffect } from "react";
+import { Link, useHistory } from "react-router-dom";
 import Logo from "./Logo.png";
-
+import { getListProduct } from "../../redux/actions/product";
+import { useDispatch } from "react-redux";
+import { toast } from "react-toastify";
 function Header() {
   const token = JSON.parse(localStorage.getItem("thelaptopworld_token"));
-  console.log(token);
+  const myRef = useRef();
+  const history = useHistory();
+  const dispatch = useDispatch();
+  const setSearchParam = () => {
+    if (myRef.current.value === "") {
+      toast.warn("Bạn chưa nhập từ khóa tìm kiếm !", {
+        position: "top-center",
+      });
+    } else {
+      history.push("/tim-kiem?key=" + myRef.current.value);
+    }
+  };
+  const home = () => {
+    dispatch(getListProduct());
+    history.push("/");
+  };
   return (
     <nav className="navbar navbar-expand-lg navbar-dark main-bg">
       <div className="container py-2">
-        <Link className="navbar-brand" to="/">
+        <div className="navbar-brand" onClick={home}>
           <img src={Logo} />
-        </Link>
+        </div>
         <button
           className="navbar-toggler bg-orange "
           type="button"
@@ -38,20 +55,21 @@ function Header() {
               "
           >
             <li className="nav-item">
-              <form className="">
-                <div className="search">
-                  <input
-                    type="text"
-                    placeholder="Search..."
-                    name="search"
-                    className="searchbar"
-                    required
-                  />
-                  <button type="submit" className="search_button">
-                    <i className="fa fa-search"></i>
-                  </button>
-                </div>
-              </form>
+              <div className="search">
+                <input
+                  ref={myRef}
+                  type="text"
+                  placeholder="Tìm kiếm trên TGLT"
+                  className="searchbar"
+                />
+                <button
+                  onClick={setSearchParam}
+                  type="button"
+                  className=" search_button"
+                >
+                  <i className="fa fa-search"></i>
+                </button>
+              </div>
             </li>
             <li
               className="
@@ -100,26 +118,24 @@ function Header() {
             </li>
           </ul>
           <div className="d-flex align-items-center justify-content-center">
-            <div className="d-flex align-items-center justify-content-center">
-              <Link to="/gio-hang" className="me-4 text-decoration-none  cart">
-                <i className="fas fa-shopping-cart"></i>
+            <Link to="/gio-hang" className="me-4 text-decoration-none  cart">
+              <i className="fas fa-shopping-cart"></i>
+            </Link>
+            {!token ? (
+              <Link
+                to="/dang-nhap-site"
+                className="rounded-pill bg-orange fw-bold btn custom-btn"
+              >
+                <span className="p-3">Đăng nhập / Đăng ký</span>
               </Link>
-              {!token ? (
-                <Link
-                  to="/dang-nhap-site"
-                  className="rounded-pill bg-orange fw-bold btn custom-btn"
-                >
-                  <span className="p-3">Đăng nhập</span>
-                </Link>
-              ) : (
-                <Link
-                  to="/"
-                  className="rounded-pill bg-orange fw-bold btn custom-btn"
-                >
-                  <span>{token.userName}</span>
-                </Link>
-              )}
-            </div>
+            ) : (
+              <Link
+                to="/"
+                className="rounded-pill bg-orange fw-bold btn custom-btn"
+              >
+                <span>{token.userName}</span>
+              </Link>
+            )}
           </div>
         </div>
       </div>
