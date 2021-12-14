@@ -1,5 +1,6 @@
 /* eslint-disable eqeqeq */
 import React, { useEffect, useState } from "react";
+import { Modal, Button, Space } from 'antd';
 
 const ProductConfig = (props) => {
   const [saleprice, setSalePrice] = useState([]);
@@ -26,7 +27,10 @@ const ProductConfig = (props) => {
     var value = document.querySelector("input[type=radio]:checked");
     if (value.checked == true) {
       if (value.value === "disabled") {
-        alert("cấu hình hết hàng ! chọn 1 cấu hình khác");
+        Modal.warning({
+          title: 'Lưu ý',
+          content: 'Cấu hình tạm hết hàng, vui lòng chọn cấu hình khác',
+        });
       } else {
         let cart= [];
         if(localStorage.cart){
@@ -65,10 +69,15 @@ const ProductConfig = (props) => {
           ])
         }
         console.log('value.id :>> ', value.id);
-        alert("Đã thêm vào giỏ hàng");
+        Modal.success({
+          content: 'Thêm vào giỏ hàng thành công !',
+        });
       }
     } else {
-      alert("Chọn 1 cấu hình");
+      Modal.warning({
+        title: 'Lưu ý',
+        content: 'Vui lòng chọn 1 cấu hình',
+      });
     }
   };
   return (
