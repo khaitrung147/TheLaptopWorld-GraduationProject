@@ -45,7 +45,7 @@ function Order() {
                         statusOrder?.map((item) => {
                             return <TabPane tab={TabTitle(item.status, mapDataByStatus(order?.data, item.index).totalRecords)} key={item.index}>
                                 <OrderTable
-                                    data={mapDataByStatus(order?.OrderList.data, item.index).data}
+                                    data={mapDataByStatus(order?.OrderList?.data, item.index).data}
                                     loading={order.loadOrderList}
                                     status={item.status}
                                 />
