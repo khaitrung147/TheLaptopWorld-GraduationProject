@@ -8,3 +8,7 @@ export const getListStaff = async (id) => {
 export const loginStaff = async (body) => {
   return await axios.post(`${URL}/tai-khoan-nhan-vien/login`, body);
 };
+
+export const registerStaff = async (body) => {
+  return await axios.post(`${URL}/tai-khoan-nhan-vien/`, body);
+};

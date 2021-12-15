@@ -13,7 +13,8 @@ const menuItemConfig= [
         path: '/admin',
         icon: <DashboardOutlined />,
         name: 'Dashboard',
-        submenu: null
+        submenu: null,
+        role:[0, 1, 2, 3],
     },
     {
         key: 'loai-san-pham',
@@ -29,7 +30,8 @@ const menuItemConfig= [
                 path: '/admin/loai-san-pham',
                 name: 'Quản lý loại sản phẩm',
             },
-        ]
+        ],
+        role: [1],
     },
     {
         key: 'hang-san-xuat',
@@ -45,7 +47,8 @@ const menuItemConfig= [
                 path: '/admin/hang-san-xuat',
                 name: 'Quản lý hãng sản xuất',
             },
-        ]
+        ],
+        role:[1],
     },
     {
         key: 'san-pham',
@@ -61,7 +64,8 @@ const menuItemConfig= [
                 path: '/admin/san-pham',
                 name: 'Quản lý sản phẩm',
             },
-        ]
+        ],
+        role: [1, 2],
     },
     {
         key: 'tai-khoan',
@@ -77,14 +81,16 @@ const menuItemConfig= [
                 path: '/admin/tai-khoan-nhan-vien',
                 name: 'Nhân viên',
             },
-        ]
+        ],
+        role: [0],
     },
     {
         key: 'don-hang',
         path: '/admin/don-hang',
         icon:<ShoppingCartOutlined />,
         name: 'Quản lí đơn hàng',
-        submenu: null
+        submenu: null,
+        role: [1, 2 ,3],
     },
 ]
 

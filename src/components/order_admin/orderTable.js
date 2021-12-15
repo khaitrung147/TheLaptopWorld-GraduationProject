@@ -2,26 +2,46 @@ import React, { useState } from 'react';
 import { Table, Row, Space, Button } from 'antd';
 import { Link } from 'react-router-dom';
 import { DoubleRightOutlined } from '@ant-design/icons';
+import { updateOrder, getListOrder } from '../../redux/actions/order';
+import { useDispatch, useSelector } from 'react-redux';
+import moment from 'moment';
 
-const actionRender = (status) =>{
-    if(status===0){
-        return <Button type='primary'><i>Xác nhận</i></Button>
+const handleTitleTime = (status) => {
+    if(status === 0){
+        return 'Thời gian đặt hàng';
     }
-    else if(status===1){
-        return <Button type='primary'><i>Bắt đầu vận chuyển</i></Button>
-    }
-    else if(status===2){
-        return <Button type='primary'><Row align='middle' justify='space-between'>Giao thành công<DoubleRightOutlined /></Row></Button>
-    }
+    else if( status === 1){
+        return 'Thời gian xác nhận';
+    } 
+    else if( status === 2){
+        return 'Bắt đầu vận chuyển ';
+    } 
     else{
-        return null
+        return 'Thời gian hoàn thành';
     }
 }
 
 
 function CatalogTable(props) {
-    const { data, status, loading } = props;
+    const { data, statusTitle, loading, status, updateStatus } = props;
     const [selectedRowKeys, setSelectedRowKeys]= useState([]);
+    const format= 'HH:mm - DD/MM/YYY';
+    const Token = JSON.parse(localStorage.thelaptopworld_token);
+
+    const actionRender = (id, status) =>{
+        if(status===0){
+            return <Button disabled={Token.role !== 2} onClick={() => updateStatus(id, status)} type='primary'><i>Xác nhận</i></Button>
+        }
+        else if(status===1){
+            return <Button disabled={Token.role !== 3} onClick={() => updateStatus(id, status)} type='primary'><i>Bắt đầu vận chuyển</i></Button>
+        }
+        else if(status===2){
+            return <Button disabled={Token.role !== 3} onClick={() => updateStatus(id, status)} type='primary'><Row align='middle' justify='space-between'>Giao thành công<DoubleRightOutlined /></Row></Button>
+        }
+        else{
+            return null
+        }
+    }
 
     const columns = [
         {
@@ -39,7 +59,7 @@ function CatalogTable(props) {
         {
             title: 'Trạng thái',
             dataIndex: 'TrangThai',
-            render: () => <>{status}</>
+            render: () => <>{statusTitle}</>
         },
         {
             title: 'Thông tin giao hàng',
@@ -50,13 +70,25 @@ function CatalogTable(props) {
             </Space>
         },
         {
+            title: handleTitleTime(status),
+            align:'left',
+            render: data => {
+                if(status===0){
+                    return moment(data.createdAt).format(format);
+                }
+                else{
+                    return moment(data.updatedAt).format(format) ;
+                }
+            }
+        },
+        {
             title: 'Action',
             key: 'action',
             dataIndex: 'TrangThai',
-            render: TrangThai => (
+            render: (TrangThai, data) => (
                 <Space size="middle">
                     {
-                        actionRender(TrangThai)
+                        actionRender(data._id, TrangThai)
                     }
                 </Space>
             ),
