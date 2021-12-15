@@ -5,6 +5,8 @@ import {
   GET_DETAIL_ORDER_SUCCESS,
   POST_ORDER, 
   POST_ORDER_SUCCESS,
+  UPDATE_ORDER,
+  UPDATE_ORDER_SUCCESS,
 } from "../constants/order";
 
 export const getListOrder = (payload) => {
@@ -48,3 +50,18 @@ export const postOrderSuccess = (payload) => {
     payload,
   };
 };
+
+export const updateOrder = (body) => {
+  return {
+    type: UPDATE_ORDER,
+    payload: body,
+  };
+};
+
+export const updateOrderSuccess = (payload) => {
+  return {
+    type: UPDATE_ORDER_SUCCESS,
+    payload,
+  };
+};
+

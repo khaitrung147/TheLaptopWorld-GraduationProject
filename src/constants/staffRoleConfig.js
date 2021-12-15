@@ -82,7 +82,7 @@ export const staffRole = [
         ]
     },
     {
-        roleName: 'SALER',
+        roleName: 'SELLER',
         PhanQuyen: 2,
         permission: [
             {

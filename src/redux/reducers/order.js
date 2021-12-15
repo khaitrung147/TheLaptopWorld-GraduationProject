@@ -5,6 +5,8 @@ import {
   GET_DETAIL_ORDER_SUCCESS,
   POST_ORDER, 
   POST_ORDER_SUCCESS,
+  UPDATE_ORDER,
+  UPDATE_ORDER_SUCCESS,
 } from "../constants/order";
 
 const orderReducer = (state = [], action) => {
@@ -41,6 +43,18 @@ const orderReducer = (state = [], action) => {
       return {
         ...state,
         postload: false,
+        status: true,
+      };
+    case UPDATE_ORDER:
+      return {
+        ...state,
+        updateload: true,
+        status: false,
+      };
+    case UPDATE_ORDER_SUCCESS:
+      return {
+        ...state,
+        updateload: false,
         status: true,
       };
     default:
