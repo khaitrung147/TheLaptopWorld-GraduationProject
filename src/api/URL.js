@@ -1,2 +1,2 @@
 /* eslint-disable no-native-reassign */
-export default URL = "https://server-thelaptopworld.herokuapp.com/api/v1";
+export default URL = "http://localhost:5000/api/v1";

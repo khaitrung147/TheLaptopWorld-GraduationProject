@@ -24,23 +24,17 @@ function ProductColumn(props) {
     <>
       {props.view ? (
         <div className="container">
-          <div className=" card mt-3" key={props.data._id}>
+          <div className=" card mt-3 mb-3" key={props.data._id}>
             <div className="row">
-              <div
-                className="col-5  d-flex align-items-center"
-                style={{ width: "42%" }}
-              >
-                <Link className="" to={"/san-pham/" + props.data.Key}>
-                  <img
-                    src={imgUrl}
-                    className=""
-                    width="160"
-                    height="155"
-                    alt=""
-                  />
+              <div className="col-4  d-flex align-items-center">
+                <Link
+                  className="img-box-list"
+                  to={"/san-pham/" + props.data.Key}
+                >
+                  <img src={imgUrl} className="w-100" alt="" />
                 </Link>
               </div>
-              <div className="col-5 d-flex align-items-center">
+              <div className="col-6 d-flex align-items-center">
                 <div className="">
                   <div>
                     <small className="product-config fw-bold text-center p-1 rounded-pill ">
@@ -72,7 +66,6 @@ function ProductColumn(props) {
                   <small className="text-secondary float-end product-icon">
                     <i class="fas fa-info-circle "></i>
                     <i class="far fa-heart ms-2"></i>
-                    <i class="fas fa-cart-plus ms-2"></i>
                   </small>
                 </div>
               </div>
@@ -92,7 +85,6 @@ function ProductColumn(props) {
                 <small className="text-secondary float-end product-icon">
                   <i class="fas fa-info-circle "></i>
                   <i class="far fa-heart ms-2"></i>
-                  <i class="fas fa-cart-plus ms-2"></i>
                 </small>
               </div>
             </div>

@@ -1,120 +1,207 @@
-.product-card{
-    height: 100%;
-    transition: 0.3s;
+.product-card {
+  height: 100%;
+  transition: 0.3s;
 }
 
 .product-card:hover {
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    transition: 0.3s;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  transition: 0.3s;
 }
 
 .product-card:hover .product-tag {
-    color: black;
+  color: black;
 }
 
 .img-box {
-    overflow: hidden;
-    border-radius: 5px;
+  overflow: hidden;
+  border-radius: 5px;
+}
+
+.img-box-list {
+  width: 230px;
+  height: 100%;
 }
 
 .product-tag {
-    text-decoration: none;
-    color: black;
+  text-decoration: none;
+  color: black;
 }
 
 .product-tag img {
-    transition: 0.3s;
+  transition: 0.3s;
 }
 
 .product-card:hover img {
-    transform: scale(1.05);
-    transition: 0.3s;
+  transform: scale(1.05);
+  transition: 0.3s;
 }
 
-.product-icon i{
-    cursor: pointer;
-    transition: 0.3s;
+.product-icon i {
+  cursor: pointer;
+  transition: 0.3s;
 }
-.product-icon i:hover{
-    color: rgb(255, 93, 0);
-    transition: 0.3s;
+.product-icon i:hover {
+  color: rgb(255, 93, 0);
+  transition: 0.3s;
 }
-.product-sale{
-    background-color: rgba(255, 94, 0, 0.26);
-    color:rgb(255, 93, 0);
+.product-sale {
+  background-color: rgba(255, 94, 0, 0.26);
+  color: rgb(255, 93, 0);
 }
-.product-config{
-    background-color: gray;
-    color: white;
-    font-size: 0.8rem;
-}
-
-.left{
-    margin-left: 70%;
-}
-.left i{
-    cursor: pointer;
-    transition: 0.3s;
-}
-.left .list{
-    color: rgb(255, 93, 0);
+.product-config {
+  background-color: gray;
+  color: white;
+  font-size: 0.8rem;
 }
 
-.left .column{
-    color: rgba(47, 212, 234, 0.877);
+.left {
+  margin-left: 70%;
+}
+.left i {
+  cursor: pointer;
+  transition: 0.3s;
+}
+.left .list {
+  color: rgb(255, 93, 0);
 }
 
-.filter{
-    margin-top: 3.3rem;
+.left .column {
+  color: rgba(47, 212, 234, 0.877);
 }
 
-.brand{
-    cursor: pointer;
-    border: unset;
-    background-color: transparent;
-    transition: 0.3s;
-    border-radius: 5px;
+.filter {
+  margin-top: 3.3rem;
+}
+
+.brand {
+  cursor: pointer;
+  border: unset;
+  background-color: transparent;
+  transition: 0.3s;
+  border-radius: 5px;
 }
 
 .brand span {
-    color: black;
-    transition: 0.3s;
+  color: black;
+  transition: 0.3s;
 }
 
 .brand:hover {
-    transition: 0.3s;
-    
-    color: rgb(255, 93, 0);
+  transition: 0.3s;
+
+  color: rgb(255, 93, 0);
 }
-.brand:hover span{
-    color: rgb(255, 93, 0);
-    transition: 0.3s;
+.brand:hover span {
+  color: rgb(255, 93, 0);
+  transition: 0.3s;
 }
 
-.config{
-    border: unset;
-    background-color: transparent;
-    transition: 0.3s;
+.config {
+  border: unset;
+  background-color: transparent;
+  transition: 0.3s;
 }
 
-.config label{
-    cursor: pointer;
+.config label {
+  cursor: pointer;
 }
-.config label span{
-    color: black;
-}
-
-.filter-product .brand-checkbox{
-    display: flex;
-    flex-direction: column;
-    padding: 0 16px;
+.config label span {
+  color: black;
 }
 
-.filter-product .ant-checkbox-group-item{
-    margin-top: 2%;
+.filter-product .brand-checkbox {
+  display: flex;
+  flex-direction: column;
+  padding: 0 16px;
 }
 
-.filter-product .cauhinh li{
-    list-style-type: none;
-    padding: 8px 16px;
+.filter-product .ant-checkbox-group-item {
+  margin-top: 2%;
+}
+
+.filter-product .cauhinh li {
+  list-style-type: none;
+  padding: 8px 16px;
+}
+
+.pagina-dots {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.pagina-dots button {
+  border: 1px solid rgb(207, 203, 203);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  background-color: #fff;
+  font-weight: bolder;
+  transition: all 0.3s;
+}
+.pagina-dots button:hover {
+  background-color: rgba(47, 212, 234, 0.877);
+  color: white;
+  border: 0;
+  font-weight: normal;
+}
+.pagina-dots .active {
+  background-color: rgba(47, 212, 234, 0.877);
+  color: white;
+  border: 0;
+  font-weight: normal;
+}
+.list-group label {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  cursor: pointer;
+  margin-left: 2rem;
+  font-size: 15px;
+  margin-bottom: 7px;
+  font-weight: 400;
+}
+.list-group input {
+  visibility: hidden;
+  position: absolute;
+}
+
+.list-group input ~ .checked {
+  background-color: #fff;
+}
+.list-group input:checked ~ .active {
+  background-color: rgba(47, 212, 234, 0.877);
+}
+.list-group .checked {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  border: 1px solid rgb(122, 118, 118);
+}
+.list-group .box-filter {
+  padding-bottom: 20px;
+}
+.cancel {
+  text-align: center;
+  width: 120px;
+  padding: 8px 0;
+  margin: 0 auto;
+  border: 0;
+  background-color: rgba(47, 212, 234, 0.877);
+  border-radius: 10px;
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.not-found {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
