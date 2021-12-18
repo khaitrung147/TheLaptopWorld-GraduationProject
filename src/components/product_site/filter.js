@@ -53,9 +53,12 @@ const Filter = ({ filterIndex, cancelFilter }) => {
               <input
                 type="radio"
                 name="check"
-                checked={Filter === e.value ? true : null}
+                defaultChecked={Filter === e.value ? true : check}
+                ref={ref}
               />
-              <div className="checked"></div>
+              <div
+                className={Filter === e.value ? "checked active" : "checked"}
+              ></div>
               {e.label}
             </label>
           ))}
@@ -68,9 +71,12 @@ const Filter = ({ filterIndex, cancelFilter }) => {
               <input
                 type="radio"
                 name="check"
-                checked={Filter === e.value ? true : null}
+                defaultChecked={Filter === e.value ? true : check}
+                ref={ref}
               />
-              <div className="checked"></div>
+              <div
+                className={Filter === e.value ? "checked active" : "checked"}
+              ></div>
               {e.label}
             </label>
           ))}
@@ -82,9 +88,12 @@ const Filter = ({ filterIndex, cancelFilter }) => {
               <input
                 type="radio"
                 name="check"
-                checked={Filter === e.value ? true : null}
+                defaultChecked={Filter === e.value ? true : check}
+                ref={ref}
               />
-              <div className="checked"></div>
+              <div
+                className={Filter === e.value ? "checked active" : "checked"}
+              ></div>
               {e.label}
             </label>
           ))}
