@@ -78,13 +78,13 @@ function Header() {
                   mt-xl-0 mt-lg-0 mt-md-2 mt-sm-2
                 "
             >
-              <a
+              <Link
                 className="text-decoration-none text-uppercase fw-bold"
                 aria-current="page"
-                href="#"
+                to='/ve-chung-toi'
               >
                 about
-              </a>
+              </Link>
             </li>
             <li
               className="

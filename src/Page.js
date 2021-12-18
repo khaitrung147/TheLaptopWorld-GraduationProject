@@ -7,6 +7,7 @@ import LoginSite from "./components/auth/login_site";
 import Cart_site from "./components/cart_site";
 import RegisterSite from "./components/auth/register";
 import Search from "./components/search_site";
+import AboutSite from './components/about_site'
 // Admin page
 import Dashboard_admin from "./components/dashboard_admin";
 import Catalog_admin from "./components/catalog_admin";
@@ -59,6 +60,11 @@ const Page = {
       component: Search,
       exact: true,
     },
+    {
+      path: '/ve-chung-toi',
+      component: AboutSite,
+      exact: true,
+    }
   ],
   Admin: [
     {
