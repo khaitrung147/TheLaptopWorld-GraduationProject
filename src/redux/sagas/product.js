@@ -3,11 +3,13 @@ import {
   getListProduct,
   getDetailProduct,
   searchProduct,
+  filterProduct,
 } from "../../api/product";
 import {
   getListProductSuccess,
   getDetailProductSuccess,
   searchProductSuccess,
+  filterProductSuccess,
 } from "../actions/product";
 
 function* getListProductSaga(action) {
@@ -38,10 +40,20 @@ function* searchProductSaga(action) {
   }
 }
 
+function* filterProductSaga(action) {
+  try {
+    const data = yield call(filterProduct, action.payload.key);
+    yield put(filterProductSuccess(data));
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 function* productSaga() {
   yield takeLatest("GET_LIST_PRODUCT", getListProductSaga);
   yield takeLatest("GET_DETAIL_PRODUCT", getDetailProductSaga);
   yield takeLatest("SEARCH_PRODUCT", searchProductSaga);
+  yield takeLatest("FILTER_PRODUCT", filterProductSaga);
 }
 
 export default productSaga;
