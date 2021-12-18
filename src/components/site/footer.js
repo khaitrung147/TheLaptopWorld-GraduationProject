@@ -38,23 +38,23 @@ class Footer extends Component {
                 </div>
                 <div className="col-xl-4">
                   <p className="fw-bold">
-                    <a href="" className="text-light">
+                    <a href="/ve-chung-toi/#thuong-hieu" className="text-light">
                       Thương hiệu
                     </a>
                   </p>
                   <p className="fw-bold">
-                    <a href="" className="text-light">
-                      Thông tin
+                    <a href="/ve-chung-toi/#chuyen-mon" className="text-light">
+                      Chuyên môn
                     </a>
                   </p>
                   <p className="fw-bold">
-                    <a href="" className="text-light">
-                      Kết nối
+                    <a href="/ve-chung-toi/#van-chuyen" className="text-light">
+                      Vận chuyển
                     </a>
                   </p>
                   <span className="fw-bold">
-                    <a href="" className="text-light">
-                      Chính sách
+                    <a  href="/ve-chung-toi/#bao-hanh" className="text-light">
+                      Bảo hành
                     </a>
                   </span>
                 </div>
