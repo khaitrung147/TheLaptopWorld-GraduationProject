@@ -7,9 +7,10 @@ import { toast } from "react-toastify";
 import RateList from "./listrating";
 import { SpinnerCircular } from "spinners-react";
 import { getDetailOrder } from "../../redux/actions/order";
-
+import { useLocation } from "react-router-dom";
 const Rating = (props) => {
   const dispatch = useDispatch();
+  const router = useLocation();
   const data = useSelector((state) => state.rate.data);
   const load = useSelector((state) => state.rate.load);
   const order = useSelector((state) => state.order.data);
@@ -17,22 +18,35 @@ const Rating = (props) => {
   const postLoad = useSelector((state) => state.rate.postload);
   const status = useSelector((state) => state.rate.status);
   const [accessRate, setAccess] = useState();
+  const [statusOrder, setStatusOrder] = useState();
+  const productKeyParam = router.pathname
+    .split("/san-pham/")
+    .slice(1)
+    .toString();
+
   useEffect(() => {
     dispatch(getListRate(productID));
-    if (localStorage.idUser) {
-      dispatch(getDetailOrder(localStorage.idUser));
+  }, [dispatch, productID]);
+
+  useEffect(() => {
+    const token = JSON.parse(localStorage.getItem("thelaptopworld_token"));
+    if (token) {
+      dispatch(getDetailOrder(token.userId));
     }
   }, [dispatch, productID]);
 
   useEffect(() => {
-    (order || []).map((e) => {
-      (e.SanPham || []).map((msp) => {
-        if (msp.MaSanPham == productID) {
-          setAccess(e._id);
-        }
+    if (order) {
+      (order.data || []).map((e) => {
+        (e.SanPham || []).map((msp) => {
+          if (msp.MaSanPham == productKeyParam) {
+            setAccess(e._id);
+            setStatusOrder(e.TrangThai);
+          }
+        });
       });
-    });
-  }, [order, productID]);
+    }
+  }, [order, productKeyParam]);
 
   useEffect(() => {
     if (status == true) {
@@ -47,31 +61,37 @@ const Rating = (props) => {
   const formValue = useRef();
   const PostRating = (e) => {
     e.preventDefault();
-    const star = document.getElementsByName("stars");
-    let number = [];
-    for (let i = 0; i < star.length; i++) {
-      if (star[i].checked) {
-        number.push(star[i].value);
-      }
-    }
-    const token = JSON.parse(localStorage.thelaptopworld_token);
-    const body = {
-      MaSanPham: productID,
-      MaKhachHang: token.idUser,
-      MaDonHang: accessRate,
-      Rate: Number(number),
-      NoiDungDanhGia: formValue.current.value,
-    };
-    if (number.length == 0) {
-      toast.warn("Chọn số sao !", { position: "top-center" });
-    } else if (formValue.current.value == "") {
-      toast.warn("Nhập nội dung đánh giá !", { position: "top-center" });
-    } else {
-      dispatch(postRate(body));
-      formValue.current.value = "";
-      toast.success("Cảm ơn bạn đã gửi đánh giá !", {
+    if (statusOrder < 3) {
+      toast.warn("Bạn sẽ được đánh giá sau khi nhận được hàng !", {
         position: "top-center",
       });
+    } else {
+      const star = document.getElementsByName("stars");
+      let number = [];
+      for (let i = 0; i < star.length; i++) {
+        if (star[i].checked) {
+          number.push(star[i].value);
+        }
+      }
+      const token = JSON.parse(localStorage.thelaptopworld_token);
+      const body = {
+        MaSanPham: productID,
+        MaKhachHang: token.userId,
+        MaDonHang: accessRate,
+        Rate: Number(number),
+        NoiDungDanhGia: formValue.current.value,
+      };
+      if (number.length == 0) {
+        toast.warn("Vui lòng chọn số sao !", { position: "top-center" });
+      } else if (formValue.current.value == "") {
+        toast.warn("Nhập nội dung đánh giá !", { position: "top-center" });
+      } else {
+        dispatch(postRate(body));
+        formValue.current.value = "";
+        toast.success("Cảm ơn bạn đã gửi đánh giá !", {
+          position: "top-center",
+        });
+      }
     }
   };
 
@@ -198,11 +218,6 @@ const Rating = (props) => {
                 </b>{" "}
               </h4>
               <RateList rate={data} customer={props.customer} />
-
-              <button className="cart-btn rounded-pill mt-4 px-3 py-2 m-auto d-block fw-bold">
-                {" "}
-                Xem Thêm đánh giá{" "}
-              </button>
             </>
           )}
         </>

@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-function ListSearch(props) {
+function ListCurrent(props) {
   const [imgUrl, setImgUrl] = useState([]);
   const [price, setPrice] = useState([]);
   const [config, setConfig] = useState([]);
@@ -36,7 +36,7 @@ function ListSearch(props) {
               <Link to={"/san-pham/" + props.data.Key}>
                 <small className="text-secondary float-end product-icon">
                   <i
-                    class="fas fa-info-circle "
+                    class="fas fa-info-circle"
                     style={{ fontSize: "15px" }}
                   ></i>
                 </small>
@@ -76,4 +76,4 @@ function ListSearch(props) {
     </div>
   );
 }
-export default ListSearch;
+export default ListCurrent;

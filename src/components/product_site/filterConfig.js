@@ -7,6 +7,9 @@ export const filter = {
     { label: "HP", value: "HP" },
     { label: "Microsoft", value: "Microsoft" },
     { label: "Razer", value: "Razer" },
+    { label: "MSI", value: "Msi" },
+    { label: "Acer", value: "Acer" },
+    { label: "LG", value: "Lg" },
   ],
 
   chipOptions: [

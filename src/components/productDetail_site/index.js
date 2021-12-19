@@ -30,9 +30,9 @@ const Detail = () => {
   }, [dispatch, paramKey]);
 
   return (
-    <Spin spinning={loading} size="middle" style={{ marginTop: "5rem" }}>
+    <Spin spinning={loading} size="middle" style={{ marginTop: "3rem" }}>
       <div className="bg-white">
-        <div className="container">
+        <div className={!product ? "container margin-bot" : "container"}>
           <div className="pt-3">
             <Breadcrumb
               key=""
@@ -54,9 +54,7 @@ const Detail = () => {
                 <ProductImg data={product} />
                 <ProductConfig data={product} />
               </>
-            ) : (
-              <p>no data</p>
-            )}
+            ) : null}
           </div>
         </div>
       </div>

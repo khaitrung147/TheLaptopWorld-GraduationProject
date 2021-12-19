@@ -81,7 +81,7 @@ function Header() {
               <Link
                 className="text-decoration-none text-uppercase fw-bold"
                 aria-current="page"
-                to='/ve-chung-toi'
+                to="/ve-chung-toi"
               >
                 about
               </Link>
@@ -128,12 +128,32 @@ function Header() {
               >
                 <span className="p-3">Đăng nhập / Đăng ký</span>
               </Link>
+            ) : token.role ? (
+              <a
+                href="/admin"
+                className="rounded-pill  fw-bold btn custom-btn"
+                style={{
+                  fontSize: "1.5rem",
+                  fontWeight: "900",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "3px",
+                }}
+              >
+                <i class="fas fa-users-cog"></i>
+                <i class="fas fa-angle-right"></i>
+              </a>
             ) : (
               <Link
-                to="/"
+                to="/ho-so"
                 className="rounded-pill bg-orange fw-bold btn custom-btn"
               >
-                <span>{token.userName}</span>
+                <i
+                  class="far fa-user-circle"
+                  style={{
+                    fontSize: "1.5rem",
+                  }}
+                ></i>
               </Link>
             )}
           </div>

@@ -1,11 +1,14 @@
-import { call, put, delay, fork, all, takeLatest } from "redux-saga/effects";
-import { getListComment, postComment } from "../../api/comment";
-import { getListCommentSuccess, postCommentSuccess } from "../actions/comment";
+import { call, put, fork, all, takeLatest } from "redux-saga/effects";
+import { getListComment, postComment, repComment } from "../../api/comment";
+import {
+  getListCommentSuccess,
+  postCommentSuccess,
+  repCommentSuccess,
+} from "../actions/comment";
 
 function* getListCommentIdSaga(action) {
   try {
     const data = yield call(getListComment, action.payload.id);
-    yield delay(-100);
     yield put(getListCommentSuccess(data));
   } catch (error) {
     console.log("error :>> ", error);
@@ -13,10 +16,22 @@ function* getListCommentIdSaga(action) {
 }
 
 function* postCommentSaga(action) {
+  console.log(action.payload);
   try {
     const data = yield call(postComment, action.payload);
     if (data.status === 200) {
       yield put(postCommentSuccess(data));
+    }
+  } catch (error) {
+    console.log("error :>> ", error);
+  }
+}
+
+function* repCommentSaga(action) {
+  try {
+    const data = yield call(repComment, action.payload);
+    if (data.status === 200) {
+      yield put(repCommentSuccess(data));
     }
   } catch (error) {
     console.log("error :>> ", error);
@@ -31,7 +46,11 @@ function* todoPost() {
   yield takeLatest("POST_COMMENT", postCommentSaga);
 }
 
-const rootSaga = [fork(todoGet), fork(todoPost)];
+function* todoRep() {
+  yield takeLatest("REP_COMMENT", repCommentSaga);
+}
+
+const rootSaga = [fork(todoGet), fork(todoPost), fork(todoRep)];
 
 export default function* commentSaga() {
   yield all([...rootSaga]);

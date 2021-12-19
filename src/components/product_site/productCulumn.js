@@ -1,3 +1,4 @@
+/* eslint-disable eqeqeq */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
@@ -58,15 +59,21 @@ function ProductColumn(props) {
               </div>
               <div className="col-2">
                 <div className="position-absolute top-0 end-0 p-1">
-                  <small className="product-sale fw-bold text-center p-1 rounded-pill ">
-                    -{config.PhanTramGiamGia}%
-                  </small>
+                  {config.PhanTramGiamGia == 0 ? null : (
+                    <small className="product-sale fw-bold text-center p-1 rounded-pill ">
+                      -{config.PhanTramGiamGia}%
+                    </small>
+                  )}
                 </div>
                 <div className="position-absolute bottom-0 end-0 p-1">
-                  <small className="text-secondary float-end product-icon">
-                    <i class="fas fa-info-circle "></i>
-                    <i class="far fa-heart ms-2"></i>
-                  </small>
+                  <Link to={"/san-pham/" + props.data.Key}>
+                    <small className="text-secondary float-end product-icon">
+                      <i
+                        class="fas fa-info-circle "
+                        style={{ fontSize: "15px" }}
+                      ></i>
+                    </small>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -77,15 +84,21 @@ function ProductColumn(props) {
           <div className="card product-card ">
             <div className="row card-body" key={props.data._id}>
               <div className="col-6">
-                <small className="product-sale fw-bold text-center p-1 rounded-pill ">
-                  -{config.PhanTramGiamGia}%
-                </small>
+                {config.PhanTramGiamGia == 0 ? null : (
+                  <small className="product-sale fw-bold text-center p-1 rounded-pill ">
+                    -{config.PhanTramGiamGia}%
+                  </small>
+                )}
               </div>
               <div className="col-6">
-                <small className="text-secondary float-end product-icon">
-                  <i class="fas fa-info-circle "></i>
-                  <i class="far fa-heart ms-2"></i>
-                </small>
+                <Link to={"/san-pham/" + props.data.Key}>
+                  <small className="text-secondary float-end product-icon">
+                    <i
+                      class="fas fa-info-circle"
+                      style={{ fontSize: "15px" }}
+                    ></i>
+                  </small>
+                </Link>
               </div>
             </div>
             <Link

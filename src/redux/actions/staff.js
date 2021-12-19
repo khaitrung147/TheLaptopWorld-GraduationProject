@@ -4,7 +4,7 @@ import {
   LOGIN_STAFF,
   LOGIN_STAFF_SUCCESS,
   REGISTER_STAFF,
-  REGISTER_STAFF_SUCCESS
+  REGISTER_STAFF_SUCCESS,
 } from "../constants/staff";
 
 export const getListStaff = (payload) => {

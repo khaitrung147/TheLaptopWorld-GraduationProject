@@ -2,7 +2,7 @@ import {
   GET_LIST_STAFF,
   GET_LIST_STAFF_SUCCESS,
   REGISTER_STAFF,
-  REGISTER_STAFF_SUCCESS
+  REGISTER_STAFF_SUCCESS,
 } from "../constants/staff";
 
 const staffReducer = (state = [], action) => {

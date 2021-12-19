@@ -7,8 +7,13 @@ import LoginSite from "./components/auth/login_site";
 import Cart_site from "./components/cart_site";
 import RegisterSite from "./components/auth/register";
 import Search from "./components/search_site";
+import AboutSite from "./components/about_site";
+import Profile from "./components/user_site/profile/index";
+import Ordered from "./components/user_site/ordered/index";
+import Like from "./components/user_site/like/like";
 import AboutSite from './components/about_site'
 import ContactSite from './components/contact_site'
+
 // Admin page
 import Dashboard_admin from "./components/dashboard_admin";
 import Catalog_admin from "./components/catalog_admin";
@@ -62,15 +67,30 @@ const Page = {
       exact: true,
     },
     {
-      path: '/ve-chung-toi',
+      path: "/ve-chung-toi",
       component: AboutSite,
       exact: true,
     },
     {
+      path: "/ho-so",
+      component: Profile,
+      exact: true,
+    },
+    {
+      path: "/don-hang",
+      component: Ordered,
+      exact: true,
+    },
+    {
+      path: "/yeu-thich",
+      component: Like,
+      exact: true,
+    },
       path: '/lien-he',
       component: ContactSite,
       exact: true,
     }
+
   ],
   Admin: [
     {

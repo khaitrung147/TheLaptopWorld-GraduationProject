@@ -1,3 +1,4 @@
+/* eslint-disable eqeqeq */
 import React, { useRef, useState } from "react";
 import ProductColumn from "./productCulumn";
 import { useSelector } from "react-redux";
@@ -90,15 +91,17 @@ function Products({ selectPage, nextPage, prevPage, Sort }) {
 
       {/* pagination */}
       <div className="pagina-dots">
-        {page <= 1 ? (
-          <button disabled className="d-none">
-            <i class="fas fa-chevron-left"></i>
-          </button>
-        ) : (
-          <button onClick={prevPage}>
-            <i class="fas fa-chevron-left"></i>
-          </button>
-        )}
+        {products ? (
+          page <= 1 || (products.response || []).length == 0 ? (
+            <button disabled className="d-none">
+              <i class="fas fa-chevron-left"></i>
+            </button>
+          ) : (
+            <button onClick={prevPage}>
+              <i class="fas fa-chevron-left"></i>
+            </button>
+          )
+        ) : null}
 
         {pageNumber.map((e) =>
           e == 0 ? null : (
@@ -112,7 +115,8 @@ function Products({ selectPage, nextPage, prevPage, Sort }) {
         )}
 
         {products ? (
-          page == products.totalPage || products.totalPage == 0 ? (
+          page == products.totalPage ||
+          (products.response || []).length == 0 ? (
             <button disabled className="d-none">
               <i class="fas fa-chevron-right"></i>
             </button>
