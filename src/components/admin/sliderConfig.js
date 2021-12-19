@@ -5,16 +5,25 @@ import {
     TeamOutlined,
     ShoppingCartOutlined,
     ToolOutlined,
+    ContactsOutlined
   } from '@ant-design/icons';
 
 const menuItemConfig= [
+    // {
+    //     key: 'admin',
+    //     path: '/admin',
+    //     icon: <DashboardOutlined />,
+    //     name: 'Dashboard',
+    //     submenu: null,
+    //     role:[0, 1, 2, 3],
+    // },
     {
-        key: 'admin',
+        key: 'don-hang',
         path: '/admin',
-        icon: <DashboardOutlined />,
-        name: 'Dashboard',
+        icon:<ShoppingCartOutlined />,
+        name: 'Quản lí đơn hàng',
         submenu: null,
-        role:[0, 1, 2, 3],
+        role: [1, 2 ,3],
     },
     {
         key: 'loai-san-pham',
@@ -22,10 +31,10 @@ const menuItemConfig= [
         icon: <BarsOutlined />,
         name: 'Loại sản phẩm',
         submenu: [
-            {
-                path: '/admin/them-loai-san-pham',
-                name: 'Thêm loại sản phẩm',
-            },
+            // {
+            //     path: '/admin/them-loai-san-pham',
+            //     name: 'Thêm loại sản phẩm',
+            // },
             {
                 path: '/admin/loai-san-pham',
                 name: 'Quản lý loại sản phẩm',
@@ -39,10 +48,10 @@ const menuItemConfig= [
         icon: <ToolOutlined />,
         name: 'Hãng sản xuất',
         submenu: [
-            {
-                path: '/admin/them-hang-san-xuat',
-                name: 'Thêm hãng sản xuất',
-            },
+            // {
+            //     path: '/admin/them-hang-san-xuat',
+            //     name: 'Thêm hãng sản xuất',
+            // },
             {
                 path: '/admin/hang-san-xuat',
                 name: 'Quản lý hãng sản xuất',
@@ -56,10 +65,10 @@ const menuItemConfig= [
         icon: <DesktopOutlined />,
         name: 'Sản phẩm',
         submenu: [
-            {
-                path: '/admin/them-san-pham',
-                name: 'Thêm sản phẩm',
-            },
+            // {
+            //     path: '/admin/them-san-pham',
+            //     name: 'Thêm sản phẩm',
+            // },
             {
                 path: '/admin/san-pham',
                 name: 'Quản lý sản phẩm',
@@ -85,12 +94,12 @@ const menuItemConfig= [
         role: [0],
     },
     {
-        key: 'don-hang',
-        path: '/admin/don-hang',
-        icon:<ShoppingCartOutlined />,
-        name: 'Quản lí đơn hàng',
+        key: 'lien-he-khach-hang',
+        path: '/admin/lien-he-khach-hang',
+        icon:<ContactsOutlined />,
+        name: 'Liên hệ khách hàng',
         submenu: null,
-        role: [1, 2 ,3],
+        role: [1, 2],
     },
 ]
 

@@ -39,23 +39,23 @@ function CatalogTable(props) {
             key: 'SoLuongSanPhamHienCo',
             render: (_id) => totalRecordProduct(products,_id),
         },
-        {
-            title: 'Action',
-            key: 'action',
-            render: (text, record) => (
-                <Space size="middle">
-                    <Popconfirm
-                        title="Bạn có chắc là muốn xoá?"
-                        onConfirm={deleteConfirm}
-                        onCancel={deleteCancel}
-                        okText="Xoá"
-                        cancelText="Huỷ"
-                    >
-                        <Button>Xoá</Button>
-                    </Popconfirm>
-                </Space>
-            ),
-        },
+        // {
+        //     title: 'Action',
+        //     key: 'action',
+        //     render: (text, record) => (
+        //         <Space size="middle">
+        //             <Popconfirm
+        //                 title="Bạn có chắc là muốn xoá?"
+        //                 onConfirm={deleteConfirm}
+        //                 onCancel={deleteCancel}
+        //                 okText="Xoá"
+        //                 cancelText="Huỷ"
+        //             >
+        //                 <Button>Xoá</Button>
+        //             </Popconfirm>
+        //         </Space>
+        //     ),
+        // },
     ];
 
     const onSelectChange = selectedRowKeys => {

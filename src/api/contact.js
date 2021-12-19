@@ -9,6 +9,6 @@ export const postContact = async (body) => {
   return await axios.post(`${URL}/lien-he`, body);
 };
 
-export const updateContact = async (id,body) => {
-  return await axios.patch(`${URL}/lien-he/${id}`, body);
+export const updateContact = async (body) => {
+  return await axios.patch(`${URL}/lien-he/${body.id}`, body.body);
 };

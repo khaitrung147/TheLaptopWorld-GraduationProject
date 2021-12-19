@@ -16,6 +16,7 @@ import filterProductReducer from "./filterProduct";
 import customerDetailReducer from "./customerDetail";
 import infoCustomerReducer from "./updateInfo";
 import passCustomerReducer from "./updatePass";
+import contactReducer from "./contact";
 const rootReducer = combineReducers({
   catalogs: catalogReducer,
   products: productReducer,
@@ -34,6 +35,7 @@ const rootReducer = combineReducers({
   registerCustomer: registerCustomerReducer,
   searchProduct: searchProductReducer,
   filterProduct: filterProductReducer,
+  contact: contactReducer,
 });
 
 export default rootReducer;

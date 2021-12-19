@@ -36,7 +36,7 @@ function CatalogTable(props) {
             return <Button disabled={Token.role !== 3} onClick={() => updateStatus(id, status)} type='primary'><i>Bắt đầu vận chuyển</i></Button>
         }
         else if(status===2){
-            return <Button disabled={Token.role !== 3} onClick={() => updateStatus(id, status)} type='primary'><Row align='middle' justify='space-between'>Giao thành công<DoubleRightOutlined /></Row></Button>
+            return <Button disabled={Token.role !== 3} onClick={() => updateStatus(id, status)} type='primary'><i>Giao thành công</i></Button>
         }
         else{
             return null
