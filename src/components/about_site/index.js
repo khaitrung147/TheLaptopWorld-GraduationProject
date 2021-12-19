@@ -169,24 +169,26 @@ function About() {
           <div className="col-6 text-secondary fs-6">
             <h4 className="fw-bold text-secondary mt-5">Chính sách bảo hành</h4>
             <p>
-              Đầu tiên, Thế giới Laptop chắc chắn rằng việc máy tính bị lỗi dẫn đến
-              phải bảo hành là vấn đề không ai mong muốn, bởi vì nó sẽ tiêu tốn
-              thời gian cũng như tiền bạc của chúng tôi cũng như của Quý Khách
-              Hàng. Ngoài ra nó còn làm ảnh hưởng nghiêm trọng đến uy tín của
-              cửa hàng. Chính vì vậy, Thế giới Laptop luôn yêu cầu tất cả các sản phẩm
-              bán ra có chất lượng tốt nhất để giảm tối đa các sản phẩm phải bảo
-              hành. Tuy nhiên, do đặc thù ngành nghề kinh doanh đồ điện tử, việc
-              bảo hành là không thể tránh khỏi, nên cửa hàng Thế giới Laptop đã có
-              những Chính Sách Bảo Hành rõ ràng, rất mong Quý Khách Hàng đọc kỹ
-              để đảm bảo không đánh mất quyền lợi khi mua hàng.
+              Đầu tiên, Thế giới Laptop chắc chắn rằng việc máy tính bị lỗi dẫn
+              đến phải bảo hành là vấn đề không ai mong muốn, bởi vì nó sẽ tiêu
+              tốn thời gian cũng như tiền bạc của chúng tôi cũng như của Quý
+              Khách Hàng. Ngoài ra nó còn làm ảnh hưởng nghiêm trọng đến uy tín
+              của cửa hàng. Chính vì vậy, Thế giới Laptop luôn yêu cầu tất cả
+              các sản phẩm bán ra có chất lượng tốt nhất để giảm tối đa các sản
+              phẩm phải bảo hành. Tuy nhiên, do đặc thù ngành nghề kinh doanh đồ
+              điện tử, việc bảo hành là không thể tránh khỏi, nên cửa hàng Thế
+              giới Laptop đã có những Chính Sách Bảo Hành rõ ràng, rất mong Quý
+              Khách Hàng đọc kỹ để đảm bảo không đánh mất quyền lợi khi mua
+              hàng.
             </p>
           </div>
           <div className="col-6 text-secondary fs-6">
             <h5 className="text-secondary mt-3">I. Điều kiện bảo hành</h5>
             <p className="fw-bold">
-              Tất cả các sản phẩm do Thế giới Laptop bán ra đều được tuân thủ điều kiện
-              bảo hành của nhà cung cấp, hãng sản xuất. Các trường hợp sau đây
-              bị coi là vi phạm điều kiện bảo hành và không được bảo hành:
+              Tất cả các sản phẩm do Thế giới Laptop bán ra đều được tuân thủ
+              điều kiện bảo hành của nhà cung cấp, hãng sản xuất. Các trường hợp
+              sau đây bị coi là vi phạm điều kiện bảo hành và không được bảo
+              hành:
             </p>
             <ul>
               <li>
