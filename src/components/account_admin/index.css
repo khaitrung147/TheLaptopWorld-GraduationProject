@@ -1,3 +1,4 @@
+
 .customer{
     background-color: white;
     padding: 24px;
@@ -9,4 +10,24 @@
 
 .customer .avatar img{
     width: 100%;
+}
+
+.create-staff{
+    background-color: white;
+    padding: 24px;
+    margin-top: 24px;
+}
+
+.create-staff .register-customer-form{
+    margin-top: 24px;
+}
+
+.create-staff .anticon-usergroup-add{
+    font-size: 30px;
+    margin-top: -1%;
+    margin-right: 2%;
+}
+
+.create-staff .btn-register{
+    float: right;
 }

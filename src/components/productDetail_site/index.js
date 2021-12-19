@@ -10,6 +10,7 @@ import { getListCustomer } from "../../redux/actions/customer";
 import "./index.css";
 import { useSelector, useDispatch } from "react-redux";
 import { SpinnerCircular } from "spinners-react";
+import { Spin } from "antd";
 
 const Detail = () => {
   const product = useSelector((state) => state.detailProduct.data);
@@ -29,9 +30,9 @@ const Detail = () => {
   }, [dispatch, paramKey]);
 
   return (
-    <main className="">
+    <Spin spinning={loading} size="middle" style={{ marginTop: "3rem" }}>
       <div className="bg-white">
-        <div className="container">
+        <div className={!product ? "container margin-bot" : "container"}>
           <div className="pt-3">
             <Breadcrumb
               key=""
@@ -48,23 +49,12 @@ const Detail = () => {
 
         <div className="container">
           <div className="row ">
-            {loading ? (
-              <SpinnerCircular
-                size={90}
-                thickness={80}
-                speed={150}
-                color="rgb(255, 93, 0)"
-                secondaryColor="rgb(47, 212, 234)"
-                className="m-auto mb-5 mt-5"
-              />
-            ) : product ? (
+            {product ? (
               <>
                 <ProductImg data={product} />
                 <ProductConfig data={product} />
               </>
-            ) : (
-              <p>no data</p>
-            )}
+            ) : null}
           </div>
         </div>
       </div>
@@ -101,7 +91,7 @@ const Detail = () => {
       ) : (
         <p>no data</p>
       )}
-    </main>
+    </Spin>
   );
 };
 export default Detail;

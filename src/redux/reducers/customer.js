@@ -17,6 +17,7 @@ const customerReducer = (state = [], action) => {
         data: data,
         load: false,
       };
+
     default:
       return state;
   }

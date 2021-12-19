@@ -1,0 +1,16 @@
+.log-out {
+  margin-top: 1.5rem;
+  width: 10rem;
+  height: 2rem;
+  border: 0;
+  border-radius: 5px;
+  color: white;
+  background-color: #ff5d00;
+  font-weight: bold;
+  transition: all 0.3s;
+}
+.log-out:hover {
+  background-color: unset;
+  color: #ff5d00;
+  border: 1px solid #ff5d00;
+}

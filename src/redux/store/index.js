@@ -10,6 +10,7 @@ import commentSaga from "../sagas/comment";
 import staffSaga from "../sagas/staff";
 import productCompanySaga from "../sagas/productCompany";
 import orderSaga from "../sagas/order";
+import contactSaga from "../sagas/contact";
 const sagaMiddleware = createSagaMiddleware();
 const store = createStore(rootReducer, applyMiddleware(sagaMiddleware));
 
@@ -21,4 +22,5 @@ sagaMiddleware.run(commentSaga);
 sagaMiddleware.run(staffSaga);
 sagaMiddleware.run(productCompanySaga);
 sagaMiddleware.run(orderSaga);
+sagaMiddleware.run(contactSaga);
 export default store;

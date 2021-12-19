@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import Logo from "./Logo.png";
 class Footer extends Component {
   constructor(props) {
@@ -31,42 +32,42 @@ class Footer extends Component {
                     </a>
                   </p>
                   <p className="fw-bold">
-                    <a href="" className="text-light">
-                      Tin khuyến mãi
-                    </a>
+                    <Link to="/san-pham" className="text-light">
+                      Sản phẩm
+                    </Link>
+                  </p>
+                  <p className="fw-bold">
+                  <Link to="/gio-hang" className="text-light">
+                      Giỏ hàng
+                    </Link>
                   </p>
                 </div>
                 <div className="col-xl-4">
                   <p className="fw-bold">
-                    <a href="" className="text-light">
+                    <a href="/ve-chung-toi/#thuong-hieu" className="text-light">
                       Thương hiệu
                     </a>
                   </p>
                   <p className="fw-bold">
-                    <a href="" className="text-light">
-                      Thông tin
+                    <a href="/ve-chung-toi/#chuyen-mon" className="text-light">
+                      Chuyên môn
                     </a>
                   </p>
                   <p className="fw-bold">
-                    <a href="" className="text-light">
-                      Kết nối
+                    <a href="/ve-chung-toi/#van-chuyen" className="text-light">
+                      Vận chuyển
                     </a>
                   </p>
-                  <span className="fw-bold">
-                    <a href="" className="text-light">
-                      Chính sách
-                    </a>
-                  </span>
                 </div>
                 <div className="col-xl-4">
                   <p className="fw-bold">
-                    <a href="" className="text-light">
+                    <a href="/lien-he/#tuyen-dung" className="text-light">
                       Tuyển dụng
                     </a>
                   </p>
                   <p className="fw-bold">
-                    <a href="" className="text-light">
-                      Hệ thống bảo hành
+                    <a  href="/ve-chung-toi/#bao-hanh" className="text-light">
+                      Bảo hành
                     </a>
                   </p>
                 </div>
@@ -74,39 +75,25 @@ class Footer extends Component {
             </div>
             <div className="col-xl-4">
               <div className="float-end">
-                <h5 className="fw-bold text-light">Quên mật khẩu </h5>
+                <h5 className="fw-bold text-light">Liên hệ với chúng tôi</h5>
                 <form className="">
                   <div className="search">
                     <input
                       type="email"
-                      placeholder="example@gmail.com..."
+                      placeholder="khainttps12314@fpt.edu.vn"
                       name="search"
-                      className="searchbar rounded-3"
+                      className="searchbar rounded-3 bg-white"
                       required
+                      disabled
                     />
-                    <button
+                    <Link to="/lien-he"
                       type="submit"
-                      className="search_button bg-orange ms-2 rounded-3 text-light fw-bold border-0"
+                      className="search_button bg-orange ms-2 rounded-3 text-light fw-bold border-0 text-center pt-2"
                     >
                       GO
-                    </button>
+                    </Link>
                   </div>
                 </form>
-                <div className="mt-3">
-                  <h5>
-                    <a href="">
-                      <i class="fab fa-facebook-square text-light"></i>
-                    </a>
-                    <a href="">
-                      {" "}
-                      <i class="fab fa-twitter-square text-light ms-3"></i>
-                    </a>
-                    <a href="">
-                      {" "}
-                      <i class="fab fa-github-square text-light ms-3"></i>
-                    </a>
-                  </h5>
-                </div>
               </div>
             </div>
           </div>

@@ -12,3 +12,10 @@ export const getDetailProduct = async (key) => {
 export const searchProduct = async (key) => {
   return await axios.get(`${URL}/search?q=${key}`);
 };
+export const filterProduct = (key) => {
+  const { currentPage, sort, filter } = key;
+  console.log(key);
+  return axios.get(
+    `${URL}/filter?page=${currentPage}&q=${filter}&order=${sort}`
+  );
+};

@@ -1,4 +1,9 @@
-import { GET_LIST_STAFF, GET_LIST_STAFF_SUCCESS } from "../constants/staff";
+import {
+  GET_LIST_STAFF,
+  GET_LIST_STAFF_SUCCESS,
+  REGISTER_STAFF,
+  REGISTER_STAFF_SUCCESS,
+} from "../constants/staff";
 
 const staffReducer = (state = [], action) => {
   switch (action.type) {
@@ -9,11 +14,23 @@ const staffReducer = (state = [], action) => {
       };
 
     case GET_LIST_STAFF_SUCCESS:
-      const { data } = action.payload;
       return {
         ...state,
-        data: data,
+        data: action.payload,
         load: false,
+      };
+    case REGISTER_STAFF:
+      return {
+        ...state,
+        registerData: [],
+        registerLoad: true,
+      };
+
+    case REGISTER_STAFF_SUCCESS:
+      return {
+        ...state,
+        registerData: action.payload,
+        registerLoad: false,
       };
 
     default:

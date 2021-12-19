@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-function ListFeatures({ data }) {
+function ListFeatures({ data, load }) {
   const [price, setPrice] = useState([]);
-  const [config , setConfig] = useState([])
+  const [config, setConfig] = useState([]);
   useEffect(() => {
     data.CauHinhSanPham.splice(0, 1).map((e) =>
-    setPrice(
-      (((100 - e.PhanTramGiamGia) / 100) * e.GiaSanPham).toLocaleString(
-        "vi-vn"
-      ),
-      setConfig(e)
-    )
-  );
+      setPrice(
+        (((100 - e.PhanTramGiamGia) / 100) * e.GiaSanPham).toLocaleString(
+          "vi-vn"
+        ),
+        setConfig(e)
+      )
+    );
   }, [data]);
   return (
     <>
@@ -31,16 +31,10 @@ function ListFeatures({ data }) {
               </div>
               <div className="col-sm-7 pt-4 pb-4 ms-3">
                 <h5 className="fs-6 fw-bolder">{data.TenSanPham}</h5>
-                <div className="mt-3">
-                  {config.HeDieuHanh}
-                </div>
-                <div className="text-dark">
-                  {config.ManHinh}
-                </div>
+                <div className="mt-3">{config.HeDieuHanh}</div>
+                <div className="text-dark">{config.ManHinh}</div>
                 <div className="price mt-3">
-                  <b className="text-info">
-                    Giá từ : {price} VNĐ{" "}
-                  </b>
+                  <b className="text-info">Giá từ : {price} VNĐ </b>
                 </div>
               </div>
             </div>

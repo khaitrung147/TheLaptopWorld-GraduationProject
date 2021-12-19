@@ -10,6 +10,9 @@ export const getDetailOrder = async (id) => {
 };
 
 export const postOrder = async (body) => {
-  console.log('body :>> ', body);
   return axios.post(`${URL}/Don-hang/`, body);
+}
+
+export const patchOrder = async (body) => {
+  return axios.patch(`${URL}/Don-hang/${body.id}`, body.body);
 }

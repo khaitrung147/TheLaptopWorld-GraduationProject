@@ -1,3 +1,4 @@
+/* eslint-disable eqeqeq */
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
@@ -24,15 +25,22 @@ function ListSearch(props) {
       <div className="card product-card ">
         <div className="row card-body" key={props.data._id}>
           <div className="col-6">
-            <small className="product-sale fw-bold text-center p-1 rounded-pill ">
-              -{config.PhanTramGiamGia}%
-            </small>
+            {config.PhanTramGiamGia == 0 ? null : (
+              <small className="product-sale fw-bold text-center p-1 rounded-pill ">
+                -{config.PhanTramGiamGia}%
+              </small>
+            )}
           </div>
           <div className="col-6">
             <small className="text-secondary float-end product-icon">
-              <i class="fas fa-info-circle "></i>
-              <i class="far fa-heart ms-2"></i>
-              <i class="fas fa-cart-plus ms-2"></i>
+              <Link to={"/san-pham/" + props.data.Key}>
+                <small className="text-secondary float-end product-icon">
+                  <i
+                    class="fas fa-info-circle "
+                    style={{ fontSize: "15px" }}
+                  ></i>
+                </small>
+              </Link>
             </small>
           </div>
         </div>

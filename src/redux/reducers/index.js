@@ -12,13 +12,20 @@ import loginStaffReducer from "./loginStaff";
 import loginCustomerReducer from "./loginCustomer";
 import registerCustomerReducer from "./registerCustomer";
 import searchProductReducer from "./searchProduct";
-
+import filterProductReducer from "./filterProduct";
+import customerDetailReducer from "./customerDetail";
+import infoCustomerReducer from "./updateInfo";
+import passCustomerReducer from "./updatePass";
+import contactReducer from "./contact";
 const rootReducer = combineReducers({
   catalogs: catalogReducer,
   products: productReducer,
   detailProduct: detailProductReducer,
   rate: rateReducer,
   customer: customerReducer,
+  customerDetail: customerDetailReducer,
+  updateInfo: infoCustomerReducer,
+  updatePass: passCustomerReducer,
   comment: commentReducer,
   staff: staffReducer,
   productCompany: productCompanyReducer,
@@ -27,6 +34,8 @@ const rootReducer = combineReducers({
   loginCustomer: loginCustomerReducer,
   registerCustomer: registerCustomerReducer,
   searchProduct: searchProductReducer,
+  filterProduct: filterProductReducer,
+  contact: contactReducer,
 });
 
 export default rootReducer;

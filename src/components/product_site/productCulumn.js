@@ -1,3 +1,4 @@
+/* eslint-disable eqeqeq */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
@@ -24,23 +25,17 @@ function ProductColumn(props) {
     <>
       {props.view ? (
         <div className="container">
-          <div className=" card mt-3" key={props.data._id}>
+          <div className=" card mt-3 mb-3" key={props.data._id}>
             <div className="row">
-              <div
-                className="col-5  d-flex align-items-center"
-                style={{ width: "42%" }}
-              >
-                <Link className="" to={"/san-pham/" + props.data.Key}>
-                  <img
-                    src={imgUrl}
-                    className=""
-                    width="160"
-                    height="155"
-                    alt=""
-                  />
+              <div className="col-4  d-flex align-items-center">
+                <Link
+                  className="img-box-list"
+                  to={"/san-pham/" + props.data.Key}
+                >
+                  <img src={imgUrl} className="w-100" alt="" />
                 </Link>
               </div>
-              <div className="col-5 d-flex align-items-center">
+              <div className="col-6 d-flex align-items-center">
                 <div className="">
                   <div>
                     <small className="product-config fw-bold text-center p-1 rounded-pill ">
@@ -64,16 +59,21 @@ function ProductColumn(props) {
               </div>
               <div className="col-2">
                 <div className="position-absolute top-0 end-0 p-1">
-                  <small className="product-sale fw-bold text-center p-1 rounded-pill ">
-                    -{config.PhanTramGiamGia}%
-                  </small>
+                  {config.PhanTramGiamGia == 0 ? null : (
+                    <small className="product-sale fw-bold text-center p-1 rounded-pill ">
+                      -{config.PhanTramGiamGia}%
+                    </small>
+                  )}
                 </div>
                 <div className="position-absolute bottom-0 end-0 p-1">
-                  <small className="text-secondary float-end product-icon">
-                    <i class="fas fa-info-circle "></i>
-                    <i class="far fa-heart ms-2"></i>
-                    <i class="fas fa-cart-plus ms-2"></i>
-                  </small>
+                  <Link to={"/san-pham/" + props.data.Key}>
+                    <small className="text-secondary float-end product-icon">
+                      <i
+                        class="fas fa-info-circle "
+                        style={{ fontSize: "15px" }}
+                      ></i>
+                    </small>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -84,16 +84,21 @@ function ProductColumn(props) {
           <div className="card product-card ">
             <div className="row card-body" key={props.data._id}>
               <div className="col-6">
-                <small className="product-sale fw-bold text-center p-1 rounded-pill ">
-                  -{config.PhanTramGiamGia}%
-                </small>
+                {config.PhanTramGiamGia == 0 ? null : (
+                  <small className="product-sale fw-bold text-center p-1 rounded-pill ">
+                    -{config.PhanTramGiamGia}%
+                  </small>
+                )}
               </div>
               <div className="col-6">
-                <small className="text-secondary float-end product-icon">
-                  <i class="fas fa-info-circle "></i>
-                  <i class="far fa-heart ms-2"></i>
-                  <i class="fas fa-cart-plus ms-2"></i>
-                </small>
+                <Link to={"/san-pham/" + props.data.Key}>
+                  <small className="text-secondary float-end product-icon">
+                    <i
+                      class="fas fa-info-circle"
+                      style={{ fontSize: "15px" }}
+                    ></i>
+                  </small>
+                </Link>
               </div>
             </div>
             <Link

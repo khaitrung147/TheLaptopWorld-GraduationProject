@@ -5,6 +5,8 @@ import {
   GET_DETAIL_PRODUCT_SUCCESS,
   SEARCH_PRODUCT,
   SEARCH_PRODUCT_SUCCESS,
+  FILTER_PRODUCT,
+  FILTER_PRODUCT_SUCCESS,
 } from "../constants/product";
 
 export const getListProduct = (payload) => {
@@ -45,6 +47,20 @@ export const searchProduct = (key) => {
 export const searchProductSuccess = (payload) => {
   return {
     type: SEARCH_PRODUCT_SUCCESS,
+    payload,
+  };
+};
+
+export const filterProduct = (key) => {
+  return {
+    type: FILTER_PRODUCT,
+    payload: { key },
+  };
+};
+
+export const filterProductSuccess = (payload) => {
+  return {
+    type: FILTER_PRODUCT_SUCCESS,
     payload,
   };
 };

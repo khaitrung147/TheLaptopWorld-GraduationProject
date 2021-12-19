@@ -1,89 +1,104 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useEffect, useRef } from "react";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
 import { getListCatalog } from "../../redux/actions/catalog";
-import { Slider, Checkbox, Form } from 'antd';
-import { brandOptions, chipOptions, ramOptions, romOptions, cardOptions } from "./filterConfig";
 
-const Filter = () => {
-  const catalog = useSelector((state) => state.catalogs);
-  const [form] = Form.useForm();
+import { filter } from "./filterConfig";
 
+const Filter = ({ filterIndex, cancelFilter }) => {
+  const param = new URLSearchParams(window.location.search);
+  let Filter = param.get("filter");
+  const ref = useRef();
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getListCatalog());
   }, [dispatch]);
 
-  function onChangePrice(value) {
-    console.log('onChangePrice: ', value);
-  }
-
-  const formatter = (value) => {
-    return `${value * 1000} vnđ`
-  }
-
-  function onChangeBrand(checkedValues) {
-    console.log('onChangeBrand = ', checkedValues);
-  }
-
-  const onFormChange = (valueChange, allValue) => {
-    console.log('value :>> ', allValue);
-  }
-
-
+  const selectLabel = (i) => {
+    console.log(i);
+    filterIndex(i);
+  };
+  const [check, setCheck] = useState(false);
+  const Cancel = () => {
+    setCheck(false);
+    cancelFilter();
+  };
   return (
-    <div className='filter-product'>
-      <Form form={form} onValuesChange={onFormChange}>
-        <ul className="list-group">
-          <h5 className="fw-bolder">Khoảng giá</h5>
-
-          <li className="list-group-item brand ">
-            <Form.Item name='price'>
-              <Slider
-                range
-                step={5}
-                onChangePrice={onChangePrice}
-                defaultValue={[1, 100]}
-                tipFormatter={formatter}
-              />
-            </Form.Item>
-          </li>
-        </ul>
-        <ul className="list-group mt-3">
+    <div className="filter-product">
+      <div className="cancel" onClick={Cancel}>
+        Hủy lọc
+      </div>
+      <ul className="list-group mt-3">
+        <div className="box-filter">
           <h5 className="fw-bolder">Thương hiệu</h5>
-          <Form.Item name='brand'>
-            <Checkbox.Group className='brand-checkbox' options={brandOptions} defaultValue={['Apple']} onChange={onChangeBrand} />
-          </Form.Item>
-        </ul>
-        <ul className="list-group cauhinh mt-3">
-          <h5 className="fw-bolder">Cấu hình</h5>
+          {(filter.brandOptions || []).map((e) => (
+            <label onClick={() => selectLabel(e.value)}>
+              <input
+                type="radio"
+                name="check"
+                defaultChecked={Filter === e.value ? true : check}
+                ref={ref}
+              />
+              <div
+                className={Filter === e.value ? "checked active" : "checked"}
+              ></div>
+              {e.label}
+            </label>
+          ))}
+        </div>
+        <div className="box-filter">
+          <h5 className="fw-bolder">Chip</h5>
+          {(filter.chipOptions || []).map((e) => (
+            <label onClick={() => selectLabel(e.value)}>
+              <input
+                type="radio"
+                name="check"
+                defaultChecked={Filter === e.value ? true : check}
+                ref={ref}
+              />
+              <div
+                className={Filter === e.value ? "checked active" : "checked"}
+              ></div>
+              {e.label}
+            </label>
+          ))}
+        </div>
 
-          <li>
-            <h6>CPU</h6>
-            <Form.Item name='cpu'>
-              <Checkbox.Group className='brand-checkbox' options={chipOptions} defaultValue={['Core I5']} onChange={onChangeBrand} />
-            </Form.Item>
-          </li>
-          <li>
-            <h6>RAM</h6>
-            <Form.Item name='ram'>
-              <Checkbox.Group className='brand-checkbox' options={ramOptions} defaultValue={['4']} onChange={onChangeBrand} />
-            </Form.Item>
-          </li>
-          <li>
-            <h6>Card đồ hoạ</h6>
-            <Form.Item name='card'>
-              <Checkbox.Group className='brand-checkbox' options={cardOptions} defaultValue={['Core I5']} onChange={onChangeBrand} />
-            </Form.Item>
-          </li>
-          <li>
-            <h6>Bộ nhớ trong</h6>
-            <Form.Item name='rom'>
-              <Checkbox.Group className='brand-checkbox' options={romOptions} defaultValue={['Core I5']} onChange={onChangeBrand} />
-            </Form.Item>
-          </li>
-
-        </ul>
-      </Form>
+        <div className="box-filter">
+          <h5 className="fw-bolder">Ram</h5>
+          {(filter.ramOptions || []).map((e) => (
+            <label onClick={() => selectLabel(e.value)}>
+              <input
+                type="radio"
+                name="check"
+                defaultChecked={Filter === e.value ? true : check}
+                ref={ref}
+              />
+              <div
+                className={Filter === e.value ? "checked active" : "checked"}
+              ></div>
+              {e.label}
+            </label>
+          ))}
+        </div>
+        <div className="box-filter">
+          <h5 className="fw-bolder">Ổ cứng</h5>
+          {(filter.romOptions || []).map((e) => (
+            <label onClick={() => selectLabel(e.value)}>
+              <input
+                type="radio"
+                name="check"
+                defaultChecked={Filter === e.value ? true : check}
+                ref={ref}
+              />
+              <div
+                className={Filter === e.value ? "checked active" : "checked"}
+              ></div>
+              {e.label}
+            </label>
+          ))}
+        </div>
+      </ul>
     </div>
   );
 };
