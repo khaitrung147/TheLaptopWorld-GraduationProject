@@ -8,6 +8,7 @@ import Cart_site from "./components/cart_site";
 import RegisterSite from "./components/auth/register";
 import Search from "./components/search_site";
 import AboutSite from './components/about_site'
+import ContactSite from './components/contact_site'
 // Admin page
 import Dashboard_admin from "./components/dashboard_admin";
 import Catalog_admin from "./components/catalog_admin";
@@ -63,6 +64,11 @@ const Page = {
     {
       path: '/ve-chung-toi',
       component: AboutSite,
+      exact: true,
+    },
+    {
+      path: '/lien-he',
+      component: ContactSite,
       exact: true,
     }
   ],
