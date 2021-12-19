@@ -8,6 +8,7 @@ function Contact() {
   const onFinish = async (values) => {
     const body= {
         Email: values.Email,
+        CustomerName: values.CustomerName,
         Description: values.PhanHoi,
         Status: false,
     }
@@ -56,6 +57,19 @@ function Contact() {
                   ]}
                 >
                   <Input placeholder="example@gmail.com"/>
+                </Form.Item>
+                <Form.Item
+                    label='Họ và tên:'
+                
+                  name="CustomerName"
+                  rules={[
+                    {
+                      required: true,
+                      message: 'Vui lòng không bỏ trống!',
+                    },
+                  ]}
+                >
+                  <Input placeholder="Họ và tên"/>
                 </Form.Item>
                 <Form.Item
                     label='Phản hồi / ý kiến:'
