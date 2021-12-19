@@ -1,5 +1,5 @@
 /* eslint-disable array-callback-return */
-import React, { useEffect, useState } from "react";
+import React from "react";
 import moment from "moment";
 const RateList = (props) => {
   return (
@@ -10,7 +10,7 @@ const RateList = (props) => {
             {e.MaKhachHang == kh._id ? (
               <>
                 <div
-                  className="col-xl-2 col-lg-2 col-md-2 col-sm-2  "
+                  className="col-xl-2 col-lg-2 col-md-2 col-sm-2  mb-5 pb-5"
                   key={e._id}
                 >
                   {kh.Avatar === "NULL" ? (
@@ -36,7 +36,7 @@ const RateList = (props) => {
                       <b className="fw-bold">{kh.TenKhachHang}</b>{" "}
                     </span>
                     {e.Rate}
-                    <i className="far fa-star custom"></i>{" "}
+                    <i className="far fa-star custom ms-1"></i>{" "}
                   </div>
 
                   <p className="mt-2">{e.NoiDungDanhGia}</p>
@@ -46,9 +46,7 @@ const RateList = (props) => {
                   <hr />
                 </div>
               </>
-            ) : (
-              <p></p>
-            )}
+            ) : null}
           </>
         ))
       )}

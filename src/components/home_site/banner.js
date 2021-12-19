@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable jsx-a11y/alt-text */
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Banner = () => {
   return (
@@ -13,12 +14,12 @@ const Banner = () => {
               Hệ thống cửa hàng cung cấp Laptop toàn quốc , với những mẫu mã sản
               phẩm đa dạng và đảm bảo uy tín chất lượng sản phầm
             </p>
-            <a
-              href=""
+            <Link
+              to={"/san-pham"}
               className="rounded-pill bg-orange fw-bold btn custom-btn mt-4"
             >
               <span className="p-3">Mua hàng ngay</span>
-            </a>
+            </Link>
           </div>
 
           <div className="col-xl-6 col-lg-6 ">

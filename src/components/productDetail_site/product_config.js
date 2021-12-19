@@ -1,11 +1,11 @@
 /* eslint-disable eqeqeq */
 import React, { useEffect, useState } from "react";
-import { Modal, Button, Space } from 'antd';
+import { Modal, Button, Space } from "antd";
 
 const ProductConfig = (props) => {
   const [saleprice, setSalePrice] = useState([]);
   const [config, setConfig] = useState([]);
-  console.log('props.data :>> ', props.data);
+  console.log("props.data :>> ", props.data);
 
   useEffect(() => {
     setConfig(props.data.CauHinhSanPham[0]);
@@ -28,58 +28,64 @@ const ProductConfig = (props) => {
     if (value.checked == true) {
       if (value.value === "disabled") {
         Modal.warning({
-          title: 'Lưu ý',
-          content: 'Cấu hình tạm hết hàng, vui lòng chọn cấu hình khác',
+          title: "Lưu ý",
+          content: "Cấu hình tạm hết hàng, vui lòng chọn cấu hình khác",
         });
       } else {
-        let cart= [];
-        if(localStorage.cart){
-          cart= JSON.parse(localStorage.cart);
-          let cartFilter= cart.filter(e=> e.productKey === props.data.Key && e.CauHinh === value.id);
-          console.log('cartFilter :>> ', cartFilter);
-          if(cartFilter[0]){
-            cart= [
-              ...cart.filter(e=> e.productKey !== props.data.Key && e.CauHinh !== value.id),
+        let cart = [];
+        if (localStorage.cart) {
+          cart = JSON.parse(localStorage.cart);
+          let cartFilter = cart.filter(
+            (e) => e.productKey === props.data.Key && e.CauHinh === value.id
+          );
+          console.log("cartFilter :>> ", cartFilter);
+          if (cartFilter[0]) {
+            cart = [
+              ...cart.filter(
+                (e) => e.productKey !== props.data.Key && e.CauHinh !== value.id
+              ),
               {
                 productKey: cartFilter[0].productKey,
                 CauHinh: cartFilter[0].CauHinh,
-                SoLuong: cartFilter[0].SoLuong+1
-              }
-            ]
-          }
-          else{
-            cart= [
+                SoLuong: cartFilter[0].SoLuong + 1,
+              },
+            ];
+          } else {
+            cart = [
               ...cart,
               {
                 productKey: props.data.Key,
                 CauHinh: value.id,
-                SoLuong: 1
-              }
-            ]
+                SoLuong: 1,
+              },
+            ];
           }
-          localStorage.cart=JSON.stringify(cart);
-        }
-        else{
-          localStorage.cart= JSON.stringify([
+          localStorage.cart = JSON.stringify(cart);
+        } else {
+          localStorage.cart = JSON.stringify([
             {
               productKey: props.data.Key,
               CauHinh: value.id,
-              SoLuong: 1
-            }
-          ])
+              SoLuong: 1,
+            },
+          ]);
         }
-        console.log('value.id :>> ', value.id);
+        console.log("value.id :>> ", value.id);
         Modal.success({
-          content: 'Thêm vào giỏ hàng thành công !',
+          content: "Thêm vào giỏ hàng thành công !",
         });
       }
     } else {
       Modal.warning({
-        title: 'Lưu ý',
-        content: 'Vui lòng chọn 1 cấu hình',
+        title: "Lưu ý",
+        content: "Vui lòng chọn 1 cấu hình",
       });
     }
   };
+
+  if (localStorage.thelaptopworld_token) {
+    var token = JSON.parse(localStorage.thelaptopworld_token);
+  }
   return (
     <>
       <div
@@ -112,7 +118,7 @@ const ProductConfig = (props) => {
               <b>Màn hình:</b> {config.ManHinh}
             </p>
             <p>
-              <b>Độ phủ màu:</b> {config.Mau}
+              <b>Màu:</b> {config.Mau}
             </p>
             <p>
               <b>RAM:</b> {config.BoNho}
@@ -152,21 +158,69 @@ const ProductConfig = (props) => {
               ))}
             </div>
             <div className="mt-5">
-              <button
-                type="submit"
-                className="p-2 rounded-pill cart-btn fw-bold  "
-                onClick={() => AddCart()}
-              >
-                {" "}
-                <i className="fas fa-shopping-cart me-2"></i>Thêm vào giỏ
-              </button>
-              <button
-                type="submit"
-                className="p-2 rounded-pill love-btn fw-bold  ms-3"
-              >
-                {" "}
-                <i className="far fa-heart me-2"></i>Yêu thích
-              </button>
+              {token ? (
+                token.role ? (
+                  <>
+                    {" "}
+                    <button
+                      type="submit"
+                      className="p-2 rounded-pill cart-btn fw-bold  "
+                      disabled
+                      style={{ cursor: "no-drop" }}
+                    >
+                      {" "}
+                      <i className="fas fa-shopping-cart me-2"></i>Thêm vào giỏ
+                    </button>
+                    <button
+                      type="submit"
+                      className="p-2 rounded-pill love-btn fw-bold  ms-3"
+                      disabled
+                      style={{ cursor: "no-drop" }}
+                    >
+                      {" "}
+                      <i className="far fa-heart me-2"></i>Yêu thích
+                    </button>
+                  </>
+                ) : (
+                  <>
+                    {" "}
+                    <button
+                      type="submit"
+                      className="p-2 rounded-pill cart-btn fw-bold  "
+                      onClick={() => AddCart()}
+                    >
+                      {" "}
+                      <i className="fas fa-shopping-cart me-2"></i>Thêm vào giỏ
+                    </button>
+                    <button
+                      type="submit"
+                      className="p-2 rounded-pill love-btn fw-bold  ms-3"
+                    >
+                      {" "}
+                      <i className="far fa-heart me-2"></i>Yêu thích
+                    </button>
+                  </>
+                )
+              ) : (
+                <>
+                  {" "}
+                  <button
+                    type="submit"
+                    className="p-2 rounded-pill cart-btn fw-bold  "
+                    onClick={() => AddCart()}
+                  >
+                    {" "}
+                    <i className="fas fa-shopping-cart me-2"></i>Thêm vào giỏ
+                  </button>
+                  <button
+                    type="submit"
+                    className="p-2 rounded-pill love-btn fw-bold  ms-3"
+                  >
+                    {" "}
+                    <i className="far fa-heart me-2"></i>Yêu thích
+                  </button>
+                </>
+              )}
             </div>
             <p className="mt-5">
               Hotline<b>: 0123456789</b>

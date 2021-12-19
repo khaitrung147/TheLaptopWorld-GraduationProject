@@ -3,71 +3,82 @@ import Breadcrumb from "../../constants/breadcrumb";
 import { useSelector, useDispatch } from "react-redux";
 import { searchProduct } from "../../redux/actions/product";
 import ListSearch from "./listSearchResult";
-
+import { Spin } from "antd";
+import "./index.css";
 function Search() {
   const keyParam = new URLSearchParams(window.location.search);
   const result = keyParam.get("key");
   const dispatch = useDispatch();
-  const { data } = useSelector((state) => state.searchProduct);
+  const { data, load } = useSelector((state) => state.searchProduct);
+  console.log(data);
   useEffect(() => {
     dispatch(searchProduct(result));
   }, [dispatch, result]);
   return (
     <main>
-      <div className="container">
-        <div className="pt-3">
-          <Breadcrumb
-            key=""
-            currentPage="Tìm kiếm laptop"
-            listBread={[
-              {
-                path: "/",
-                pageName: "Trang chủ",
-              },
-            ]}
-          />
-        </div>
-        {!result ? (
-          <div style={{ margin: "5rem 0 18rem 0" }}>
-            <h2 className="text-center">Hãy nhập từ khóa tìm kiếm !</h2>
+      <Spin spinning={load}>
+        <div
+          className={
+            (data || []).length < 1
+              ? "container margin-bot-search"
+              : "container"
+          }
+        >
+          <div className="pt-3">
+            <Breadcrumb
+              key=""
+              currentPage="Tìm kiếm laptop"
+              listBread={[
+                {
+                  path: "/",
+                  pageName: "Trang chủ",
+                },
+              ]}
+            />
           </div>
-        ) : (
-          <div className="mt-5">
-            <h2>
-              Kết quả từ khóa:{" "}
-              <i style={{ textDecoration: "underline", color: "#2fd4ea" }}>
-                {result}
-              </i>
-            </h2>
-            {data ? (
-              data.status === "null" ? (
-                <div style={{ margin: "0 0 17rem 0" }}>
-                  <h5 className="mt-4">Không tìm được sản phẩm</h5>
-                </div>
-              ) : (
-                <div className="mt-5 mb-5">
-                  <h4>
-                    <span
-                      className="fw-bold"
-                      style={{ textDecoration: "underline" }}
-                    >
-                      {(data || []).length}
-                    </span>{" "}
-                    sản phẩm
-                  </h4>
-                  <div className="row">
-                    {data.map((e) => (
-                      <ListSearch data={e} />
-                    ))}
+          {!result ? (
+            <div style={{ margin: "5rem 0 18rem 0" }}>
+              <h2 className="text-center">Hãy nhập từ khóa tìm kiếm !</h2>
+            </div>
+          ) : (
+            <div className="mt-5">
+              <h2>
+                Kết quả từ khóa:{" "}
+                <i style={{ textDecoration: "underline", color: "#2fd4ea" }}>
+                  {result}
+                </i>
+              </h2>
+              {data ? (
+                data.status === "null" ? (
+                  <div style={{ margin: "0 0 17rem 0" }}>
+                    <h5 className="mt-4">Không tìm được sản phẩm</h5>
                   </div>
-                </div>
-              )
-            ) : (
-              <div></div>
-            )}
-          </div>
-        )}
-      </div>
+                ) : (
+                  <div className="mt-5 mb-5">
+                    <h4>
+                      <span
+                        className="fw-bold"
+                        style={{ textDecoration: "underline" }}
+                      >
+                        {(data || []).length}
+                      </span>{" "}
+                      sản phẩm
+                    </h4>
+
+                    <div className="row">
+                      {data.map((e) => (
+                        <ListSearch data={e} />
+                      ))}
+                    </div>
+                  </div>
+                )
+              ) : (
+                <div></div>
+              )}
+            </div>
+          )}
+        </div>
+      </Spin>
     </main>
   );
 }

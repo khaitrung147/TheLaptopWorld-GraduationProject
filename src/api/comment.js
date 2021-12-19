@@ -6,5 +6,11 @@ export const getListComment = async (id) => {
 };
 
 export const postComment = async (comment) => {
+  console.log(comment);
   return await axios.post(`${URL}/binh-luan-khach-hang`, comment);
+};
+
+export const repComment = ({ idRep, body }) => {
+  console.log(idRep, body);
+  return axios.patch(`${URL}/binh-luan-khach-hang/${idRep}`, { PhanHoi: body });
 };

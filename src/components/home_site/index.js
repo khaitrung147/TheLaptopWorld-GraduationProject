@@ -1,13 +1,20 @@
 /* eslint-disable react/jsx-pascal-case */
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React from "react";
+import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
 import Banner from "./banner";
 import Brand from "./brand";
 import Currency from "./currency";
-import Products from "./currentproduct";
+import Products from "./CurrentProduct/currentproduct";
 import Features from "./Feature/features";
 import "./index.css";
+import { getListProduct } from "../../redux/actions/product";
+import { useDispatch } from "react-redux";
 const Home = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getListProduct());
+  }, [dispatch]);
   return (
     <main className="">
       <Banner />
@@ -17,18 +24,15 @@ const Home = () => {
           <Features />
           <h2 className="fw-bold">Laptop hiện có</h2>
           <Brand />
-          <div className="mt-3">
-            <h6 className=" fw-bold">Khoảng giá </h6>
-            <Currency />
-          </div>
+
           <Products />
-          <a
-            href={"#"}
-            className=" border rounded-pill mt-4 view-all d-block m-auto "
+          <Link
+            to={"/san-pham"}
+            className=" border rounded-pill mt-4 view-all d-block m-auto mb-5"
           >
             {" "}
             <b>Xem tất cả </b>{" "}
-          </a>
+          </Link>
         </div>
       </div>
     </main>

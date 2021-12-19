@@ -1,6 +1,7 @@
 /* eslint-disable no-dupe-keys */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import Slider from "react-slick";
 
 const Brand = (props) => {
@@ -85,46 +86,59 @@ const Brand = (props) => {
     const arr = [
       {
         img: "https://lumen.thinkpro.vn/backend/uploads/brand/icon/2020/8/7/dell.png",
+        value: "dell",
       },
       {
         img: "https://lumen.thinkpro.vn/backend/uploads/brand/icon/2020/8/7/razer.png",
+        value: "razer",
       },
       {
         img: "https://lumen.thinkpro.vn/backend/uploads/brand/icon/2020/8/7/lenovo.png",
+        value: "lenovo",
       },
       {
         img: "https://lumen.thinkpro.vn/backend/uploads/brand/icon/2020/8/7/asus.png",
+        value: "asus",
       },
       {
         img: "https://lumen.thinkpro.vn/backend/uploads/brand/icon/2020/8/7/hp.png",
+        value: "hp",
       },
       {
         img: "https://lumen.thinkpro.vn/backend/uploads/brand/icon/2020/8/7/microsoft.png",
+        value: "microsoft",
       },
       {
         img: "https://lumen.thinkpro.vn/backend/uploads/brand/icon/2020/8/7/apple.png",
+        value: "apple",
       },
       {
         img: "https://lumen.thinkpro.vn/backend/uploads/brand/icon/2020/9/24/5f6c4ee7ed9fd_1600933607.png",
+        value: "msi",
       },
       {
         img: "https://lumen.thinkpro.vn/backend/uploads/brand/icon/2020/8/7/acer.png",
+        value: "acer",
       },
       {
         img: "https://lumen.thinkpro.vn/backend/uploads/brand/icon/2020/8/7/lg.png",
+        value: "lg",
       },
     ];
     setData(arr);
   }, []);
 
   return (
-    <Slider {...settings} className="mt-3">
+    <Slider {...settings} className="mt-4">
       {brand.map((e) => (
         <div className="slide-brand w-75 ">
           {" "}
-          <a href="#!" className="text-decoration-none">
+          <Link
+            to={`/san-pham?filter=${e.value}`}
+            className="text-decoration-none"
+          >
             <img src={e.img} class="w-100" alt="" />
-          </a>{" "}
+          </Link>{" "}
         </div>
       ))}
     </Slider>

@@ -1,16 +1,13 @@
-import {
-  GET_LIST_CUSTOMER,
-  GET_LIST_CUSTOMER_SUCCESS,
-} from "../constants/customer";
+import { INFO_CUSTOMER, INFO_CUSTOMER_SUCCESS } from "../constants/customer";
 
-const customerReducer = (state = [], action) => {
+const infoCustomerReducer = (state = [], action) => {
   switch (action.type) {
-    case GET_LIST_CUSTOMER:
+    case INFO_CUSTOMER:
       return {
         ...state,
         load: true,
       };
-    case GET_LIST_CUSTOMER_SUCCESS:
+    case INFO_CUSTOMER_SUCCESS:
       const { data } = action.payload;
       return {
         ...state,
@@ -23,4 +20,4 @@ const customerReducer = (state = [], action) => {
   }
 };
 
-export default customerReducer;
+export default infoCustomerReducer;
