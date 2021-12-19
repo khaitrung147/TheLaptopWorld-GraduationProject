@@ -16,6 +16,6 @@ export const filterProduct = (key) => {
   const { currentPage, sort, filter } = key;
   console.log(key);
   return axios.get(
-    `http://localhost:5000/api/v1/filter?page=${currentPage}&q=${filter}&order=${sort}`
+    `${URL}/filter?page=${currentPage}&q=${filter}&order=${sort}`
   );
 };
