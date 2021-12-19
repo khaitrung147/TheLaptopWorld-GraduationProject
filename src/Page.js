@@ -11,6 +11,9 @@ import AboutSite from "./components/about_site";
 import Profile from "./components/user_site/profile/index";
 import Ordered from "./components/user_site/ordered/index";
 import Like from "./components/user_site/like/like";
+import AboutSite from './components/about_site'
+import ContactSite from './components/contact_site'
+
 // Admin page
 import Dashboard_admin from "./components/dashboard_admin";
 import Catalog_admin from "./components/catalog_admin";
@@ -83,6 +86,11 @@ const Page = {
       component: Like,
       exact: true,
     },
+      path: '/lien-he',
+      component: ContactSite,
+      exact: true,
+    }
+
   ],
   Admin: [
     {
