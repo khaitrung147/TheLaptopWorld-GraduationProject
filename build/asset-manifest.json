@@ -1,26 +1,31 @@
 {
   "files": {
-    "main.css": "/static/css/main.6b87a876.chunk.css",
-    "main.js": "/static/js/main.2e3f3b6f.chunk.js",
-    "main.js.map": "/static/js/main.2e3f3b6f.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.2e50b66c.js",
-    "runtime-main.js.map": "/static/js/runtime-main.2e50b66c.js.map",
+    "main.css": "/static/css/main.342baa59.chunk.css",
+    "main.js": "/static/js/main.e25829dd.chunk.js",
+    "main.js.map": "/static/js/main.e25829dd.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.601d353b.js",
+    "runtime-main.js.map": "/static/js/runtime-main.601d353b.js.map",
     "static/css/2.b464cc24.chunk.css": "/static/css/2.b464cc24.chunk.css",
-    "static/js/2.f465a467.chunk.js": "/static/js/2.f465a467.chunk.js",
-    "static/js/2.f465a467.chunk.js.map": "/static/js/2.f465a467.chunk.js.map",
-    "static/js/3.a64403a1.chunk.js": "/static/js/3.a64403a1.chunk.js",
-    "static/js/3.a64403a1.chunk.js.map": "/static/js/3.a64403a1.chunk.js.map",
+    "static/js/2.3ddc2345.chunk.js": "/static/js/2.3ddc2345.chunk.js",
+    "static/js/2.3ddc2345.chunk.js.map": "/static/js/2.3ddc2345.chunk.js.map",
+    "static/js/3.7eb7f8e8.chunk.js": "/static/js/3.7eb7f8e8.chunk.js",
+    "static/js/3.7eb7f8e8.chunk.js.map": "/static/js/3.7eb7f8e8.chunk.js.map",
     "index.html": "/index.html",
     "static/css/2.b464cc24.chunk.css.map": "/static/css/2.b464cc24.chunk.css.map",
-    "static/css/main.6b87a876.chunk.css.map": "/static/css/main.6b87a876.chunk.css.map",
-    "static/js/2.f465a467.chunk.js.LICENSE.txt": "/static/js/2.f465a467.chunk.js.LICENSE.txt",
+    "static/css/main.342baa59.chunk.css.map": "/static/css/main.342baa59.chunk.css.map",
+    "static/js/2.3ddc2345.chunk.js.LICENSE.txt": "/static/js/2.3ddc2345.chunk.js.LICENSE.txt",
+    "static/media/about.a516e9aa.svg": "/static/media/about.a516e9aa.svg",
+    "static/media/about2.f4e37983.jpg": "/static/media/about2.f4e37983.jpg",
+    "static/media/contact.25f6609c.jpg": "/static/media/contact.25f6609c.jpg",
+    "static/media/repair.e58f4f14.jpg": "/static/media/repair.e58f4f14.jpg",
+    "static/media/shipping.93333e51.png": "/static/media/shipping.93333e51.png",
     "static/media/slick-theme.css": "/static/media/slick.c94f7671.ttf"
   },
   "entrypoints": [
-    "static/js/runtime-main.2e50b66c.js",
+    "static/js/runtime-main.601d353b.js",
     "static/css/2.b464cc24.chunk.css",
-    "static/js/2.f465a467.chunk.js",
-    "static/css/main.6b87a876.chunk.css",
-    "static/js/main.2e3f3b6f.chunk.js"
+    "static/js/2.3ddc2345.chunk.js",
+    "static/css/main.342baa59.chunk.css",
+    "static/js/main.e25829dd.chunk.js"
   ]
 }

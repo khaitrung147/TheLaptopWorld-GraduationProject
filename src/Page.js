@@ -16,12 +16,15 @@ import ContactSite from "./components/contact_site";
 // Admin page
 import Dashboard_admin from "./components/dashboard_admin";
 import Catalog_admin from "./components/catalog_admin";
+import AddCatalog_admin from "./components/catalog_admin/addCatalog";
 import CatalogDetail_admin from "./components/catalog_admin/catalogDetail";
 import Product_admin from "./components/product_admin";
 import ProductCompany_admin from "./components/productCompany_admin";
 import Order_admin from "./components/order_admin";
 import CustomerAccount_admin from "./components/account_admin/customer";
 import StaffAccount_admin from "./components/account_admin/staff";
+import AddCompany_admin from './components/productCompany_admin/addCompany';
+import Contact_admin from './components/contact_admin';
 
 const Page = {
   Site: [
@@ -85,12 +88,20 @@ const Page = {
       component: Like,
       exact: true,
     },
-    { path: "/lien-he", component: ContactSite, exact: true },
+    { path: "/lien-he",
+     component: ContactSite,
+     exact: true
+    },
   ],
   Admin: [
+    // {
+    //   path: "/admin",
+    //   component: Dashboard_admin,
+    //   exact: true,
+    // },
     {
       path: "/admin",
-      component: Dashboard_admin,
+      component: Order_admin,
       exact: true,
     },
     {
@@ -114,11 +125,6 @@ const Page = {
       exact: true,
     },
     {
-      path: "/admin/don-hang",
-      component: Order_admin,
-      exact: true,
-    },
-    {
       path: "/admin/tai-khoan-khach-hang",
       component: CustomerAccount_admin,
       exact: true,
@@ -126,6 +132,21 @@ const Page = {
     {
       path: "/admin/tai-khoan-nhan-vien",
       component: StaffAccount_admin,
+      exact: true,
+    },
+    {
+      path: "/admin/them-loai-san-pham",
+      component: AddCatalog_admin,
+      exact: true,
+    },
+    {
+      path: "/admin/them-hang-san-xuat",
+      component: AddCompany_admin,
+      exact: true,
+    },
+    {
+      path: "/admin/lien-he-khach-hang",
+      component: Contact_admin,
       exact: true,
     },
   ],
