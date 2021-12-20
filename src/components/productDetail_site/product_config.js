@@ -1,11 +1,18 @@
 /* eslint-disable eqeqeq */
 import React, { useEffect, useState } from "react";
 import { Modal, Button, Space } from "antd";
-
+import { getListProductCompany } from "../../redux/actions/productCompany";
+import { useDispatch, useSelector } from "react-redux";
 const ProductConfig = (props) => {
   const [saleprice, setSalePrice] = useState([]);
   const [config, setConfig] = useState([]);
-  console.log("props.data :>> ", props.data);
+  const dispatch = useDispatch();
+
+  const { productCompany } = useSelector((state) => state.productCompany);
+
+  useEffect(() => {
+    dispatch(getListProductCompany());
+  }, [dispatch]);
 
   useEffect(() => {
     setConfig(props.data.CauHinhSanPham[0]);
@@ -108,7 +115,12 @@ const ProductConfig = (props) => {
               )}
             </h5>
             <p className="mt-5">
-              <b>Thương hiệu:</b> {props.data.HangSanXuat}
+              <b>Thương hiệu:</b>{" "}
+              {productCompany
+                ? (productCompany || []).map((e) =>
+                    e._id === props.data.HangSanXuat ? e.TenHangSanXuat : null
+                  )
+                : null}
             </p>
             <p>
               {" "}

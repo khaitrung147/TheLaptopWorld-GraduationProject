@@ -23,6 +23,13 @@ export const updatePassCustomer = async ({ userId, hash }) => {
   });
 };
 
+export const likeProductCustomer = async ({ userId, hash }) => {
+  return await axios.patch(`${URL}/tai-khoan-khach-hang/${userId}`, {
+    Password: hash,
+  });
+};
+
+
 export const loginCustomer = async (body) => {
   return await axios.post(`${URL}/tai-khoan-khach-hang/login`, body);
 };
