@@ -39,18 +39,7 @@ function Sidebar() {
             <i className="fas fa-history" /> Lịch sử đặt hàng
           </Link>
         </p>
-        <p className="ms-3">
-          <Link
-            to={"/yeu-thich"}
-            className={
-              path === "/yeu-thich"
-                ? "text-decoration-none fw-bold"
-                : "text-decoration-none "
-            }
-          >
-            <i className="far fa-heart" /> Sản phẩm yêu thích
-          </Link>
-        </p>
+       
       </div>
       <button className="log-out" onClick={LogOut}>
         Đăng xuất
