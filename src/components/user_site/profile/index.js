@@ -23,7 +23,7 @@ function Profile() {
   }, [load, dispatch, userId]);
   return (
     <main>
-      <div className="container mt-5">
+      <div className="container mt-5 mb-5">
         <div className="row">
           <Sidebar />
           <div className="col-xl-10 col-lg-9 col-md-9">
