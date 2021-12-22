@@ -5,6 +5,8 @@ import { Link } from "react-router-dom";
 
 import ListFeatures from "./list-feature";
 import { Spin } from "antd";
+import Macimage from '../Macbookpro.png'
+
 const Features = () => {
   const { load, data } = useSelector((state) => state.products);
   return (
@@ -25,7 +27,7 @@ const Features = () => {
             <div className="col-sm-6">
               <div className="me-5">
                 <img
-                  src="http://www.pngmart.com/files/4/Asus-Laptop-PNG-HD.png"
+                  src={Macimage}
                   alt=""
                   className="w-100"
                 />
