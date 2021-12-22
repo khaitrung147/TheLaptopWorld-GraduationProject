@@ -2,6 +2,7 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React from "react";
 import { Link } from "react-router-dom";
+import banner from './bannerimg.png'
 
 const Banner = () => {
   return (
@@ -26,7 +27,7 @@ const Banner = () => {
             <div className="w-75 content2 ">
               <img
                 className="w-100"
-                src="https://pngimg.com/uploads/macbook/macbook_PNG101747.png"
+                src={banner}
               />
             </div>
           </div>
