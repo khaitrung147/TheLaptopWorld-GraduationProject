@@ -10,7 +10,7 @@ import Search from "./components/search_site";
 import AboutSite from "./components/about_site";
 import Profile from "./components/user_site/profile/index";
 import Ordered from "./components/user_site/ordered/index";
-import Like from "./components/user_site/like/like";
+
 import ContactSite from "./components/contact_site";
 
 // Admin page
@@ -81,11 +81,6 @@ const Page = {
     {
       path: "/don-hang",
       component: Ordered,
-      exact: true,
-    },
-    {
-      path: "/yeu-thich",
-      component: Like,
       exact: true,
     },
     { path: "/lien-he",
