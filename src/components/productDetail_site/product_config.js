@@ -183,15 +183,7 @@ const ProductConfig = (props) => {
                       {" "}
                       <i className="fas fa-shopping-cart me-2"></i>Thêm vào giỏ
                     </button>
-                    <button
-                      type="submit"
-                      className="p-2 rounded-pill love-btn fw-bold  ms-3"
-                      disabled
-                      style={{ cursor: "no-drop" }}
-                    >
-                      {" "}
-                      <i className="far fa-heart me-2"></i>Yêu thích
-                    </button>
+                   
                   </>
                 ) : (
                   <>
@@ -204,13 +196,7 @@ const ProductConfig = (props) => {
                       {" "}
                       <i className="fas fa-shopping-cart me-2"></i>Thêm vào giỏ
                     </button>
-                    <button
-                      type="submit"
-                      className="p-2 rounded-pill love-btn fw-bold  ms-3"
-                    >
-                      {" "}
-                      <i className="far fa-heart me-2"></i>Yêu thích
-                    </button>
+                    
                   </>
                 )
               ) : (
@@ -224,13 +210,7 @@ const ProductConfig = (props) => {
                     {" "}
                     <i className="fas fa-shopping-cart me-2"></i>Thêm vào giỏ
                   </button>
-                  <button
-                    type="submit"
-                    className="p-2 rounded-pill love-btn fw-bold  ms-3"
-                  >
-                    {" "}
-                    <i className="far fa-heart me-2"></i>Yêu thích
-                  </button>
+                 
                 </>
               )}
             </div>
