@@ -53,10 +53,11 @@ const Product = () => {
   };
 
   const FilterKey = (i) => {
-    const newQueries = { ...queryParams, filter: i };
+    const newQueries = { ...queryParams, filter: i , page : 1 };
     history.push({ search: qs.stringify(newQueries) });
     setKey({
       ...key,
+      Page : 1,
       Filter: i,
     });
   };
