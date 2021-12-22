@@ -43,15 +43,15 @@ function CatalogTable(props) {
             dataIndex: 'PhanQuyen',
             key: 'PhanQuyen',
         },
-        {
-            title: 'Action',
-            key: 'action',
-            render: (text, record) => (
-                <Space size="middle">
-                    <Button>Xem thêm</Button>
-                </Space>
-            ),
-        },
+        // {
+        //     title: 'Action',
+        //     key: 'action',
+        //     render: (text, record) => (
+        //         <Space size="middle">
+        //             <Button>Xem thêm</Button>
+        //         </Space>
+        //     ),
+        // },
     ];
 
     const onSelectChange = selectedRowKeys => {
@@ -65,11 +65,11 @@ function CatalogTable(props) {
         <Table
             loading={loading}
             rowKey='_id'
-            rowSelection={rowSelection}
+            // rowSelection={rowSelection}
             columns={columns}
             dataSource={data}
             pagination={{ pageSize:5}}
-            scroll={{ x: 1300 }}
+            // scroll={{ x: 1300 }}
         />
     );
 }

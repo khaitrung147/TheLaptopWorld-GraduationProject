@@ -60,7 +60,7 @@ function CatalogTable(props) {
         <Table
             loading={loading}
             rowKey='_id'
-            rowSelection={rowSelection}
+            // rowSelection={rowSelection}
             columns={columns}
             dataSource={data}
             pagination={{ pageSize:5}}
