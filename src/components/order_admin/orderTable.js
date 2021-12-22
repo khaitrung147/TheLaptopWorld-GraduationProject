@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Table, Row, Space, Button } from 'antd';
+import { Table, Row, Space, Button, Modal } from 'antd';
 import { Link } from 'react-router-dom';
 import { DoubleRightOutlined } from '@ant-design/icons';
 import { updateOrder, getListOrder } from '../../redux/actions/order';
@@ -27,6 +27,34 @@ function CatalogTable(props) {
     const [selectedRowKeys, setSelectedRowKeys]= useState([]);
     const format= 'HH:mm - DD/MM/YYY';
     const Token = JSON.parse(localStorage.thelaptopworld_token);
+    const [isModalVisible, setIsModalVisible] = useState(false);
+    const [orderInfo, setOrderInfo] = useState({
+        name:'',
+        phone:'',
+        address:'',
+        note:'',
+    });
+
+
+    const showModal = (data) => {
+        setOrderInfo({
+            name:data.TenNguoiNhan,
+            phone:data.SoDienThoaiNhanHang,
+            address:data.DiaChiGiaoHang,
+            note:data.GhiChu,
+        })
+        setIsModalVisible(true);
+        
+    };
+    
+    const handleOk = () => {
+        setIsModalVisible(false);
+    };
+    
+    const handleCancel = () => {
+        setIsModalVisible(false);
+    };
+
 
     const actionRender = (id, status) =>{
         if(status===0){
@@ -48,14 +76,14 @@ function CatalogTable(props) {
             title: 'Mã đơn hàng',
             dataIndex: '_id',
             key: 'MaDonHang',
-            render: _id => <Link to={`/admin/don-hang/${_id}`}>{_id}</Link>,
+            // render: _id => <Link to={`/admin/don-hang/${_id}`}>{_id}</Link>,
         },
-        {
-            title: 'Khách hàng',
-            dataIndex: 'MaKhachHang',
-            key: 'MaKhachHang',
-            render: MaKhachHang => <Link to={`/admin/tai-khoan-khach-hang/${MaKhachHang}`}>{MaKhachHang}</Link>,
-        },
+        // {
+        //     title: 'Khách hàng',
+        //     dataIndex: 'MaKhachHang',
+        //     key: 'MaKhachHang',
+        //     render: MaKhachHang => <Link to={`/admin/tai-khoan-khach-hang/${MaKhachHang}`}>{mapCustomer(MaKhachHang)}</Link>,
+        // },
         {
             title: 'Trạng thái',
             dataIndex: 'TrangThai',
@@ -65,8 +93,8 @@ function CatalogTable(props) {
             title: 'Thông tin giao hàng',
             dataIndex: 'ThongTinGiaoHang',
             align: 'center',
-            render: () => <Space size="middle">
-                <Button type='dashed'>Xem</Button>
+            render: (ThongTinGiaoHang, data) => <Space size="middle">
+                <Button onClick={()=>showModal(data)} type='dashed'>Xem</Button>
             </Space>
         },
         {
@@ -103,14 +131,22 @@ function CatalogTable(props) {
       onChange: onSelectChange,
     };
     return (
-        <Table
-            loading={loading}
-            rowKey='_id'
-            rowSelection={rowSelection}
-            columns={columns}
-            dataSource={data}
-            pagination={{ pageSize: 10}}
-        />
+        <>
+            <Table
+                loading={loading}
+                rowKey='_id'
+                // rowSelection={rowSelection}
+                columns={columns}
+                dataSource={data}
+                pagination={{ pageSize: 10}}
+            />
+            <Modal title="Thông tin giao hàng" visible={isModalVisible} footer={<Button onClick={handleCancel} type="primary">Ok</Button>}>
+                <p>Tên người nhận: {orderInfo.name}</p>
+                <p>Địa chỉ giao hàng: {orderInfo.address}</p>
+                <p>Số điện thoại nhận hàng: {orderInfo.phone}</p>
+                <p>Ghi chú: {orderInfo.note}</p>
+            </Modal>
+        </>
     );
 }
 
